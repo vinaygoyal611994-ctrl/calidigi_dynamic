@@ -176,11 +176,9 @@ function LoginContent() {
               </div>
 
               <form className="adm-login-form" onSubmit={handleLogin} noValidate>
-                {error && (
-                  <div className="adm-login-alert adm-login-alert-error">
-                    <i className="fas fa-circle-exclamation"></i> {error}
-                  </div>
-                )}
+                <div className={`adm-login-alert adm-login-alert-error${error ? ' adm-alert-show' : ''}`} aria-live="polite">
+                  <i className="fas fa-circle-exclamation"></i> <span>{error}</span>
+                </div>
 
                 <div className="adm-login-group">
                   <label className="adm-login-label">Username</label>
@@ -237,11 +235,9 @@ function LoginContent() {
               <p className="adm-login-sub">Enter your username and we'll generate a secure reset link instantly.</p>
 
               <form className="adm-login-form" onSubmit={handleForgot} noValidate>
-                {error && (
-                  <div className="adm-login-alert adm-login-alert-error">
-                    <i className="fas fa-circle-exclamation"></i> {error}
-                  </div>
-                )}
+                <div className={`adm-login-alert adm-login-alert-error${error ? ' adm-alert-show' : ''}`} aria-live="polite">
+                  <i className="fas fa-circle-exclamation"></i> <span>{error}</span>
+                </div>
                 <div className="adm-login-group">
                   <label className="adm-login-label">Username</label>
                   <div className="adm-login-field">
@@ -302,11 +298,9 @@ function LoginContent() {
                   <p className="adm-login-sub">Choose a strong password of at least 8 characters.</p>
 
                   <form className="adm-login-form" onSubmit={handleReset} noValidate>
-                    {error && (
-                      <div className="adm-login-alert adm-login-alert-error">
-                        <i className="fas fa-circle-exclamation"></i> {error}
-                      </div>
-                    )}
+                    <div className={`adm-login-alert adm-login-alert-error${error ? ' adm-alert-show' : ''}`} aria-live="polite">
+                      <i className="fas fa-circle-exclamation"></i> <span>{error}</span>
+                    </div>
                     <div className="adm-login-group">
                       <label className="adm-login-label">New Password</label>
                       <div className="adm-login-field">

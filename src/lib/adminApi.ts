@@ -49,4 +49,10 @@ export const adminApi = {
 
   changePassword: (data: { currentPassword: string; newPassword: string }) =>
     request('/api/admin/change-password', { method: 'POST', body: JSON.stringify(data) }),
+
+  getPages: () => request('/api/admin/pages'),
+  getPage: (id: number) => request(`/api/admin/pages/${id}`),
+  createPage: (data: object) => request('/api/admin/pages', { method: 'POST', body: JSON.stringify(data) }),
+  updatePage: (id: number, data: object) => request(`/api/admin/pages/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deletePage: (id: number) => request(`/api/admin/pages/${id}`, { method: 'DELETE' }),
 }

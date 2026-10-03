@@ -8,8 +8,9 @@ const navItems = [
   { section: 'Main' },
   { href: '/admin/dashboard', icon: 'fa-gauge',     label: 'Dashboard' },
   { section: 'Content' },
-  { href: '/admin/contacts', icon: 'fa-inbox',      label: 'Contacts' },
-  { href: '/admin/blogs',    icon: 'fa-newspaper',  label: 'Blog Posts' },
+  { href: '/admin/contacts', icon: 'fa-inbox',      label: 'Contact Management' },
+  { href: '/admin/blogs',    icon: 'fa-newspaper',  label: 'Blog Management' },
+  { href: '/admin/pages',    icon: 'fa-file-lines', label: 'CMS Management' },
   { section: 'System' },
   { href: '/admin/settings', icon: 'fa-gear',       label: 'Settings' },
 ]
