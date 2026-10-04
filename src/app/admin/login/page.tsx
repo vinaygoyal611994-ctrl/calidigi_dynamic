@@ -108,13 +108,13 @@ function LoginContent() {
 
         <div className="adm-ll-inner">
           {/* Logo */}
-          <div className="adm-ll-logo">
+          <a href="/" className="adm-ll-logo" style={{ textDecoration: 'none', cursor: 'pointer' }}>
             <div className="adm-ll-logo-pill">
               <Image src="/images/logo.png" alt="Calidigi" width={150} height={48}
                 style={{ height: 44, width: 'auto', display: 'block' }} />
             </div>
             <span className="adm-ll-badge">Admin</span>
-          </div>
+          </a>
 
           {/* Center Content */}
           <div className="adm-ll-center">
@@ -270,14 +270,16 @@ function LoginContent() {
 
               <div className="adm-reset-link-box">
                 <div className="adm-rlb-label"><i className="fas fa-link"></i> Your secure reset link</div>
-                <div className="adm-rlb-url">{resetLink}</div>
+                <a href={resetLink} className="adm-rlb-url adm-rlb-url-link" target="_self">
+                  {resetLink}
+                </a>
               </div>
 
               <a href={resetLink} className="adm-login-btn adm-login-btn-link">
                 <i className="fas fa-unlock-keyhole"></i> Open Reset Page
               </a>
 
-              <button type="button" className="adm-back-btn adm-back-center" onClick={() => switchView('login')}>
+              <button type="button" className="adm-back-btn adm-back-center" onClick={() => { window.location.href = '/admin/login' }}>
                 <i className="fas fa-arrow-left"></i> Back to login
               </button>
             </div>
@@ -288,7 +290,7 @@ function LoginContent() {
             <div className="adm-lc-view">
               {!success ? (
                 <>
-                  <button className="adm-back-btn" onClick={() => router.replace('/admin/login')}>
+                  <button className="adm-back-btn" onClick={() => { window.location.href = '/admin/login' }}>
                     <i className="fas fa-arrow-left"></i> Back to login
                   </button>
                   <div className="adm-lc-view-icon adm-vi-orange">

@@ -1223,6 +1223,13 @@
   font-family: 'Courier New', monospace;
   line-height: 1.5;
 }
+.adm-rlb-url-link {
+  display: block;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.adm-rlb-url-link:hover { opacity: 0.75; }
 
 /* Password hints */
 .adm-pwd-hints {
