@@ -6,6 +6,9 @@ declare global {
 }
 
 function createPool() {
+  if (process.env.MYSQL_URL) {
+    return mysql.createPool(process.env.MYSQL_URL + '?waitForConnections=true&connectionLimit=10&timezone=%2B00%3A00')
+  }
   return mysql.createPool({
     host:     process.env.DB_HOST     || 'localhost',
     port:     Number(process.env.DB_PORT || 3306),
@@ -19,7 +22,6 @@ function createPool() {
   })
 }
 
-// Reuse pool across hot reloads in development
 const db: mysql.Pool = globalThis._mysqlPool ?? createPool()
 if (process.env.NODE_ENV !== 'production') globalThis._mysqlPool = db
 
