@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -45,7 +45,7 @@ export default function AboutPage() {
         description: 'California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding.',
         address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
         telephone: '+15550001234',
-        email: 'hello@calidigi.com',
+        email: 'sales@calidigi.com',
       },
     ],
   }

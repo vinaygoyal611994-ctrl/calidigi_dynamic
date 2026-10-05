@@ -24,15 +24,38 @@ function statusBadgeClass(s: string) {
   return map[s] || 'adm-badge-gray'
 }
 
+function defaultReply(c: Contact) {
+  return `Dear ${c.fname},
+
+Thank you for reaching out to Calidigi! We have reviewed your inquiry and our team is excited to connect with you.
+
+${c.projectType ? `Regarding your ${c.projectType} project — ` : ''}we would love to schedule a free strategy consultation to better understand your goals and how we can help you grow your digital presence.
+
+Please let us know your availability for a quick call, and we'll get everything set up for you.
+
+Looking forward to working together!
+
+Warm regards,
+Calidigi Team
+sales@calidigi.com`
+}
+
 export default function ContactsPage() {
-  const [contacts, setContacts] = useState<Contact[]>([])
-  const [filtered, setFiltered] = useState<Contact[]>([])
-  const [loading, setLoading] = useState(true)
-  const [search, setSearch] = useState('')
+  const [contacts, setContacts]       = useState<Contact[]>([])
+  const [filtered, setFiltered]       = useState<Contact[]>([])
+  const [loading, setLoading]         = useState(true)
+  const [search, setSearch]           = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
-  const [selected, setSelected] = useState<Contact | null>(null)
-  const [deleting, setDeleting] = useState<number | null>(null)
+  const [selected, setSelected]       = useState<Contact | null>(null)
+  const [deleting, setDeleting]       = useState<number | null>(null)
   const [confirmDelete, setConfirmDelete] = useState<Contact | null>(null)
+
+  // Reply state
+  const [replyContact, setReplyContact] = useState<Contact | null>(null)
+  const [replyMsg, setReplyMsg]         = useState('')
+  const [replySending, setReplySending] = useState(false)
+  const [replySuccess, setReplySuccess] = useState('')
+  const [replyError, setReplyError]     = useState('')
 
   const load = useCallback(() => {
     setLoading(true)
@@ -80,11 +103,46 @@ export default function ContactsPage() {
     finally { setDeleting(null) }
   }
 
+  function openReply(c: Contact) {
+    setReplyContact(c)
+    setReplyMsg(defaultReply(c))
+    setReplySuccess('')
+    setReplyError('')
+  }
+
+  async function handleSendReply() {
+    if (!replyContact || !replyMsg.trim()) return
+    setReplySending(true)
+    setReplyError('')
+    try {
+      const res = await fetch(`/api/admin/contacts/${replyContact.id}/reply`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('adm_token')}`,
+        },
+        body: JSON.stringify({ replyMessage: replyMsg }),
+      })
+      if (!res.ok) {
+        const d = await res.json()
+        setReplyError(d.message || 'Failed to send reply.')
+        return
+      }
+      setReplySuccess(`Reply sent successfully to ${replyContact.email}`)
+      setContacts(prev => prev.map(c => c.id === replyContact.id ? { ...c, status: 'replied' } : c))
+      setTimeout(() => { setReplyContact(null); setReplySuccess('') }, 2000)
+    } catch {
+      setReplyError('Network error. Please try again.')
+    } finally {
+      setReplySending(false)
+    }
+  }
+
   return (
     <>
       <div className="adm-page-head">
         <div className="adm-head-left">
-          <h1>Contacts</h1>
+          <h1>Contact Management</h1>
           <p>{contacts.length} total submission{contacts.length !== 1 ? 's' : ''}</p>
         </div>
       </div>
@@ -93,12 +151,7 @@ export default function ContactsPage() {
       <div className="adm-filter-bar">
         <div className="adm-search-wrap">
           <i className="fas fa-search"></i>
-          <input
-            className="adm-search-input"
-            placeholder="Search by name, email, company…"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
+          <input className="adm-search-input" placeholder="Search by name, email, company…" value={search} onChange={e => setSearch(e.target.value)} />
         </div>
         <select className="adm-filter-select" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
           <option value="all">All Status</option>
@@ -168,6 +221,9 @@ export default function ContactsPage() {
                       <button className="adm-btn adm-btn-ghost adm-btn-icon" onClick={() => setSelected(c)} title="View Details">
                         <i className="fas fa-eye"></i>
                       </button>
+                      <button className="adm-btn adm-btn-primary adm-btn-icon" onClick={() => openReply(c)} title="Reply">
+                        <i className="fas fa-reply"></i>
+                      </button>
                       <button className="adm-btn adm-btn-danger adm-btn-icon" onClick={() => setConfirmDelete(c)} title="Delete">
                         <i className="fas fa-trash"></i>
                       </button>
@@ -226,20 +282,85 @@ export default function ContactsPage() {
                 </div>
                 <div className="adm-detail-item">
                   <div className="adm-detail-label">NDA Requested</div>
-                  <div className="adm-detail-val">{selected.nda ? 'Yes' : 'No'}</div>
+                  <div className="adm-detail-val">{selected.nda ? '✅ Yes' : 'No'}</div>
                 </div>
-                <div className="adm-detail-item full">
-                  <div className="adm-detail-label">Message</div>
-                  <div className="adm-detail-message">{selected.message}</div>
-                </div>
+                {selected.message && (
+                  <div className="adm-detail-item full">
+                    <div className="adm-detail-label">Message</div>
+                    <div className="adm-detail-message">{selected.message}</div>
+                  </div>
+                )}
               </div>
             </div>
             <div className="adm-modal-footer">
-              <a href={`mailto:${selected.email}?subject=Re: Your Project Inquiry`} className="adm-btn adm-btn-primary">
-                <i className="fas fa-envelope"></i> Reply via Email
-              </a>
+              <button className="adm-btn adm-btn-primary" onClick={() => { setSelected(null); openReply(selected) }}>
+                <i className="fas fa-reply"></i> Reply
+              </button>
               <button className="adm-btn adm-btn-secondary" onClick={() => setSelected(null)}>Close</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Reply Modal */}
+      {replyContact && (
+        <div className="adm-modal-backdrop" onClick={() => !replySending && setReplyContact(null)}>
+          <div className="adm-modal adm-modal-lg" onClick={e => e.stopPropagation()}>
+            <div className="adm-modal-header">
+              <div>
+                <div className="adm-modal-title">Reply to {replyContact.fname}</div>
+                <div style={{ fontSize: '0.78rem', color: 'var(--gray-400)', marginTop: 2 }}>
+                  <i className="fas fa-envelope" style={{ marginRight: 6 }}></i>{replyContact.email}
+                </div>
+              </div>
+              <button className="adm-modal-close" onClick={() => setReplyContact(null)}><i className="fas fa-times"></i></button>
+            </div>
+            <div className="adm-modal-body">
+              {replySuccess ? (
+                <div style={{ textAlign: 'center', padding: '32px 0' }}>
+                  <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
+                  <h3 style={{ color: '#059669', marginBottom: 8 }}>Reply Sent!</h3>
+                  <p style={{ color: 'var(--gray-500)', fontSize: '0.9rem' }}>{replySuccess}</p>
+                </div>
+              ) : (
+                <>
+                  {replyError && (
+                    <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '10px 14px', marginBottom: 16, color: '#dc2626', fontSize: '0.85rem' }}>
+                      <i className="fas fa-circle-exclamation" style={{ marginRight: 8 }}></i>{replyError}
+                    </div>
+                  )}
+                  <div style={{ marginBottom: 8, fontSize: '0.85rem', color: 'var(--gray-500)' }}>
+                    Email will be sent to: <strong style={{ color: 'var(--navy)' }}>{replyContact.email}</strong>
+                  </div>
+                  <textarea
+                    value={replyMsg}
+                    onChange={e => setReplyMsg(e.target.value)}
+                    rows={14}
+                    style={{
+                      width: '100%', border: '1px solid var(--gray-200)', borderRadius: 8,
+                      padding: '12px 14px', fontSize: '0.88rem', fontFamily: 'var(--font-body)',
+                      lineHeight: 1.7, color: 'var(--navy)', resize: 'vertical', outline: 'none',
+                      boxSizing: 'border-box',
+                    }}
+                    onFocus={e => e.target.style.borderColor = 'var(--orange)'}
+                    onBlur={e => e.target.style.borderColor = 'var(--gray-200)'}
+                  />
+                  <p style={{ margin: '8px 0 0', fontSize: '0.75rem', color: 'var(--gray-400)' }}>
+                    <i className="fas fa-info-circle"></i> A professional email template with Calidigi branding will be applied automatically.
+                  </p>
+                </>
+              )}
+            </div>
+            {!replySuccess && (
+              <div className="adm-modal-footer">
+                <button className="adm-btn adm-btn-primary" onClick={handleSendReply} disabled={replySending || !replyMsg.trim()}>
+                  {replySending
+                    ? <><i className="fas fa-spinner fa-spin"></i> Sending…</>
+                    : <><i className="fas fa-paper-plane"></i> Send Reply</>}
+                </button>
+                <button className="adm-btn adm-btn-secondary" onClick={() => setReplyContact(null)} disabled={replySending}>Cancel</button>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -258,11 +379,7 @@ export default function ContactsPage() {
               </p>
             </div>
             <div className="adm-modal-footer">
-              <button
-                className="adm-btn adm-btn-danger"
-                onClick={() => handleDelete(confirmDelete)}
-                disabled={deleting === confirmDelete.id}
-              >
+              <button className="adm-btn adm-btn-danger" onClick={() => handleDelete(confirmDelete)} disabled={deleting === confirmDelete.id}>
                 {deleting === confirmDelete.id ? <><i className="fas fa-spinner fa-spin"></i> Deleting…</> : <><i className="fas fa-trash"></i> Delete</>}
               </button>
               <button className="adm-btn adm-btn-secondary" onClick={() => setConfirmDelete(null)}>Cancel</button>

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import db from '@/lib/db'
+import { sendMail } from '@/lib/mailer'
+import { adminNotificationEmail, userConfirmationEmail } from '@/lib/emailTemplates'
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,7 +18,23 @@ export async function POST(req: NextRequest) {
       [fname.trim(), email.trim(), phone || null, company || null, projectType || null, budget || null, timeline || null, message || null, nda ? 1 : 0]
     )
 
-    return NextResponse.json({ success: true, message: 'Thank you! We will be in touch soon.' })
+    const emailData = { fname: fname.trim(), email: email.trim(), phone, company, projectType, budget, timeline, message, nda: !!nda }
+
+    // Send emails in background (don't block response)
+    Promise.all([
+      sendMail({
+        to: process.env.ADMIN_EMAIL || 'goyalshweta0310@gmail.com',
+        subject: `🔔 New Inquiry from ${fname.trim()} — Calidigi`,
+        html: adminNotificationEmail(emailData),
+      }),
+      sendMail({
+        to: email.trim(),
+        subject: 'Your Inquiry Has Been Received — Calidigi',
+        html: userConfirmationEmail(fname.trim()),
+      }),
+    ]).catch(err => console.error('Email send error:', err))
+
+    return NextResponse.json({ success: true })
   } catch (err) {
     console.error('Contact POST error:', err)
     return NextResponse.json({ message: 'Something went wrong. Please try again.' }, { status: 500 })

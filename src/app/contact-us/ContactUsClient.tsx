@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
@@ -108,25 +108,34 @@ export default function ContactUsClient() {
     setLoading(true)
 
     const data = {
-      name: fname,
+      fname,
       company: (form.elements.namedItem('company') as HTMLInputElement).value,
       email,
       phone,
-      project_type: projectType,
+      projectType,
       budget,
       timeline,
       message,
-      source: (form.elements.namedItem('source') as HTMLSelectElement).value,
       nda: (form.elements.namedItem('nda') as HTMLInputElement).checked,
     }
 
     try {
-      await fetch('/api/contacts', {
+      const res = await fetch('/api/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       })
-    } catch {}
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}))
+        setErrors({ fname: d.message || 'Something went wrong. Please try again.' })
+        setLoading(false)
+        return
+      }
+    } catch {
+      setErrors({ fname: 'Unable to connect. Please try again.' })
+      setLoading(false)
+      return
+    }
 
     setLoading(false)
     setSubmitted(true)
@@ -178,22 +187,20 @@ export default function ContactUsClient() {
                   <div className="ct-form-row">
                     <div className="ct-field-group">
                       <div className="ct-field">
+                        <span className="ct-field-icon"><i className="fas fa-user"></i></span>
                         <input
                           type="text" id="fname" name="fname"
-                          className={`ct-input${errors.fname ? ' ct-input-error' : ''}`}
-                          placeholder=" " required
+                          className={`ct-input ct-input-icon${errors.fname ? ' ct-input-error' : ''}`}
+                          placeholder="Full Name *" required
                           onChange={() => clearError('fname')}
                         />
-                        <label htmlFor="fname" className="ct-label">Full Name <span className="ct-req">*</span></label>
-                        <span className="ct-field-icon"><i className="fas fa-user"></i></span>
                       </div>
                       {errors.fname && <span className="ct-field-error-msg"><i className="fas fa-circle-exclamation"></i> {errors.fname}</span>}
                     </div>
                     <div className="ct-field-group">
                       <div className="ct-field">
-                        <input type="text" id="company" name="company" className="ct-input" placeholder=" " />
-                        <label htmlFor="company" className="ct-label">Company / Business</label>
                         <span className="ct-field-icon"><i className="fas fa-building"></i></span>
+                        <input type="text" id="company" name="company" className="ct-input ct-input-icon" placeholder="Company / Business" />
                       </div>
                     </div>
                   </div>
@@ -202,27 +209,25 @@ export default function ContactUsClient() {
                   <div className="ct-form-row">
                     <div className="ct-field-group">
                       <div className="ct-field">
+                        <span className="ct-field-icon"><i className="fas fa-envelope"></i></span>
                         <input
                           type="email" id="email" name="email"
-                          className={`ct-input${errors.email ? ' ct-input-error' : ''}`}
-                          placeholder=" " required
+                          className={`ct-input ct-input-icon${errors.email ? ' ct-input-error' : ''}`}
+                          placeholder="Email Address *" required
                           onChange={() => clearError('email')}
                         />
-                        <label htmlFor="email" className="ct-label">Email Address <span className="ct-req">*</span></label>
-                        <span className="ct-field-icon"><i className="fas fa-envelope"></i></span>
                       </div>
                       {errors.email && <span className="ct-field-error-msg"><i className="fas fa-circle-exclamation"></i> {errors.email}</span>}
                     </div>
                     <div className="ct-field-group">
                       <div className="ct-field">
+                        <span className="ct-field-icon"><i className="fas fa-phone"></i></span>
                         <input
                           type="tel" id="phone" name="phone"
-                          className={`ct-input${errors.phone ? ' ct-input-error' : ''}`}
-                          placeholder=" "
+                          className={`ct-input ct-input-icon${errors.phone ? ' ct-input-error' : ''}`}
+                          placeholder="Phone Number"
                           onChange={() => clearError('phone')}
                         />
-                        <label htmlFor="phone" className="ct-label">Phone Number</label>
-                        <span className="ct-field-icon"><i className="fas fa-phone"></i></span>
                       </div>
                       {errors.phone && <span className="ct-field-error-msg"><i className="fas fa-circle-exclamation"></i> {errors.phone}</span>}
                     </div>
@@ -264,13 +269,12 @@ export default function ContactUsClient() {
                       <textarea
                         id="message" name="message"
                         className={`ct-input ct-textarea${errors.message ? ' ct-input-error' : ''}`}
-                        placeholder=" " rows={5} required maxLength={2000}
+                        placeholder="Tell us about your project *" rows={5} required maxLength={2000}
                         onChange={(e) => {
                           setCharCount(e.target.value.length)
                           clearError('message')
                         }}
                       ></textarea>
-                      <label htmlFor="message" className="ct-label">Tell us about your project <span className="ct-req">*</span></label>
                       <span className={`ct-char-count${charCount > 1800 ? ' ct-char-warn' : ''}`}>{charCount} / 2000</span>
                     </div>
                     {errors.message && <span className="ct-field-error-msg"><i className="fas fa-circle-exclamation"></i> {errors.message}</span>}
@@ -279,12 +283,11 @@ export default function ContactUsClient() {
                   {/* How did you hear */}
                   <div className="ct-field ct-field-full">
                     <select id="source" name="source" className="ct-input ct-select" defaultValue="">
-                      <option value="" disabled></option>
+                      <option value="" disabled>How did you hear about us?</option>
                       {['Google Search', 'LinkedIn', 'Referral from a Client', 'Social Media', 'Blog / Article', 'Conference / Event', 'Other'].map((s) => (
                         <option key={s}>{s}</option>
                       ))}
                     </select>
-                    <label htmlFor="source" className="ct-label ct-select-label">How did you hear about us?</label>
                     <span className="ct-field-icon ct-select-arrow"><i className="fas fa-chevron-down"></i></span>
                   </div>
 
@@ -348,11 +351,11 @@ export default function ContactUsClient() {
 
             <div className="ct-info-card">
               <h3 className="ct-info-title">Direct Contact</h3>
-              <a href="mailto:hello@calidigi.com" className="ct-info-row">
+              <a href="mailto:sales@calidigi.com" className="ct-info-row">
                 <div className="ct-info-icon ct-icon-email"><i className="fas fa-envelope"></i></div>
                 <div className="ct-info-detail">
                   <span className="ct-info-label">Email Us</span>
-                  <span className="ct-info-val">hello@calidigi.com</span>
+                  <span className="ct-info-val">sales@calidigi.com</span>
                 </div>
                 <i className="fas fa-arrow-right ct-info-arr"></i>
               </a>
@@ -426,16 +429,16 @@ export default function ContactUsClient() {
               <div className="ct-cc-badge">Most Popular</div>
               <div className="ct-cc-icon ct-cc-call"><i className="fas fa-phone-volume"></i></div>
               <h3>Email Us Directly</h3>
-              <p>Drop us an email at hello@calidigi.com. Great for quick questions, ballpark estimates, or checking if we&apos;re the right fit before investing time in a full brief.</p>
+              <p>Drop us an email at sales@calidigi.com. Great for quick questions, ballpark estimates, or checking if we&apos;re the right fit before investing time in a full brief.</p>
               <div className="ct-cc-detail"><i className="fas fa-bolt"></i> Fastest turnaround</div>
-              <a href="mailto:hello@calidigi.com" className="ct-cc-btn ct-cc-btn-primary">Email hello@calidigi.com <i className="fas fa-arrow-right"></i></a>
+              <a href="mailto:sales@calidigi.com" className="ct-cc-btn ct-cc-btn-primary">Email sales@calidigi.com <i className="fas fa-arrow-right"></i></a>
             </div>
             <div className="ct-connect-card">
               <div className="ct-cc-icon ct-cc-schedule"><i className="fas fa-calendar-check"></i></div>
               <h3>Book a Strategy Call</h3>
               <p>Schedule a 30-minute discovery call with our team. Perfect for complex projects where you want to talk through options before committing to anything.</p>
               <div className="ct-cc-detail"><i className="fas fa-star"></i> No obligation, 100% free</div>
-              <a href="mailto:hello@calidigi.com?subject=Schedule%20Strategy%20Call" className="ct-cc-btn">Schedule a Call <i className="fas fa-arrow-right"></i></a>
+              <a href="mailto:sales@calidigi.com?subject=Schedule%20Strategy%20Call" className="ct-cc-btn">Schedule a Call <i className="fas fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -499,9 +502,9 @@ export default function ContactUsClient() {
           <div className="ct-faq-left">
             <span className="badge"><i className="fas fa-circle-question"></i> FAQ</span>
             <h2>Common Questions</h2>
-            <p>Can&apos;t find what you&apos;re looking for? Email us at <a href="mailto:hello@calidigi.com">hello@calidigi.com</a> and we&apos;ll answer within a few hours.</p>
+            <p>Can&apos;t find what you&apos;re looking for? Email us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a> and we&apos;ll answer within a few hours.</p>
             <div className="ct-faq-contact">
-              <a href="mailto:hello@calidigi.com" className="btn btn-primary">Email Us <i className="fas fa-arrow-right"></i></a>
+              <a href="mailto:sales@calidigi.com" className="btn btn-primary">Email Us <i className="fas fa-arrow-right"></i></a>
             </div>
           </div>
           <div className="ct-faq-right">
@@ -538,7 +541,7 @@ export default function ContactUsClient() {
                 <h3>San Francisco</h3>
                 <p>1234 Digital Ave, Suite 500<br />San Francisco, CA 94103</p>
                 <div className="ct-office-links">
-                  <a href="mailto:hello@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> hello@calidigi.com</a>
+                  <a href="mailto:sales@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
                   <a href="tel:+15550001234" className="ct-ol"><i className="fas fa-phone"></i> +1 (555) 000-1234</a>
                 </div>
                 <a href="https://maps.google.com/?q=San+Francisco+CA" target="_blank" rel="noopener noreferrer" className="btn btn-primary ct-office-btn">
@@ -557,7 +560,7 @@ export default function ContactUsClient() {
                 <div className="ct-office-badge ct-office-badge-sec">Regional Office</div>
                 <h3>Los Angeles</h3>
                 <p>Remote-first hub serving Southern California businesses with dedicated account managers.</p>
-                <a href="mailto:la@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> la@calidigi.com</a>
+                <a href="mailto:sales@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
               </div>
             </div>
             <div className="ct-office-card">
@@ -571,7 +574,7 @@ export default function ContactUsClient() {
                 <div className="ct-office-badge ct-office-badge-sec">Remote Team</div>
                 <h3>Across the US</h3>
                 <p>Engineers, designers, and strategists distributed across Pacific, Mountain, and Eastern time zones.</p>
-                <a href="mailto:hello@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> hello@calidigi.com</a>
+                <a href="mailto:sales@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
               </div>
             </div>
           </div>

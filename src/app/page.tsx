@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function HomePage() {
         description: 'California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding.',
         address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
         telephone: '+15550001234',
-        email: 'hello@calidigi.com',
+        email: 'sales@calidigi.com',
         sameAs: ['https://www.facebook.com/calidigi', 'https://www.instagram.com/calidigi', 'https://www.linkedin.com/company/calidigi', 'https://twitter.com/calidigi'],
       },
       {
@@ -46,7 +46,7 @@ export default function HomePage() {
         address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
         geo: { '@type': 'GeoCoordinates', latitude: 37.7749, longitude: -122.4194 },
         telephone: '+15550001234',
-        email: 'hello@calidigi.com',
+        email: 'sales@calidigi.com',
         priceRange: '$$',
         openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '09:00', closes: '18:00' },
         areaServed: { '@type': 'State', name: 'California' },
@@ -282,18 +282,20 @@ export default function HomePage() {
         <div className="container local-seo-inner">
           <div className="local-seo-visual">
             <div className="seo-map-card">
-              <div className="seo-map-bg"><div className="seo-map-pin"></div></div>
+              <div className="seo-map-bg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086069584395!2d-122.4194!3d37.7749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1"
+                  width="100%" height="100%" style={{ border: 0, display: 'block' }}
+                  allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
+                  title="Calidigi - California"
+                />
+              </div>
               <div className="seo-result-item">
                 <div className="seo-rank">1</div>
-                <div className="seo-result-text"><strong>Your Business Name</strong><span>San Francisco, CA · 4.9★ · Open Now</span></div>
-              </div>
-              <div className="seo-result-item">
-                <div className="seo-rank gray">2</div>
-                <div className="seo-result-text"><strong>Competitor Business</strong><span>San Francisco, CA · 4.2★</span></div>
-              </div>
-              <div className="seo-result-item">
-                <div className="seo-rank gray">3</div>
-                <div className="seo-result-text"><strong>Another Competitor</strong><span>San Francisco, CA · 3.8★</span></div>
+                <div className="seo-result-text">
+                  <strong>Calidigi — Digital Marketing Agency</strong>
+                  <span>San Francisco, CA · 5.0★ · Open Now</span>
+                </div>
               </div>
             </div>
           </div>
@@ -519,7 +521,7 @@ export default function HomePage() {
           <h2>Ready To Turn Your Digital Presence<br />Into <em>Business Growth?</em></h2>
           <p>Let&apos;s build a website, marketing strategy and digital system that works for your business — and brings you real, measurable results.</p>
           <div className="final-cta-actions">
-            <a href="mailto:hello@calidigi.com" className="btn btn-primary">Let&apos;s Grow Your Business <i className="fas fa-arrow-right"></i></a>
+            <a href="mailto:sales@calidigi.com" className="btn btn-primary">Let&apos;s Grow Your Business <i className="fas fa-arrow-right"></i></a>
             <a href="tel:+15550001234" className="btn btn-outline-white"><i className="fas fa-phone"></i> Talk To Our Team</a>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | Calidigi — California Digital Technology Company',
@@ -54,7 +54,7 @@ export default function CookiePolicyPage() {
             </nav>
             <div className="lg-toc-contact">
               <p>Cookie questions?</p>
-              <a href="mailto:privacy@calidigi.com"><i className="fas fa-envelope"></i> privacy@calidigi.com</a>
+              <a href="mailto:sales@calidigi.com"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
             </div>
           </aside>
 
@@ -231,8 +231,8 @@ export default function CookiePolicyPage() {
               <h2>Contact Us</h2>
               <p>If you have any questions about our use of cookies, please contact us:</p>
               <ul>
-                <li><strong>Email:</strong> <a href="mailto:privacy@calidigi.com">privacy@calidigi.com</a></li>
-                <li><strong>General:</strong> <a href="mailto:hello@calidigi.com">hello@calidigi.com</a></li>
+                <li><strong>Email:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
+                <li><strong>General:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>Phone:</strong> <a href="tel:+15550001234">+1 (555) 000-1234</a></li>
                 <li><strong>Address:</strong> 1234 Digital Ave, Suite 500, San Francisco, CA 94103</li>
               </ul>

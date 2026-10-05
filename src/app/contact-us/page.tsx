@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import ContactUsClient from './ContactUsClient'
 
 export const metadata: Metadata = {
@@ -40,11 +40,11 @@ const jsonLd = {
       '@id': 'https://www.calidigi.com/#organization',
       name: 'Calidigi',
       url: 'https://www.calidigi.com',
-      email: 'hello@calidigi.com',
+      email: 'sales@calidigi.com',
       telephone: '+15550001234',
       logo: 'https://www.calidigi.com/Cali%20Digi%20Logo%201.png',
       address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
-      contactPoint: { '@type': 'ContactPoint', contactType: 'Customer Support', email: 'hello@calidigi.com', telephone: '+15550001234', availableLanguage: 'English', contactOption: 'TollFree' },
+      contactPoint: { '@type': 'ContactPoint', contactType: 'Customer Support', email: 'sales@calidigi.com', telephone: '+15550001234', availableLanguage: 'English', contactOption: 'TollFree' },
     },
   ],
 }

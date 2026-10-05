@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import PortfolioFilter from '@/components/PortfolioFilter'
 
@@ -241,7 +241,7 @@ export default function PortfolioPage() {
               <div className="pf-cc-online"><span></span> Available</div>
             </div>
             <div className="pf-cc-body">
-              <div className="pf-cc-item"><i className="fas fa-envelope"></i> hello@calidigi.com</div>
+              <div className="pf-cc-item"><i className="fas fa-envelope"></i> sales@calidigi.com</div>
               <div className="pf-cc-item"><i className="fas fa-phone"></i> +1 (555) 000-1234</div>
               <div className="pf-cc-item"><i className="fas fa-location-dot"></i> San Francisco, CA</div>
               <div className="pf-cc-item"><i className="fas fa-clock"></i> Response within 8 hours</div>

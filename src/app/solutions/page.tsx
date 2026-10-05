@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -479,7 +479,7 @@ export default function SolutionsPage() {
             </div>
             <div className="sol-consult-actions">
               <Link href="/contact-us" className="btn btn-primary">Book Your Free Session <i className="fas fa-arrow-right"></i></Link>
-              <a href="mailto:hello@calidigi.com" className="btn btn-outline-white">Email Our Team</a>
+              <a href="mailto:sales@calidigi.com" className="btn btn-outline-white">Email Our Team</a>
             </div>
           </div>
           <div className="sol-consult-card">
@@ -492,7 +492,7 @@ export default function SolutionsPage() {
               <div className="sol-cc-online"><span></span> Available</div>
             </div>
             <div className="sol-cc-body">
-              <div className="sol-cc-item"><i className="fas fa-envelope"></i> hello@calidigi.com</div>
+              <div className="sol-cc-item"><i className="fas fa-envelope"></i> sales@calidigi.com</div>
               <div className="sol-cc-item"><i className="fas fa-phone"></i> +1 (555) 000-1234</div>
               <div className="sol-cc-item"><i className="fas fa-location-dot"></i> San Francisco, CA</div>
               <div className="sol-cc-item"><i className="fas fa-clock"></i> Response within 8 hours</div>

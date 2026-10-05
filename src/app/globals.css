@@ -129,14 +129,15 @@ ul  { list-style: none; }
   white-space: nowrap;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-  color: var(--white);
-  box-shadow: 0 8px 24px -6px rgba(245,130,31,0.50);
+  background: var(--orange);
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(245,130,31,0.25);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #e8731b, #c04012);
+  background: var(--orange-dark);
+  color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px -6px rgba(245,130,31,0.65);
+  box-shadow: 0 6px 16px rgba(245,130,31,0.30);
 }
 .btn-outline {
   background: transparent;
@@ -980,23 +981,20 @@ ul  { list-style: none; }
   gap: 80px;
   align-items: center;
 }
-.local-seo-visual {}
+.local-seo-visual { width: 100%; }
 .seo-map-card {
   background: var(--gray-100);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-xl);
-  padding: 32px;
+  padding: 0;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 .seo-map-bg {
-  height: 160px;
-  background: linear-gradient(135deg, #e8f4fd, #dbeafe);
-  border-radius: var(--radius-lg);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 220px;
+  border-radius: 0;
+  margin-bottom: 0;
   position: relative;
   overflow: hidden;
 }
@@ -1021,10 +1019,10 @@ ul  { list-style: none; }
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 0;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--gray-200);
 }
-.seo-result-item:last-child { border-bottom: none; padding-bottom: 0; }
+.seo-result-item:last-child { border-bottom: none; }
 .seo-rank {
   width: 28px; height: 28px;
   background: var(--orange);
@@ -5638,7 +5636,7 @@ ul  { list-style: none; }
 .ct-field-full { margin-bottom: 20px; }
 .ct-input {
   width: 100%;
-  padding: 20px 44px 8px 44px;
+  padding: 14px 16px;
   border: 1.5px solid var(--gray-200);
   border-radius: var(--radius);
   font-size: 0.95rem;
@@ -5649,8 +5647,10 @@ ul  { list-style: none; }
   transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
   appearance: none;
 }
+.ct-input::placeholder { color: var(--gray-400); }
+.ct-input-icon { padding-left: 44px; }
 .ct-textarea {
-  padding-top: 28px;
+  padding-top: 14px;
   resize: vertical;
   min-height: 140px;
 }
@@ -5687,43 +5687,6 @@ ul  { list-style: none; }
 }
 .ct-char-count.ct-char-warn {
   color: #ef4444;
-}
-.ct-label {
-  position: absolute;
-  top: 50%;
-  left: 44px;
-  transform: translateY(-50%);
-  font-size: 0.92rem;
-  color: var(--gray-400);
-  pointer-events: none;
-  transition: all 0.2s ease;
-  background: transparent;
-}
-.ct-textarea + .ct-label { top: 22px; transform: none; }
-.ct-input:focus + .ct-label,
-.ct-input:not(:placeholder-shown) + .ct-label {
-  top: 10px;
-  transform: none;
-  font-size: 0.7rem;
-  color: var(--orange);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-.ct-select-label {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.ct-input:focus ~ .ct-select-label,
-.ct-select:valid ~ .ct-select-label,
-.ct-select:not([value=""]) ~ .ct-select-label {
-  top: 10px;
-  transform: none;
-  font-size: 0.7rem;
-  color: var(--orange);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 .ct-field-icon {
   position: absolute;
@@ -6963,14 +6926,11 @@ ul  { list-style: none; }
 }
 @media (max-width: 480px) {
   .ct-hero            { padding: 96px 0 48px; }
-  .ct-input           { padding: 18px 14px 6px 40px; font-size: 0.88rem; }
-  .ct-textarea        { padding-left: 16px; }
+  .ct-input           { padding: 13px 14px; font-size: 0.88rem; }
+  .ct-input-icon      { padding-left: 40px; }
+  .ct-textarea        { padding: 13px 14px; }
   .ct-select          { padding-right: 38px; }
-  .ct-label           { font-size: 0.72rem; left: 40px; }
-  .ct-textarea + .ct-label { left: 16px; }
   .ct-field-icon      { left: 12px; font-size: 0.82rem; }
-  .ct-input:focus ~ .ct-label,
-  .ct-input:not(:placeholder-shown) ~ .ct-label { top: 8px; font-size: 0.68rem; }
   .ct-pt-card         { padding: 10px 8px; }
   .ct-pt-icon         { width: 32px; height: 32px; font-size: 0.85rem; }
   .ct-pt-name         { font-size: 0.72rem; }

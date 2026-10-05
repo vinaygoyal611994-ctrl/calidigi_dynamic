@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next'
+﻿import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import PublicShell from '@/components/PublicShell'
 
@@ -102,7 +102,7 @@ const jsonLd = {
         addressCountry: 'US',
       },
       telephone: '+15550001234',
-      email: 'hello@calidigi.com',
+      email: 'sales@calidigi.com',
       sameAs: [
         'https://www.facebook.com/calidigi',
         'https://www.instagram.com/calidigi',

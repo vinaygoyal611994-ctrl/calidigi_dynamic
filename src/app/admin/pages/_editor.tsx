@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -18,7 +18,7 @@ const TEMPLATES: Record<string, { title: string; slug: string; content: string }
 <h3>How We Use Your Information</h3>
 <p>We use the information we collect to provide, maintain, and improve our services, respond to your comments and questions, and send you technical notices and support messages.</p>
 <h3>Contact Us</h3>
-<p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hello@calidigi.com">hello@calidigi.com</a>.</p>`,
+<p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a>.</p>`,
   },
   terms: {
     title: 'Terms of Service',
@@ -31,7 +31,7 @@ const TEMPLATES: Record<string, { title: string; slug: string; content: string }
 <h3>Limitation of Liability</h3>
 <p>To the fullest extent permitted by law, Calidigi shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services.</p>
 <h3>Contact Us</h3>
-<p>For questions regarding these Terms, contact us at <a href="mailto:hello@calidigi.com">hello@calidigi.com</a>.</p>`,
+<p>For questions regarding these Terms, contact us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a>.</p>`,
   },
   about: {
     title: 'About Us',

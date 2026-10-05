@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 
 const companyLinks = [
@@ -95,7 +95,7 @@ export default function Footer() {
             <div className="footer-contact-row">
               <div className="fci"><i className="fas fa-envelope"></i></div>
               <span className="fci-text">
-                <a href="mailto:hello@calidigi.com">hello@calidigi.com</a>
+                <a href="mailto:sales@calidigi.com">sales@calidigi.com</a>
               </span>
             </div>
             <div className="footer-contact-row">

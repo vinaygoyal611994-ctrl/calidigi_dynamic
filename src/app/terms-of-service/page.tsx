@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function TermsOfServicePage() {
             </nav>
             <div className="lg-toc-contact">
               <p>Legal questions?</p>
-              <a href="mailto:legal@calidigi.com"><i className="fas fa-envelope"></i> legal@calidigi.com</a>
+              <a href="mailto:sales@calidigi.com"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
             </div>
           </aside>
 
@@ -196,8 +196,8 @@ export default function TermsOfServicePage() {
               <h2>Contact Us</h2>
               <p>For any questions about these Terms of Service, please contact our legal team:</p>
               <ul>
-                <li><strong>Email:</strong> <a href="mailto:legal@calidigi.com">legal@calidigi.com</a></li>
-                <li><strong>General:</strong> <a href="mailto:hello@calidigi.com">hello@calidigi.com</a></li>
+                <li><strong>Email:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
+                <li><strong>General:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>Phone:</strong> <a href="tel:+15550001234">+1 (555) 000-1234</a></li>
                 <li><strong>Address:</strong> 1234 Digital Ave, Suite 500, San Francisco, CA 94103</li>
               </ul>

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function PrivacyPolicyPage() {
             </nav>
             <div className="lg-toc-contact">
               <p>Questions about your data?</p>
-              <a href="mailto:privacy@calidigi.com"><i className="fas fa-envelope"></i> privacy@calidigi.com</a>
+              <a href="mailto:sales@calidigi.com"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
             </div>
           </aside>
 
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
                 <li>Analytics data is retained in aggregated, anonymised form indefinitely</li>
                 <li>Marketing communication preferences are retained until you unsubscribe</li>
               </ul>
-              <p>You may request deletion of your personal data at any time by contacting us at <a href="mailto:privacy@calidigi.com">privacy@calidigi.com</a>.</p>
+              <p>You may request deletion of your personal data at any time by contacting us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a>.</p>
             </div>
 
             <div className="lg-section" id="your-rights">
@@ -168,7 +168,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Objection:</strong> Object to processing based on legitimate interests or direct marketing</li>
                 <li><strong>Withdrawal:</strong> Withdraw consent at any time where processing is consent-based</li>
               </ul>
-              <p>To exercise any of these rights, email us at <a href="mailto:privacy@calidigi.com">privacy@calidigi.com</a>. We will respond within 30 days.</p>
+              <p>To exercise any of these rights, email us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a>. We will respond within 30 days.</p>
             </div>
 
             <div className="lg-section" id="california">
@@ -181,7 +181,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Right to Opt-Out:</strong> Opt out of the sale of your personal information (note: we do not sell personal information)</li>
                 <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your CCPA rights</li>
               </ul>
-              <p>To submit a CCPA request, contact us at <a href="mailto:privacy@calidigi.com">privacy@calidigi.com</a> or call <a href="tel:+15550001234">+1 (555) 000-1234</a>. We will verify your identity before processing requests.</p>
+              <p>To submit a CCPA request, contact us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a> or call <a href="tel:+15550001234">+1 (555) 000-1234</a>. We will verify your identity before processing requests.</p>
             </div>
 
             <div className="lg-section" id="children">
@@ -213,8 +213,8 @@ export default function PrivacyPolicyPage() {
               <h2>Contact Us</h2>
               <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact our Data Privacy Team:</p>
               <ul>
-                <li><strong>Email:</strong> <a href="mailto:privacy@calidigi.com">privacy@calidigi.com</a></li>
-                <li><strong>General:</strong> <a href="mailto:hello@calidigi.com">hello@calidigi.com</a></li>
+                <li><strong>Email:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
+                <li><strong>General:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>Phone:</strong> <a href="tel:+15550001234">+1 (555) 000-1234</a></li>
                 <li><strong>Address:</strong> 1234 Digital Ave, Suite 500, San Francisco, CA 94103</li>
               </ul>

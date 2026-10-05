@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ServicesFaq from '@/components/ServicesFaq'
@@ -277,13 +278,13 @@ export default function ServicesPage() {
                 { cls: 'sv-green', icon: 'fa-chart-line', title: 'Marketing & Lead Generation', desc: 'Drive traffic, generate leads, convert customers' },
                 { cls: 'sv-gold', icon: 'fa-trophy', title: 'Business Growth', desc: 'Measurable results: more customers, more revenue' },
               ].map(({ cls, icon, title, desc }, i, arr) => (
-                <>
-                  <div key={title} className="sv-step">
+                <Fragment key={title}>
+                  <div className="sv-step">
                     <div className={`sv-step-icon ${cls}`}><i className={`fas ${icon}`}></i></div>
                     <div className="sv-step-info"><strong>{title}</strong><span>{desc}</span></div>
                   </div>
-                  {i < arr.length - 1 && <div key={`arr-${i}`} className="sv-arrow"></div>}
-                </>
+                  {i < arr.length - 1 && <div className="sv-arrow"></div>}
+                </Fragment>
               ))}
             </div>
           </div>
