@@ -1,22 +1,11 @@
-import nodemailer from 'nodemailer'
-import dns from 'dns'
+import { Resend } from 'resend'
 
-dns.setDefaultResultOrder('ipv4first')
-
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: false,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendMail({ to, subject, html }: { to: string | string[]; subject: string; html: string }) {
-  return transporter.sendMail({
-    from: process.env.SMTP_FROM || `"Calidigi" <${process.env.SMTP_USER}>`,
-    to: Array.isArray(to) ? to.join(', ') : to,
+  return resend.emails.send({
+    from: process.env.RESEND_FROM || 'Calidigi <onboarding@resend.dev>',
+    to: Array.isArray(to) ? to : [to],
     subject,
     html,
   })
