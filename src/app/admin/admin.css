@@ -1297,6 +1297,15 @@
   color: var(--navy);
 }
 
+/* ── Pagination ── */
+.adm-pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
 /* ── Contact Detail ── */
 .adm-detail-grid {
   display: grid;

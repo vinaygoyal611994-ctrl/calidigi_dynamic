@@ -18,6 +18,7 @@ interface Contact {
 }
 
 const STATUS_OPTIONS = ['new', 'read', 'replied', 'archived']
+const PAGE_SIZE = 20
 
 function statusBadgeClass(s: string) {
   const map: Record<string, string> = { new: 'adm-badge-orange', read: 'adm-badge-blue', replied: 'adm-badge-green', archived: 'adm-badge-gray' }
@@ -40,15 +41,42 @@ Calidigi Team
 sales@calidigi.com`
 }
 
+function exportToExcel(contacts: Contact[]) {
+  const headers = ['#', 'Name', 'Email', 'Phone', 'Company', 'Project Type', 'Budget', 'Timeline', 'Message', 'NDA', 'Status', 'Date']
+  const rows = contacts.map(c => [
+    c.id, c.fname, c.email, c.phone || '', c.company || '',
+    c.projectType || '', c.budget || '', c.timeline || '',
+    (c.message || '').replace(/\n/g, ' '),
+    c.nda ? 'Yes' : 'No', c.status,
+    new Date(c.createdAt).toLocaleDateString('en-US'),
+  ])
+
+  const csvContent = [headers, ...rows]
+    .map(row => row.map(v => `"${String(v).replace(/"/g, '""')}"`).join(','))
+    .join('\n')
+
+  const blob = new Blob(['﻿' + csvContent], { type: 'text/csv;charset=utf-8;' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `contacts-${new Date().toISOString().slice(0, 10)}.csv`
+  a.click()
+  URL.revokeObjectURL(url)
+}
+
 export default function ContactsPage() {
-  const [contacts, setContacts]       = useState<Contact[]>([])
-  const [filtered, setFiltered]       = useState<Contact[]>([])
-  const [loading, setLoading]         = useState(true)
-  const [search, setSearch]           = useState('')
+  const [contacts, setContacts]     = useState<Contact[]>([])
+  const [total, setTotal]           = useState(0)
+  const [totalPages, setTotalPages] = useState(1)
+  const [page, setPage]             = useState(1)
+  const [loading, setLoading]       = useState(true)
+  const [search, setSearch]         = useState('')
+  const [searchInput, setSearchInput] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
-  const [selected, setSelected]       = useState<Contact | null>(null)
-  const [deleting, setDeleting]       = useState<number | null>(null)
+  const [selected, setSelected]     = useState<Contact | null>(null)
+  const [deleting, setDeleting]     = useState<number | null>(null)
   const [confirmDelete, setConfirmDelete] = useState<Contact | null>(null)
+  const [exporting, setExporting]   = useState(false)
 
   // Reply state
   const [replyContact, setReplyContact] = useState<Contact | null>(null)
@@ -57,32 +85,30 @@ export default function ContactsPage() {
   const [replySuccess, setReplySuccess] = useState('')
   const [replyError, setReplyError]     = useState('')
 
-  const load = useCallback(() => {
+  const load = useCallback((p = page) => {
     setLoading(true)
-    adminApi.getContacts()
+    const params = new URLSearchParams({ page: String(p), limit: String(PAGE_SIZE) })
+    if (statusFilter !== 'all') params.set('status', statusFilter)
+    if (search) params.set('search', search)
+
+    adminApi.getContacts(`?${params}`)
       .then(r => r.json())
       .then(d => {
-        const list = d?.contacts ?? []
-        setContacts(list)
-        setFiltered(list)
+        setContacts(d?.contacts ?? [])
+        setTotal(d?.total ?? 0)
+        setTotalPages(d?.totalPages ?? 1)
       })
       .catch(() => {})
       .finally(() => setLoading(false))
-  }, [])
+  }, [page, statusFilter, search])
 
-  useEffect(() => { load() }, [load])
+  useEffect(() => { load(page) }, [page, statusFilter, search])
 
-  useEffect(() => {
-    let list = contacts
-    if (statusFilter !== 'all') list = list.filter(c => c.status === statusFilter)
-    if (search.trim()) {
-      const q = search.toLowerCase()
-      list = list.filter(c =>
-        [c.fname, c.email, c.company, c.projectType].some(v => v?.toLowerCase().includes(q))
-      )
-    }
-    setFiltered(list)
-  }, [search, statusFilter, contacts])
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault()
+    setSearch(searchInput)
+    setPage(1)
+  }
 
   async function handleStatusChange(contact: Contact, newStatus: string) {
     try {
@@ -97,10 +123,24 @@ export default function ContactsPage() {
     try {
       await adminApi.deleteContact(contact.id)
       setContacts(prev => prev.filter(c => c.id !== contact.id))
+      setTotal(t => t - 1)
       if (selected?.id === contact.id) setSelected(null)
       setConfirmDelete(null)
     } catch {}
     finally { setDeleting(null) }
+  }
+
+  async function handleExportAll() {
+    setExporting(true)
+    try {
+      const params = new URLSearchParams({ page: '1', limit: '9999' })
+      if (statusFilter !== 'all') params.set('status', statusFilter)
+      if (search) params.set('search', search)
+      const res = await adminApi.getContacts(`?${params}`)
+      const d = await res.json()
+      exportToExcel(d?.contacts ?? [])
+    } catch {}
+    finally { setExporting(false) }
   }
 
   function openReply(c: Contact) {
@@ -117,25 +157,15 @@ export default function ContactsPage() {
     try {
       const res = await fetch(`/api/admin/contacts/${replyContact.id}/reply`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('admin_token')}`,
-        },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('admin_token')}` },
         body: JSON.stringify({ replyMessage: replyMsg }),
       })
-      if (!res.ok) {
-        const d = await res.json()
-        setReplyError(d.message || 'Failed to send reply.')
-        return
-      }
-      setReplySuccess(`Reply sent successfully to ${replyContact.email}`)
+      if (!res.ok) { const d = await res.json(); setReplyError(d.message || 'Failed to send reply.'); return }
+      setReplySuccess(`Reply sent to ${replyContact.email}`)
       setContacts(prev => prev.map(c => c.id === replyContact.id ? { ...c, status: 'replied' } : c))
       setTimeout(() => { setReplyContact(null); setReplySuccess('') }, 2000)
-    } catch {
-      setReplyError('Network error. Please try again.')
-    } finally {
-      setReplySending(false)
-    }
+    } catch { setReplyError('Network error. Please try again.') }
+    finally { setReplySending(false) }
   }
 
   return (
@@ -143,22 +173,30 @@ export default function ContactsPage() {
       <div className="adm-page-head">
         <div className="adm-head-left">
           <h1>Contact Management</h1>
-          <p>{contacts.length} total submission{contacts.length !== 1 ? 's' : ''}</p>
+          <p>{total} total submission{total !== 1 ? 's' : ''}</p>
         </div>
+        <button className="adm-btn adm-btn-secondary" onClick={handleExportAll} disabled={exporting}>
+          {exporting ? <><i className="fas fa-spinner fa-spin"></i> Exporting…</> : <><i className="fas fa-file-csv"></i> Export CSV</>}
+        </button>
       </div>
 
       {/* Filter Bar */}
       <div className="adm-filter-bar">
-        <div className="adm-search-wrap">
-          <i className="fas fa-search"></i>
-          <input className="adm-search-input" placeholder="Search by name, email, company…" value={search} onChange={e => setSearch(e.target.value)} />
-        </div>
-        <select className="adm-filter-select" value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
+        <form onSubmit={handleSearch} style={{ display: 'flex', gap: 8, flex: 1 }}>
+          <div className="adm-search-wrap" style={{ flex: 1 }}>
+            <i className="fas fa-search"></i>
+            <input className="adm-search-input" placeholder="Search by name, email, company…"
+              value={searchInput} onChange={e => setSearchInput(e.target.value)} />
+          </div>
+          <button type="submit" className="adm-btn adm-btn-primary adm-btn-sm">Search</button>
+          {search && <button type="button" className="adm-btn adm-btn-secondary adm-btn-sm" onClick={() => { setSearch(''); setSearchInput(''); setPage(1) }}>Clear</button>}
+        </form>
+        <select className="adm-filter-select" value={statusFilter} onChange={e => { setStatusFilter(e.target.value); setPage(1) }}>
           <option value="all">All Status</option>
           {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>)}
         </select>
-        <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={load}>
-          <i className="fas fa-refresh"></i> Refresh
+        <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={() => load(page)}>
+          <i className="fas fa-refresh"></i>
         </button>
       </div>
 
@@ -167,7 +205,7 @@ export default function ContactsPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {[1,2,3,4,5].map(i => <div key={i} className="adm-skeleton" style={{ height: 52, borderRadius: 8 }}></div>)}
         </div>
-      ) : filtered.length === 0 ? (
+      ) : contacts.length === 0 ? (
         <div className="adm-card">
           <div className="adm-empty">
             <div className="adm-empty-icon"><i className="fas fa-inbox"></i></div>
@@ -176,64 +214,85 @@ export default function ContactsPage() {
           </div>
         </div>
       ) : (
-        <div className="adm-table-wrap">
-          <table className="adm-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Company</th>
-                <th>Project</th>
-                <th>Budget</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map(c => (
-                <tr key={c.id}>
-                  <td style={{ color: 'var(--gray-400)', fontSize: '0.78rem' }}>{c.id}</td>
-                  <td>
-                    <div style={{ fontWeight: 600 }}>{c.fname}</div>
-                    {c.nda && <span style={{ fontSize: '0.68rem', color: 'var(--orange)' }}>NDA Requested</span>}
-                  </td>
-                  <td style={{ color: 'var(--gray-600)' }}>{c.email}</td>
-                  <td style={{ color: 'var(--gray-600)' }}>{c.company || '—'}</td>
-                  <td>{c.projectType || '—'}</td>
-                  <td style={{ fontSize: '0.8rem' }}>{c.budget || '—'}</td>
-                  <td style={{ color: 'var(--gray-400)', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
-                    {new Date(c.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                  </td>
-                  <td>
-                    <select
-                      className="adm-filter-select"
-                      style={{ padding: '4px 28px 4px 8px', fontSize: '0.75rem' }}
-                      value={c.status}
-                      onChange={e => handleStatusChange(c, e.target.value)}
-                    >
-                      {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>)}
-                    </select>
-                  </td>
-                  <td>
-                    <div className="adm-table-actions">
-                      <button className="adm-btn adm-btn-ghost adm-btn-icon" onClick={() => setSelected(c)} title="View Details">
-                        <i className="fas fa-eye"></i>
-                      </button>
-                      <button className="adm-btn adm-btn-primary adm-btn-icon" onClick={() => openReply(c)} title="Reply">
-                        <i className="fas fa-reply"></i>
-                      </button>
-                      <button className="adm-btn adm-btn-danger adm-btn-icon" onClick={() => setConfirmDelete(c)} title="Delete">
-                        <i className="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
+        <>
+          <div className="adm-table-wrap">
+            <table className="adm-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Company</th>
+                  <th>Project</th>
+                  <th>Budget</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {contacts.map(c => (
+                  <tr key={c.id}>
+                    <td style={{ color: 'var(--gray-400)', fontSize: '0.78rem' }}>{c.id}</td>
+                    <td>
+                      <div style={{ fontWeight: 600 }}>{c.fname}</div>
+                      {c.nda && <span style={{ fontSize: '0.68rem', color: 'var(--orange)' }}>NDA Requested</span>}
+                    </td>
+                    <td style={{ color: 'var(--gray-600)' }}>{c.email}</td>
+                    <td style={{ color: 'var(--gray-600)' }}>{c.company || '—'}</td>
+                    <td>{c.projectType || '—'}</td>
+                    <td style={{ fontSize: '0.8rem' }}>{c.budget || '—'}</td>
+                    <td style={{ color: 'var(--gray-400)', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
+                      {new Date(c.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    </td>
+                    <td>
+                      <select className="adm-filter-select" style={{ padding: '4px 28px 4px 8px', fontSize: '0.75rem' }}
+                        value={c.status} onChange={e => handleStatusChange(c, e.target.value)}>
+                        {STATUS_OPTIONS.map(s => <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>)}
+                      </select>
+                    </td>
+                    <td>
+                      <div className="adm-table-actions">
+                        <button className="adm-btn adm-btn-ghost adm-btn-icon" onClick={() => setSelected(c)} title="View"><i className="fas fa-eye"></i></button>
+                        <button className="adm-btn adm-btn-primary adm-btn-icon" onClick={() => openReply(c)} title="Reply"><i className="fas fa-reply"></i></button>
+                        <button className="adm-btn adm-btn-danger adm-btn-icon" onClick={() => setConfirmDelete(c)} title="Delete"><i className="fas fa-trash"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="adm-pagination">
+              <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={() => setPage(1)} disabled={page === 1}>
+                <i className="fas fa-angles-left"></i>
+              </button>
+              <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={() => setPage(p => p - 1)} disabled={page === 1}>
+                <i className="fas fa-angle-left"></i>
+              </button>
+              {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+                const start = Math.max(1, Math.min(page - 2, totalPages - 4))
+                const p = start + i
+                return p <= totalPages ? (
+                  <button key={p} className={`adm-btn adm-btn-sm ${p === page ? 'adm-btn-primary' : 'adm-btn-secondary'}`}
+                    onClick={() => setPage(p)}>{p}</button>
+                ) : null
+              })}
+              <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={() => setPage(p => p + 1)} disabled={page === totalPages}>
+                <i className="fas fa-angle-right"></i>
+              </button>
+              <button className="adm-btn adm-btn-secondary adm-btn-sm" onClick={() => setPage(totalPages)} disabled={page === totalPages}>
+                <i className="fas fa-angles-right"></i>
+              </button>
+              <span style={{ fontSize: '0.82rem', color: 'var(--gray-500)', marginLeft: 8 }}>
+                Page {page} of {totalPages} · {total} total
+              </span>
+            </div>
+          )}
+        </>
       )}
 
       {/* View Modal */}
@@ -252,38 +311,21 @@ export default function ContactsPage() {
             </div>
             <div className="adm-modal-body">
               <div className="adm-detail-grid">
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Email</div>
-                  <div className="adm-detail-val"><a href={`mailto:${selected.email}`} style={{ color: 'var(--orange)' }}>{selected.email}</a></div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Phone</div>
-                  <div className="adm-detail-val">{selected.phone || '—'}</div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Company</div>
-                  <div className="adm-detail-val">{selected.company || '—'}</div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Project Type</div>
-                  <div className="adm-detail-val">{selected.projectType || '—'}</div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Budget</div>
-                  <div className="adm-detail-val">{selected.budget || '—'}</div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Timeline</div>
-                  <div className="adm-detail-val">{selected.timeline || '—'}</div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">Submitted</div>
-                  <div className="adm-detail-val">{new Date(selected.createdAt).toLocaleString()}</div>
-                </div>
-                <div className="adm-detail-item">
-                  <div className="adm-detail-label">NDA Requested</div>
-                  <div className="adm-detail-val">{selected.nda ? '✅ Yes' : 'No'}</div>
-                </div>
+                {[
+                  ['Email', <a key="e" href={`mailto:${selected.email}`} style={{ color: 'var(--orange)' }}>{selected.email}</a>],
+                  ['Phone', selected.phone || '—'],
+                  ['Company', selected.company || '—'],
+                  ['Project Type', selected.projectType || '—'],
+                  ['Budget', selected.budget || '—'],
+                  ['Timeline', selected.timeline || '—'],
+                  ['Submitted', new Date(selected.createdAt).toLocaleString()],
+                  ['NDA Requested', selected.nda ? '✅ Yes' : 'No'],
+                ].map(([label, val]) => (
+                  <div key={String(label)} className="adm-detail-item">
+                    <div className="adm-detail-label">{label}</div>
+                    <div className="adm-detail-val">{val}</div>
+                  </div>
+                ))}
                 {selected.message && (
                   <div className="adm-detail-item full">
                     <div className="adm-detail-label">Message</div>
@@ -330,23 +372,15 @@ export default function ContactsPage() {
                     </div>
                   )}
                   <div style={{ marginBottom: 8, fontSize: '0.85rem', color: 'var(--gray-500)' }}>
-                    Email will be sent to: <strong style={{ color: 'var(--navy)' }}>{replyContact.email}</strong>
+                    To: <strong style={{ color: 'var(--navy)' }}>{replyContact.email}</strong>
                   </div>
-                  <textarea
-                    value={replyMsg}
-                    onChange={e => setReplyMsg(e.target.value)}
-                    rows={14}
-                    style={{
-                      width: '100%', border: '1px solid var(--gray-200)', borderRadius: 8,
-                      padding: '12px 14px', fontSize: '0.88rem', fontFamily: 'var(--font-body)',
-                      lineHeight: 1.7, color: 'var(--navy)', resize: 'vertical', outline: 'none',
-                      boxSizing: 'border-box',
-                    }}
+                  <textarea value={replyMsg} onChange={e => setReplyMsg(e.target.value)} rows={14}
+                    style={{ width: '100%', border: '1px solid var(--gray-200)', borderRadius: 8, padding: '12px 14px', fontSize: '0.88rem', fontFamily: 'var(--font-body)', lineHeight: 1.7, color: 'var(--navy)', resize: 'vertical', outline: 'none', boxSizing: 'border-box' }}
                     onFocus={e => e.target.style.borderColor = 'var(--orange)'}
                     onBlur={e => e.target.style.borderColor = 'var(--gray-200)'}
                   />
                   <p style={{ margin: '8px 0 0', fontSize: '0.75rem', color: 'var(--gray-400)' }}>
-                    <i className="fas fa-info-circle"></i> A professional email template with Calidigi branding will be applied automatically.
+                    <i className="fas fa-info-circle"></i> Professional Calidigi email template applied automatically.
                   </p>
                 </>
               )}
@@ -354,9 +388,7 @@ export default function ContactsPage() {
             {!replySuccess && (
               <div className="adm-modal-footer">
                 <button className="adm-btn adm-btn-primary" onClick={handleSendReply} disabled={replySending || !replyMsg.trim()}>
-                  {replySending
-                    ? <><i className="fas fa-spinner fa-spin"></i> Sending…</>
-                    : <><i className="fas fa-paper-plane"></i> Send Reply</>}
+                  {replySending ? <><i className="fas fa-spinner fa-spin"></i> Sending…</> : <><i className="fas fa-paper-plane"></i> Send Reply</>}
                 </button>
                 <button className="adm-btn adm-btn-secondary" onClick={() => setReplyContact(null)} disabled={replySending}>Cancel</button>
               </div>
@@ -365,7 +397,7 @@ export default function ContactsPage() {
         </div>
       )}
 
-      {/* Confirm Delete Modal */}
+      {/* Delete Modal */}
       {confirmDelete && (
         <div className="adm-modal-backdrop" onClick={() => setConfirmDelete(null)}>
           <div className="adm-modal" style={{ maxWidth: 420 }} onClick={e => e.stopPropagation()}>
@@ -375,7 +407,7 @@ export default function ContactsPage() {
             </div>
             <div className="adm-modal-body">
               <p style={{ color: 'var(--gray-600)', fontSize: '0.9rem' }}>
-                Are you sure you want to delete the contact from <strong>{confirmDelete.fname}</strong> ({confirmDelete.email})? This action cannot be undone.
+                Are you sure you want to delete <strong>{confirmDelete.fname}</strong> ({confirmDelete.email})? This cannot be undone.
               </p>
             </div>
             <div className="adm-modal-footer">

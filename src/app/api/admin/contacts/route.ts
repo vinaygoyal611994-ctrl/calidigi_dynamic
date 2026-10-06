@@ -8,17 +8,29 @@ export async function GET(req: NextRequest) {
 
   try {
     const { searchParams } = new URL(req.url)
-    const limit  = Number(searchParams.get('limit') || 100)
-    const sort   = searchParams.get('sort') === 'newest' ? 'DESC' : 'DESC'
+    const page   = Math.max(1, Number(searchParams.get('page') || 1))
+    const limit  = Number(searchParams.get('limit') || 20)
+    const offset = (page - 1) * limit
     const status = searchParams.get('status')
+    const search = searchParams.get('search')?.trim()
 
-    let sql = 'SELECT * FROM contacts'
+    let where = 'WHERE 1=1'
     const params: any[] = []
-    if (status) { sql += ' WHERE status = ?'; params.push(status) }
-    sql += ` ORDER BY created_at ${sort} LIMIT ?`
-    params.push(limit)
 
-    const [rows] = await db.execute(sql, params) as any[]
+    if (status) { where += ' AND status = ?'; params.push(status) }
+    if (search) {
+      where += ' AND (fname LIKE ? OR email LIKE ? OR company LIKE ?)'
+      params.push(`%${search}%`, `%${search}%`, `%${search}%`)
+    }
+
+    const [[{ total }]] = await db.execute(
+      `SELECT COUNT(*) as total FROM contacts ${where}`, params
+    ) as any[]
+
+    const [rows] = await db.execute(
+      `SELECT * FROM contacts ${where} ORDER BY id DESC LIMIT ? OFFSET ?`,
+      [...params, limit, offset]
+    ) as any[]
 
     const contacts = rows.map((r: any) => ({
       id: r.id, fname: r.fname, email: r.email, phone: r.phone, company: r.company,
@@ -27,7 +39,7 @@ export async function GET(req: NextRequest) {
       createdAt: r.created_at,
     }))
 
-    return NextResponse.json({ contacts, total: contacts.length })
+    return NextResponse.json({ contacts, total, page, limit, totalPages: Math.ceil(total / limit) })
   } catch (err) {
     console.error('Contacts GET error:', err)
     return NextResponse.json({ message: 'Server error.' }, { status: 500 })

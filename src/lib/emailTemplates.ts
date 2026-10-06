@@ -16,7 +16,7 @@ const baseTemplate = (content: string) => `
       <!-- Header -->
       <tr>
         <td style="background:linear-gradient(135deg,#0A0F1E 0%,#1a2540 100%);padding:32px 40px;text-align:center;">
-          <img src="${siteUrl}/images/logo.png" alt="Calidigi" height="48" style="height:48px;display:inline-block;" />
+          <img src="https://www.calidigi.com/images/logo.png" alt="Calidigi" width="160" height="48" style="height:48px;width:auto;display:inline-block;max-width:160px;" />
           <p style="margin:12px 0 0;color:rgba(255,255,255,0.6);font-size:13px;letter-spacing:0.05em;">California Digital Growth & AI Agency</p>
         </td>
       </tr>
