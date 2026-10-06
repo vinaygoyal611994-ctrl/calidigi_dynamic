@@ -119,7 +119,7 @@ export default function ContactsPage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('adm_token')}`,
+          Authorization: `Bearer ${localStorage.getItem('admin_token')}`,
         },
         body: JSON.stringify({ replyMessage: replyMsg }),
       })
