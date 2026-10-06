@@ -231,9 +231,9 @@ export default function ContactsPage() {
                 </tr>
               </thead>
               <tbody>
-                {contacts.map(c => (
+                {contacts.map((c, idx) => (
                   <tr key={c.id}>
-                    <td style={{ color: 'var(--gray-400)', fontSize: '0.78rem' }}>{c.id}</td>
+                    <td style={{ color: 'var(--gray-400)', fontSize: '0.78rem' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
                     <td>
                       <div style={{ fontWeight: 600 }}>{c.fname}</div>
                       {c.nda && <span style={{ fontSize: '0.68rem', color: 'var(--orange)' }}>NDA Requested</span>}
