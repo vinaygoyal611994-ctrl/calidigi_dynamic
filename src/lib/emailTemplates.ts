@@ -17,7 +17,7 @@ const baseTemplate = (content: string) => `
       <tr>
         <td style="background:linear-gradient(135deg,#0A0F1E 0%,#1a2540 100%);padding:32px 40px;text-align:center;">
           <img src="${siteUrl}/images/logo.png" alt="Calidigi" width="160" height="48" style="height:48px;width:auto;display:inline-block;max-width:160px;" />
-          <p style="margin:12px 0 0;color:rgba(255,255,255,0.6);font-size:13px;letter-spacing:0.05em;">California Digital Growth & AI Agency</p>
+          <p style="margin:12px 0 0;color:rgba(255,255,255,0.6);font-size:13px;letter-spacing:0.05em;">California Digital Growth &amp; AI Solutions</p>
         </td>
       </tr>
 
@@ -32,7 +32,7 @@ const baseTemplate = (content: string) => `
       <tr>
         <td style="background:#f8f9fb;padding:28px 40px;border-top:1px solid #eee;text-align:center;">
           <p style="margin:0 0 8px;font-size:13px;color:#6b7280;">
-            <strong style="color:#0A0F1E;">Calidigi</strong> — Digital Marketing, Web Design & AI Solutions
+            <strong style="color:#0A0F1E;">Calidigi</strong> — Digital Marketing, Web Design &amp; AI Solutions
           </p>
           <p style="margin:0 0 8px;font-size:12px;color:#9ca3af;">
             San Francisco, California, USA
@@ -91,7 +91,7 @@ export function adminNotificationEmail(data: {
         ${row('Project Type', data.projectType)}
         ${row('Budget', data.budget)}
         ${row('Timeline', data.timeline)}
-        ${row('NDA Requested', data.nda ? '✅ Yes' : 'No')}
+        ${row('NDA Requested', data.nda ? '&#10003; Yes' : 'No')}
       </table>
     </div>
 
@@ -103,7 +103,7 @@ export function adminNotificationEmail(data: {
 
     <div style="text-align:center;margin-top:32px;">
       <a href="${siteUrl}/admin/contacts" style="display:inline-block;background:#F5821F;color:#ffffff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;">
-        View in Admin Panel →
+        View in Admin Panel &rarr;
       </a>
     </div>
   `
@@ -113,37 +113,41 @@ export function adminNotificationEmail(data: {
 export function userConfirmationEmail(fname: string) {
   const content = `
     <div style="text-align:center;margin-bottom:32px;">
-      <div style="width:72px;height:72px;background:#E8F5E9;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;">
-        <span style="font-size:32px;">✅</span>
-      </div>
+      <table cellpadding="0" cellspacing="0" style="margin:0 auto 20px;">
+        <tr>
+          <td width="72" height="72" style="background:#E8F5E9;border-radius:36px;text-align:center;vertical-align:middle;">
+            <span style="font-size:36px;line-height:72px;">&#10003;</span>
+          </td>
+        </tr>
+      </table>
       <h1 style="margin:0 0 12px;font-size:26px;font-weight:800;color:#0A0F1E;">Thank You, ${fname}!</h1>
       <p style="margin:0;font-size:16px;color:#6b7280;line-height:1.6;">Your inquiry has been successfully received.<br>Our team will get back to you shortly.</p>
     </div>
 
     <div style="background:#f8f9fb;border-radius:12px;padding:24px;border-left:4px solid #F5821F;margin-bottom:28px;">
-      <h3 style="margin:0 0 12px;font-size:16px;font-weight:700;color:#0A0F1E;">What Happens Next?</h3>
-      <table cellpadding="0" cellspacing="0">
+      <h3 style="margin:0 0 16px;font-size:16px;font-weight:700;color:#0A0F1E;">What Happens Next?</h3>
+      <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
-          <td style="padding:8px 0;vertical-align:top;">
-            <span style="display:inline-block;width:28px;height:28px;background:#F5821F;border-radius:50%;text-align:center;line-height:28px;font-size:13px;font-weight:700;color:#fff;">1</span>
+          <td width="36" style="vertical-align:top;padding-bottom:14px;">
+            <table cellpadding="0" cellspacing="0"><tr><td width="28" height="28" style="background:#F5821F;border-radius:14px;text-align:center;vertical-align:middle;font-size:13px;font-weight:700;color:#ffffff;line-height:28px;">1</td></tr></table>
           </td>
-          <td style="padding:8px 0 8px 12px;font-size:14px;color:#374151;vertical-align:top;">
+          <td style="vertical-align:top;padding-bottom:14px;padding-left:10px;font-size:14px;color:#374151;line-height:1.5;">
             <strong>Review</strong> — Our team reviews your inquiry within a few hours.
           </td>
         </tr>
         <tr>
-          <td style="padding:8px 0;vertical-align:top;">
-            <span style="display:inline-block;width:28px;height:28px;background:#F5821F;border-radius:50%;text-align:center;line-height:28px;font-size:13px;font-weight:700;color:#fff;">2</span>
+          <td width="36" style="vertical-align:top;padding-bottom:14px;">
+            <table cellpadding="0" cellspacing="0"><tr><td width="28" height="28" style="background:#F5821F;border-radius:14px;text-align:center;vertical-align:middle;font-size:13px;font-weight:700;color:#ffffff;line-height:28px;">2</td></tr></table>
           </td>
-          <td style="padding:8px 0 8px 12px;font-size:14px;color:#374151;vertical-align:top;">
+          <td style="vertical-align:top;padding-bottom:14px;padding-left:10px;font-size:14px;color:#374151;line-height:1.5;">
             <strong>Consultation</strong> — We schedule a free strategy call to understand your goals.
           </td>
         </tr>
         <tr>
-          <td style="padding:8px 0;vertical-align:top;">
-            <span style="display:inline-block;width:28px;height:28px;background:#F5821F;border-radius:50%;text-align:center;line-height:28px;font-size:13px;font-weight:700;color:#fff;">3</span>
+          <td width="36" style="vertical-align:top;">
+            <table cellpadding="0" cellspacing="0"><tr><td width="28" height="28" style="background:#F5821F;border-radius:14px;text-align:center;vertical-align:middle;font-size:13px;font-weight:700;color:#ffffff;line-height:28px;">3</td></tr></table>
           </td>
-          <td style="padding:8px 0 8px 12px;font-size:14px;color:#374151;vertical-align:top;">
+          <td style="vertical-align:top;padding-left:10px;font-size:14px;color:#374151;line-height:1.5;">
             <strong>Proposal</strong> — We send a tailored proposal matching your needs and budget.
           </td>
         </tr>
@@ -157,7 +161,7 @@ export function userConfirmationEmail(fname: string) {
 
     <div style="text-align:center;">
       <a href="${siteUrl}" style="display:inline-block;background:#F5821F;color:#ffffff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;">
-        Visit Calidigi.com →
+        Visit Calidigi.com &rarr;
       </a>
     </div>
   `
