@@ -2,7 +2,10 @@
 import { useEffect, useState } from 'react'
 import { useRouter, useParams } from 'next/navigation'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { adminApi } from '@/lib/adminApi'
+
+const CKEditorField = dynamic(() => import('../../CKEditorField'), { ssr: false })
 
 const CATEGORIES = ['AI & Automation','Digital Marketing','Web Design','Web Development','SEO','Local SEO','Branding','Business Growth','Technology','Case Studies','Industry Insights']
 const BG_OPTIONS = [
@@ -19,7 +22,9 @@ const BG_OPTIONS = [
   { val: 'bb-dev', label: 'Dev (Dark)' },
 ]
 
-interface Section { heading: string; body: string }
+interface Section { id: number; heading: string; body: string }
+let _sectionId = 0
+const newSection = (): Section => ({ id: ++_sectionId, heading: '', body: '' })
 
 function slugify(str: string) {
   return str.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()
@@ -43,11 +48,21 @@ export default function EditBlogPage() {
   const [readTime, setReadTime] = useState('5 min')
   const [date, setDate] = useState('')
   const [author, setAuthor] = useState('Calidigi Team')
+
+  function isoToDisplay(iso: string) {
+    if (!iso) return ''
+    const [y, m, d] = iso.split('-').map(Number)
+    return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  }
+  function displayToISO(display: string) {
+    if (!display) return ''
+    try { const d = new Date(display); return isNaN(d.getTime()) ? '' : d.toISOString().split('T')[0] } catch { return '' }
+  }
   const [icon, setIcon] = useState('fa-newspaper')
   const [bg, setBg] = useState('bb-ai')
   const [status, setStatus] = useState('draft')
   const [intro, setIntro] = useState('')
-  const [sections, setSections] = useState<Section[]>([{ heading: '', body: '' }])
+  const [sections, setSections] = useState<Section[]>([newSection()])
   const [conclusion, setConclusion] = useState('')
 
   useEffect(() => {
@@ -67,7 +82,7 @@ export default function EditBlogPage() {
         setBg(d.bg ?? 'bb-ai')
         setStatus(d.status ?? 'draft')
         setIntro(d.content?.intro ?? '')
-        setSections(d.content?.sections?.length ? d.content.sections : [{ heading: '', body: '' }])
+        setSections(d.content?.sections?.length ? d.content.sections.map((s: any) => ({ id: ++_sectionId, ...s })) : [newSection()])
         setConclusion(d.content?.conclusion ?? '')
       })
       .catch(() => setNotFound(true))
@@ -75,7 +90,7 @@ export default function EditBlogPage() {
   }, [id])
 
   function handleTitleChange(val: string) { setTitle(val); if (!slug || slug === slugify(title)) setSlug(slugify(val)) }
-  function addSection() { setSections(prev => [...prev, { heading: '', body: '' }]) }
+  function addSection() { setSections(prev => [...prev, newSection()]) }
   function removeSection(i: number) { setSections(prev => prev.filter((_, idx) => idx !== i)) }
   function updateSection(i: number, field: keyof Section, val: string) {
     setSections(prev => prev.map((s, idx) => idx === i ? { ...s, [field]: val } : s))
@@ -164,11 +179,11 @@ export default function EditBlogPage() {
               <div className="adm-card-title"><i className="fas fa-align-left"></i> Article Content</div>
               <div className="adm-form-group" style={{ marginBottom: 16 }}>
                 <label className="adm-label">Introduction <span>*</span></label>
-                <textarea className="adm-textarea" rows={4} value={intro} onChange={e => setIntro(e.target.value)} required />
+                <CKEditorField value={intro} onChange={setIntro} />
               </div>
               <div style={{ borderTop: '2px solid var(--gray-200)', paddingTop: 14, marginBottom: 12, fontFamily: 'var(--font-head)', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--navy)' }}>Sections</div>
               {sections.map((s, i) => (
-                <div key={i} className="adm-section-block">
+                <div key={s.id} className="adm-section-block">
                   <div className="adm-section-num">Section {i + 1}</div>
                   {sections.length > 1 && (
                     <button type="button" className="adm-section-remove" onClick={() => removeSection(i)}><i className="fas fa-times"></i></button>
@@ -179,7 +194,7 @@ export default function EditBlogPage() {
                   </div>
                   <div className="adm-form-group">
                     <label className="adm-label">Body</label>
-                    <textarea className="adm-textarea" rows={5} value={s.body} onChange={e => updateSection(i, 'body', e.target.value)} />
+                    <CKEditorField value={s.body} onChange={v => updateSection(i, 'body', v)} />
                   </div>
                 </div>
               ))}
@@ -188,7 +203,7 @@ export default function EditBlogPage() {
               </button>
               <div className="adm-form-group" style={{ marginTop: 16 }}>
                 <label className="adm-label">Conclusion</label>
-                <textarea className="adm-textarea" rows={3} value={conclusion} onChange={e => setConclusion(e.target.value)} />
+                <CKEditorField value={conclusion} onChange={setConclusion} />
               </div>
             </div>
           </div>
@@ -225,7 +240,7 @@ export default function EditBlogPage() {
               </div>
               <div className="adm-form-group" style={{ marginBottom: 12 }}>
                 <label className="adm-label">Date</label>
-                <input className="adm-input" value={date} onChange={e => setDate(e.target.value)} />
+                <input className="adm-input" type="date" value={displayToISO(date)} onChange={e => setDate(isoToDisplay(e.target.value))} />
               </div>
               <div className="adm-form-group">
                 <label className="adm-label">Author</label>

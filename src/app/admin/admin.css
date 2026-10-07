@@ -1297,6 +1297,137 @@
   color: var(--navy);
 }
 
+/* ── CKEditor 4 Theme Override ── */
+.cke_chrome {
+  border: 1.5px solid var(--gray-200) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+}
+.cke_top {
+  background: var(--gray-100) !important;
+  border-bottom: 1.5px solid var(--gray-200) !important;
+  padding: 6px 8px !important;
+}
+.cke_toolbox {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 2px !important;
+}
+.cke_button {
+  border-radius: 5px !important;
+  border: 1px solid transparent !important;
+  transition: all 0.15s !important;
+}
+.cke_button:hover,
+.cke_button_on {
+  background: rgba(245,130,31,0.1) !important;
+  border-color: rgba(245,130,31,0.3) !important;
+}
+.cke_button_on .cke_button_icon,
+.cke_button:hover .cke_button_icon {
+  opacity: 1 !important;
+}
+.cke_combo_button {
+  border: 1px solid var(--gray-200) !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+}
+.cke_combo_button:hover {
+  border-color: var(--orange) !important;
+}
+.cke_combo_arrow {
+  border-top-color: var(--gray-500) !important;
+}
+.cke_toolbar_separator {
+  background: var(--gray-200) !important;
+}
+.cke_editable {
+  font-family: 'Segoe UI', Arial, sans-serif !important;
+  font-size: 15px !important;
+  color: #1a1a2e !important;
+  padding: 16px 20px !important;
+  line-height: 1.75 !important;
+}
+.cke_bottom {
+  background: var(--navy) !important;
+  border-top: none !important;
+  padding: 4px 8px !important;
+}
+.cke_resizer {
+  border-color: transparent rgba(255,255,255,0.4) transparent transparent !important;
+}
+.cke_path_item, .cke_path_empty {
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 11px !important;
+}
+.cke_path_item:hover {
+  background: rgba(245,130,31,0.2) !important;
+  color: var(--orange) !important;
+  border-radius: 3px !important;
+}
+
+/* ── CMS Form Fields ── */
+.cms-field-row {
+  padding: 20px 28px;
+}
+.cms-field-divider {
+  height: 1px;
+  background: var(--gray-200);
+  margin: 0;
+}
+.cms-field-label {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+.cms-field-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.cms-field-input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(245,130,31,0.1);
+}
+.cms-field-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--navy);
+  background: #fff;
+  outline: none;
+  resize: vertical;
+  min-height: 90px;
+  box-sizing: border-box;
+  line-height: 1.6;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.cms-field-textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(245,130,31,0.1);
+}
+.cms-field-hint {
+  font-size: 0.73rem;
+  color: var(--gray-400);
+  margin: 6px 0 0;
+}
+
 /* ── Pagination ── */
 .adm-pagination {
   display: flex;

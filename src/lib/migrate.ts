@@ -59,15 +59,27 @@ export async function runMigrations() {
     await connection.execute(`
       CREATE TABLE IF NOT EXISTS cms_pages (
         id               INT AUTO_INCREMENT PRIMARY KEY,
+        page_name        VARCHAR(500),
         title            VARCHAR(500) NOT NULL,
         slug             VARCHAR(500) NOT NULL UNIQUE,
         content          LONGTEXT,
+        meta_title       VARCHAR(300),
         meta_description VARCHAR(500),
+        meta_keyword     VARCHAR(500),
         status           ENUM('draft','published') DEFAULT 'draft',
         created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
       )
     `)
+
+    // Add new columns to existing cms_pages table (safe — ignore if already exist)
+    for (const col of [
+      'ALTER TABLE cms_pages ADD COLUMN page_name VARCHAR(500)',
+      'ALTER TABLE cms_pages ADD COLUMN meta_title VARCHAR(300)',
+      'ALTER TABLE cms_pages ADD COLUMN meta_keyword VARCHAR(500)',
+    ]) {
+      try { await connection.execute(col) } catch {}
+    }
 
     await connection.execute(`
       CREATE TABLE IF NOT EXISTS password_resets (

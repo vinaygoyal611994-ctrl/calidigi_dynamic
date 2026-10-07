@@ -12,9 +12,17 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     if (!rows[0]) return NextResponse.json({ message: 'Not found.' }, { status: 404 })
     const r = rows[0]
     return NextResponse.json({
-      id: r.id, title: r.title, slug: r.slug, content: r.content,
-      metaDescription: r.meta_description, status: r.status,
-      createdAt: r.created_at, updatedAt: r.updated_at,
+      id: r.id,
+      pageName: r.page_name,
+      title: r.title,
+      slug: r.slug,
+      content: r.content,
+      metaTitle: r.meta_title,
+      metaDescription: r.meta_description,
+      metaKeyword: r.meta_keyword,
+      status: r.status,
+      createdAt: r.created_at,
+      updatedAt: r.updated_at,
     })
   } catch (err) {
     console.error('Page GET error:', err)
@@ -28,14 +36,14 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
   const { id } = await params
   try {
-    const { title, slug, content, metaDescription, status } = await req.json()
+    const { pageName, title, slug, content, metaTitle, metaDescription, metaKeyword, status } = await req.json()
     if (!title?.trim() || !slug?.trim()) {
       return NextResponse.json({ message: 'Title and slug are required.' }, { status: 400 })
     }
 
     const [result] = await db.execute(
-      'UPDATE cms_pages SET title=?, slug=?, content=?, meta_description=?, status=? WHERE id=?',
-      [title.trim(), slug.trim(), content || '', metaDescription || '', status || 'draft', id]
+      'UPDATE cms_pages SET page_name=?, title=?, slug=?, content=?, meta_title=?, meta_description=?, meta_keyword=?, status=? WHERE id=?',
+      [pageName || '', title.trim(), slug.trim(), content || '', metaTitle || '', metaDescription || '', metaKeyword || '', status || 'draft', id]
     ) as any[]
 
     if (result.affectedRows === 0) return NextResponse.json({ message: 'Not found.' }, { status: 404 })

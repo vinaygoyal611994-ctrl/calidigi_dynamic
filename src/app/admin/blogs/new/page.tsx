@@ -2,7 +2,10 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { adminApi } from '@/lib/adminApi'
+
+const CKEditorField = dynamic(() => import('../../CKEditorField'), { ssr: false })
 
 const CATEGORIES = ['AI & Automation','Digital Marketing','Web Design','Web Development','SEO','Local SEO','Branding','Business Growth','Technology','Case Studies','Industry Insights']
 const BG_OPTIONS = [
@@ -19,7 +22,9 @@ const BG_OPTIONS = [
   { val: 'bb-dev', label: 'Dev (Dark)' },
 ]
 
-interface Section { heading: string; body: string }
+interface Section { id: number; heading: string; body: string }
+let _sectionId = 0
+const newSection = (): Section => ({ id: ++_sectionId, heading: '', body: '' })
 
 function slugify(str: string) {
   return str.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim()
@@ -37,12 +42,22 @@ export default function NewBlogPage() {
   const [tags, setTags] = useState('')
   const [readTime, setReadTime] = useState('5 min')
   const [date, setDate] = useState(new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }))
+
+  function isoToDisplay(iso: string) {
+    if (!iso) return ''
+    const [y, m, d] = iso.split('-').map(Number)
+    return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  }
+  function displayToISO(display: string) {
+    if (!display) return ''
+    try { const d = new Date(display); return isNaN(d.getTime()) ? '' : d.toISOString().split('T')[0] } catch { return '' }
+  }
   const [author, setAuthor] = useState('Calidigi Team')
   const [icon, setIcon] = useState('fa-newspaper')
   const [bg, setBg] = useState('bb-ai')
   const [status, setStatus] = useState('draft')
   const [intro, setIntro] = useState('')
-  const [sections, setSections] = useState<Section[]>([{ heading: '', body: '' }])
+  const [sections, setSections] = useState<Section[]>([newSection()])
   const [conclusion, setConclusion] = useState('')
 
   function handleTitleChange(val: string) {
@@ -50,7 +65,7 @@ export default function NewBlogPage() {
     setSlug(slugify(val))
   }
 
-  function addSection() { setSections(prev => [...prev, { heading: '', body: '' }]) }
+  function addSection() { setSections(prev => [...prev, newSection()]) }
   function removeSection(i: number) { setSections(prev => prev.filter((_, idx) => idx !== i)) }
   function updateSection(i: number, field: keyof Section, val: string) {
     setSections(prev => prev.map((s, idx) => idx === i ? { ...s, [field]: val } : s))
@@ -129,7 +144,7 @@ export default function NewBlogPage() {
 
               <div className="adm-form-group" style={{ marginBottom: 16 }}>
                 <label className="adm-label">Introduction <span>*</span></label>
-                <textarea className="adm-textarea" rows={4} placeholder="Opening paragraph that sets context for the article…" value={intro} onChange={e => setIntro(e.target.value)} required />
+                <CKEditorField value={intro} onChange={setIntro} />
               </div>
 
               <div className="adm-settings-section-title" style={{ color: 'var(--navy)', borderTop: '2px solid var(--gray-200)', paddingTop: 14, marginBottom: 12, fontFamily: 'var(--font-head)', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
@@ -137,7 +152,7 @@ export default function NewBlogPage() {
               </div>
 
               {sections.map((s, i) => (
-                <div key={i} className="adm-section-block">
+                <div key={s.id} className="adm-section-block">
                   <div className="adm-section-num">Section {i + 1}</div>
                   {sections.length > 1 && (
                     <button type="button" className="adm-section-remove" onClick={() => removeSection(i)}>
@@ -150,7 +165,7 @@ export default function NewBlogPage() {
                   </div>
                   <div className="adm-form-group">
                     <label className="adm-label">Body</label>
-                    <textarea className="adm-textarea" rows={5} placeholder="Section content. Use two blank lines to separate paragraphs…" value={s.body} onChange={e => updateSection(i, 'body', e.target.value)} />
+                    <CKEditorField value={s.body} onChange={v => updateSection(i, 'body', v)} />
                   </div>
                 </div>
               ))}
@@ -160,7 +175,7 @@ export default function NewBlogPage() {
 
               <div className="adm-form-group" style={{ marginTop: 16 }}>
                 <label className="adm-label">Conclusion</label>
-                <textarea className="adm-textarea" rows={3} placeholder="Closing paragraph with a call to action…" value={conclusion} onChange={e => setConclusion(e.target.value)} />
+                <CKEditorField value={conclusion} onChange={setConclusion} />
               </div>
             </div>
           </div>
@@ -199,7 +214,7 @@ export default function NewBlogPage() {
               </div>
               <div className="adm-form-group" style={{ marginBottom: 12 }}>
                 <label className="adm-label">Date</label>
-                <input className="adm-input" placeholder="Dec 15, 2026" value={date} onChange={e => setDate(e.target.value)} />
+                <input className="adm-input" type="date" value={displayToISO(date)} onChange={e => setDate(isoToDisplay(e.target.value))} />
               </div>
               <div className="adm-form-group" style={{ marginBottom: 12 }}>
                 <label className="adm-label">Author</label>
