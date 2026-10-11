@@ -24,6 +24,8 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       to: contact.email,
       subject: `Re: Your Inquiry — Calidigi`,
       html: replyEmail(contact.fname, replyMessage.trim()),
+      type: 'contact_reply',
+      toName: contact.fname,
     })
 
     await db.execute('UPDATE contacts SET status = ? WHERE id = ?', ['replied', id])

@@ -50,6 +50,11 @@ export const adminApi = {
   changePassword: (data: { currentPassword: string; newPassword: string }) =>
     request('/api/admin/change-password', { method: 'POST', body: JSON.stringify(data) }),
 
+  getEmailLogs: (params = '') => request(`/api/admin/email-logs${params}`),
+
+  getNewsletters: (params = '') => request(`/api/admin/newsletters${params}`),
+  deleteNewsletter: (id: number) => request(`/api/admin/newsletters/${id}`, { method: 'DELETE' }),
+
   getPages: () => request('/api/admin/pages'),
   getPage: (id: number) => request(`/api/admin/pages/${id}`),
   createPage: (data: object) => request('/api/admin/pages', { method: 'POST', body: JSON.stringify(data) }),

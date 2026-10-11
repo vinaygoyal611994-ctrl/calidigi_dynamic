@@ -3723,6 +3723,25 @@ ul  { list-style: none; }
 }
 .blg-nl-note i { color: #10b981; }
 
+/* ── Sidebar Newsletter Form (nl-*) ── */
+.nl-form { display: flex; flex-direction: column; gap: 10px; }
+.nl-field { display: flex; flex-direction: column; }
+.nl-input {
+  width: 100%; height: 46px; padding: 0 14px;
+  font-family: var(--font-body); font-size: 0.9rem; color: var(--navy);
+  background: #fff; border: 1.5px solid #e5e7eb; border-radius: 8px;
+  outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.nl-input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245,130,31,0.12); }
+.nl-input::placeholder { color: #9ca3af; }
+.nl-input-error { border-color: #ef4444 !important; box-shadow: 0 0 0 3px rgba(239,68,68,0.1) !important; }
+.nl-note {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 0.75rem; color: #9ca3af; margin-top: 4px; text-align: center;
+}
+.nl-note i { color: #10b981; }
+
 /* ── Business CTA ── */
 .blg-biz-cta {
   padding: 100px 0;

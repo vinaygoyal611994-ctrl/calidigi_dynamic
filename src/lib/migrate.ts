@@ -82,6 +82,28 @@ export async function runMigrations() {
     }
 
     await connection.execute(`
+      CREATE TABLE IF NOT EXISTS email_logs (
+        id        INT AUTO_INCREMENT PRIMARY KEY,
+        type      VARCHAR(100) NOT NULL,
+        to_email  VARCHAR(300) NOT NULL,
+        to_name   VARCHAR(300),
+        subject   VARCHAR(500),
+        status    ENUM('sent','failed') DEFAULT 'sent',
+        error_msg TEXT,
+        sent_at   TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    await connection.execute(`
+      CREATE TABLE IF NOT EXISTS newsletters (
+        id         INT AUTO_INCREMENT PRIMARY KEY,
+        name       VARCHAR(200),
+        email      VARCHAR(200) NOT NULL UNIQUE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    await connection.execute(`
       CREATE TABLE IF NOT EXISTS password_resets (
         id         INT AUTO_INCREMENT PRIMARY KEY,
         user_id    INT NOT NULL,

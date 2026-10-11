@@ -168,6 +168,117 @@ export function userConfirmationEmail(fname: string) {
   return baseTemplate(content)
 }
 
+export function newsletterWelcomeEmail(name: string) {
+  const firstName = name ? name.split(' ')[0] : 'there'
+  const content = `
+    <div style="text-align:center;margin-bottom:32px;">
+      <table cellpadding="0" cellspacing="0" style="margin:0 auto 20px;">
+        <tr>
+          <td width="72" height="72" style="background:#FFF3E0;border-radius:36px;text-align:center;vertical-align:middle;">
+            <span style="font-size:36px;line-height:72px;">📬</span>
+          </td>
+        </tr>
+      </table>
+      <h1 style="margin:0 0 12px;font-size:26px;font-weight:800;color:#0A0F1E;">Welcome, ${firstName}!</h1>
+      <p style="margin:0;font-size:16px;color:#6b7280;line-height:1.6;">You&apos;ve successfully subscribed to the<br><strong style="color:#0A0F1E;">Calidigi Insights Newsletter</strong>.</p>
+    </div>
+
+    <div style="background:#f8f9fb;border-radius:12px;padding:24px;border-left:4px solid #F5821F;margin-bottom:28px;">
+      <h3 style="margin:0 0 14px;font-size:16px;font-weight:700;color:#0A0F1E;">What You&apos;ll Get</h3>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="28" style="vertical-align:top;padding-bottom:12px;">
+            <table cellpadding="0" cellspacing="0"><tr><td width="22" height="22" style="background:#F5821F;border-radius:11px;text-align:center;vertical-align:middle;font-size:12px;color:#fff;line-height:22px;">&#10003;</td></tr></table>
+          </td>
+          <td style="vertical-align:top;padding-bottom:12px;padding-left:10px;font-size:14px;color:#374151;line-height:1.5;">
+            <strong>Digital Marketing Tips</strong> — Proven strategies to grow your online presence.
+          </td>
+        </tr>
+        <tr>
+          <td width="28" style="vertical-align:top;padding-bottom:12px;">
+            <table cellpadding="0" cellspacing="0"><tr><td width="22" height="22" style="background:#F5821F;border-radius:11px;text-align:center;vertical-align:middle;font-size:12px;color:#fff;line-height:22px;">&#10003;</td></tr></table>
+          </td>
+          <td style="vertical-align:top;padding-bottom:12px;padding-left:10px;font-size:14px;color:#374151;line-height:1.5;">
+            <strong>AI &amp; Automation Insights</strong> — How to leverage AI tools for your business.
+          </td>
+        </tr>
+        <tr>
+          <td width="28" style="vertical-align:top;">
+            <table cellpadding="0" cellspacing="0"><tr><td width="22" height="22" style="background:#F5821F;border-radius:11px;text-align:center;vertical-align:middle;font-size:12px;color:#fff;line-height:22px;">&#10003;</td></tr></table>
+          </td>
+          <td style="vertical-align:top;padding-left:10px;font-size:14px;color:#374151;line-height:1.5;">
+            <strong>SEO &amp; Web Design Trends</strong> — Stay ahead of what&apos;s working right now.
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="background:#0A0F1E;border-radius:12px;padding:24px;text-align:center;margin-bottom:28px;">
+      <p style="margin:0 0 6px;font-size:14px;color:rgba(255,255,255,0.6);">Questions? We&apos;d love to hear from you.</p>
+      <a href="mailto:sales@calidigi.com" style="font-size:16px;font-weight:700;color:#F5821F;text-decoration:none;">sales@calidigi.com</a>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="${siteUrl}/blog" style="display:inline-block;background:#F5821F;color:#ffffff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;">
+        Read Our Latest Articles &rarr;
+      </a>
+    </div>
+  `
+  return baseTemplate(content)
+}
+
+export function newsletterAdminEmail(name: string | null, email: string) {
+  const content = `
+    <div style="margin-bottom:28px;">
+      <div style="display:inline-block;background:#FFF3E0;border:1px solid #F5821F;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#F5821F;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;">New Subscriber</div>
+      <h1 style="margin:0 0 8px;font-size:24px;font-weight:800;color:#0A0F1E;">Newsletter Subscription</h1>
+      <p style="margin:0;font-size:15px;color:#6b7280;">Someone just subscribed to the Calidigi Insights Newsletter.</p>
+    </div>
+
+    <div style="background:#f8f9fb;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;margin-bottom:28px;">
+      <div style="background:#0A0F1E;padding:12px 16px;">
+        <p style="margin:0;font-size:12px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:0.08em;text-transform:uppercase;">Subscriber Details</p>
+      </div>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        ${name ? `<tr>
+          <td style="padding:12px 16px;font-size:13px;font-weight:600;color:#6b7280;white-space:nowrap;border-bottom:1px solid #f3f4f6;width:120px;">Name</td>
+          <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;">${name}</td>
+        </tr>` : ''}
+        <tr>
+          <td style="padding:12px 16px;font-size:13px;font-weight:600;color:#6b7280;white-space:nowrap;width:120px;">Email</td>
+          <td style="padding:12px 16px;font-size:14px;color:#111827;"><a href="mailto:${email}" style="color:#F5821F;text-decoration:none;">${email}</a></td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="${siteUrl}/admin/newsletters" style="display:inline-block;background:#F5821F;color:#ffffff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;">
+        View All Subscribers &rarr;
+      </a>
+    </div>
+  `
+  return baseTemplate(content)
+}
+
+export function baseNewsletterReplyEmail(name: string, message: string) {
+  const content = `
+    <div style="margin-bottom:24px;">
+      <h1 style="margin:0 0 8px;font-size:24px;font-weight:800;color:#0A0F1E;">Hello ${name},</h1>
+      <p style="margin:0;font-size:15px;color:#6b7280;">A message from the Calidigi team:</p>
+    </div>
+
+    <div style="background:#f8f9fb;border-radius:12px;padding:24px;border-left:4px solid #F5821F;margin-bottom:28px;">
+      <p style="margin:0;font-size:15px;color:#374151;line-height:1.8;">${message.replace(/\n/g, '<br>')}</p>
+    </div>
+
+    <div style="background:#0A0F1E;border-radius:12px;padding:24px;text-align:center;">
+      <p style="margin:0 0 6px;font-size:14px;color:rgba(255,255,255,0.6);">Questions? Reach us anytime</p>
+      <a href="mailto:sales@calidigi.com" style="font-size:16px;font-weight:700;color:#F5821F;text-decoration:none;">sales@calidigi.com</a>
+    </div>
+  `
+  return baseTemplate(content)
+}
+
 export function replyEmail(fname: string, replyMessage: string) {
   const content = `
     <div style="margin-bottom:24px;">

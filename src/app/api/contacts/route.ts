@@ -26,11 +26,15 @@ export async function POST(req: NextRequest) {
         to: process.env.ADMIN_EMAIL || 'goyalshweta0310@gmail.com',
         subject: `🔔 New Inquiry from ${fname.trim()} — Calidigi`,
         html: adminNotificationEmail(emailData),
+        type: 'contact_admin',
+        toName: 'Admin',
       }),
       sendMail({
         to: email.trim(),
         subject: 'Your Inquiry Has Been Received — Calidigi',
         html: userConfirmationEmail(fname.trim()),
+        type: 'contact_user',
+        toName: fname.trim(),
       }),
     ]).catch(err => console.error('Email send error:', err))
 

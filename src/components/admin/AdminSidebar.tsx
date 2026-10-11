@@ -10,9 +10,11 @@ const navItems = [
   { section: 'Content' },
   { href: '/admin/contacts', icon: 'fa-inbox',      label: 'Contact Management' },
   { href: '/admin/blogs',    icon: 'fa-newspaper',  label: 'Blog Management' },
-  { href: '/admin/pages',    icon: 'fa-file-lines', label: 'CMS Management' },
+  { href: '/admin/pages',       icon: 'fa-file-lines', label: 'CMS Management' },
+  { href: '/admin/newsletters', icon: 'fa-envelope',   label: 'Newsletter Subscribers' },
   { section: 'System' },
-  { href: '/admin/settings', icon: 'fa-gear',       label: 'Settings' },
+  { href: '/admin/email-logs', icon: 'fa-envelope-open-text', label: 'Email Logs' },
+  { href: '/admin/settings',   icon: 'fa-gear',               label: 'Settings' },
 ]
 
 type Props = {
