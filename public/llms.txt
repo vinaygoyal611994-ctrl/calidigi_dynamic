@@ -1,0 +1,55 @@
+# Calidigi — California Digital Growth & AI Company
+
+> Calidigi is a California-based digital growth company helping businesses attract customers, generate leads, and grow through web development, digital marketing, local SEO, branding, and AI-powered solutions.
+
+## About
+
+Calidigi is a full-service digital agency headquartered in San Francisco, California. We work with businesses across 30+ industries to build stronger digital presences, automate operations with AI, and create measurable growth opportunities. We have delivered 500+ projects with a 98% client retention rate and generated $50M+ in client revenue.
+
+## Services
+
+- **Web Design & Development** — High-converting websites, landing pages, e-commerce, CMS development, and performance optimization
+- **Digital Marketing** — SEO, content marketing, social media marketing, paid campaigns, lead generation, and analytics
+- **Local SEO** — Google Business Profile optimization, local keyword strategy, citation building, and reputation management
+- **Branding & Creative** — Brand strategy, logo design, visual identity systems, and marketing materials
+- **AI Solutions** — AI integration, custom AI model development, LLM fine-tuning, business automation, and predictive analytics
+- **Custom Software** — SaaS development, API design, enterprise web applications, cloud-native architecture
+
+## Industries Served
+
+Healthcare, Real Estate, E-Commerce, SaaS & Tech, Legal, Restaurant & Hospitality, Solar Energy, Education, Home Services, Logistics, Manufacturing, Finance, and 20+ more industries across California.
+
+## Key Facts
+
+- Founded: California, USA
+- Location: San Francisco, CA 94103
+- Projects Delivered: 500+
+- Industries Served: 30+
+- Client Retention Rate: 98%
+- Client Revenue Generated: $50M+
+- Average Client Rating: 4.9/5
+
+## Contact
+
+- Website: https://www.calidigi.com
+- Email: sales@calidigi.com
+- Phone: +1 (555) 000-1234
+- Location: San Francisco, California, USA
+
+## Pages
+
+- Homepage: https://www.calidigi.com/
+- Services: https://www.calidigi.com/services
+- Solutions: https://www.calidigi.com/solutions
+- Portfolio: https://www.calidigi.com/portfolio
+- About: https://www.calidigi.com/about
+- Blog: https://www.calidigi.com/blog
+- Contact: https://www.calidigi.com/contact-us
+
+## Blog Topics
+
+Calidigi publishes expert insights on digital marketing, web design, local SEO, AI for business, branding, lead generation, e-commerce, and business growth strategies for California businesses.
+
+## Sitemap
+
+https://www.calidigi.com/sitemap.xml
