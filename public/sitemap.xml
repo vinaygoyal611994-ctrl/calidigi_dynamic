@@ -4,75 +4,219 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- ═══════════════════════════
+       CORE PAGES
+  ═══════════════════════════ -->
+
   <url>
     <loc>https://www.calidigi.com/</loc>
-    <lastmod>2025-09-29</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/about.html</loc>
-    <lastmod>2025-09-29</lastmod>
+    <loc>https://www.calidigi.com/about</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/services.html</loc>
-    <lastmod>2025-09-29</lastmod>
+    <loc>https://www.calidigi.com/services</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/solutions.html</loc>
-    <lastmod>2025-09-29</lastmod>
+    <loc>https://www.calidigi.com/solutions</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/blog.html</loc>
-    <lastmod>2025-09-29</lastmod>
+    <loc>https://www.calidigi.com/portfolio</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/contact-us</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══════════════════════════
+       LEGAL PAGES
+  ═══════════════════════════ -->
+
+  <url>
+    <loc>https://www.calidigi.com/privacy-policy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/terms-of-service</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/cookie-policy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ═══════════════════════════
+       BLOG ARTICLES
+  ═══════════════════════════ -->
+
+  <url>
+    <loc>https://www.calidigi.com/blog/how-ai-is-changing-the-way-businesses-approach-digital-growth</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/portfolio.html</loc>
-    <lastmod>2025-09-29</lastmod>
+    <loc>https://www.calidigi.com/blog/how-local-seo-helps-businesses-get-found-by-nearby-customers</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/contactus.html</loc>
-    <lastmod>2025-09-29</lastmod>
+    <loc>https://www.calidigi.com/blog/what-makes-a-business-website-convert-visitors-into-customers</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-
-  <url>
-    <loc>https://www.calidigi.com/privacy_policy.html</loc>
-    <lastmod>2025-09-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/terms_of_service.html</loc>
-    <lastmod>2025-09-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.calidigi.com/blog/building-a-digital-marketing-strategy-for-a-growing-business</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/cookie_policy.html</loc>
-    <lastmod>2025-09-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.calidigi.com/blog/why-consistent-branding-matters-in-the-digital-age</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/from-digital-presence-to-digital-growth-what-the-difference-means</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/the-complete-guide-to-on-page-seo-for-business-websites</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/ai-chatbots-how-businesses-are-using-them-to-improve-customer-service</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/mobile-first-design-why-it-matters-more-than-ever-for-your-business</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/google-business-profile-optimization-a-step-by-step-guide</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/content-marketing-strategies-that-drive-real-business-results</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/the-technology-stack-every-modern-business-website-needs</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/brand-guidelines-why-your-business-needs-them-and-what-to-include</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/how-to-build-a-lead-generation-system-that-scales-with-your-business</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/local-vs-national-seo-which-strategy-does-your-business-need</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/marketing-automation-how-to-grow-faster-while-spending-less-time</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/digital-transformation-trends-reshaping-us-businesses-in-2025</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/how-a-healthcare-practice-improved-local-visibility-with-digital-strategy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/web-development-best-practices-for-business-websites-in-2025</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

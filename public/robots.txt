@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+# Block admin and API routes
+Disallow: /admin/
+Disallow: /api/
+
+# Block internal Next.js paths
+Disallow: /_next/
+
 Sitemap: https://www.calidigi.com/sitemap.xml
