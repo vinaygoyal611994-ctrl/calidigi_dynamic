@@ -2,21 +2,21 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Calidigi — Digital Marketing, Web Design & AI Solutions | California',
+  title: 'Web Development, SEO & AI Solutions California',
   description:
-    'Calidigi is a California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding to help businesses attract customers and grow.',
+    'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
   alternates: {
     canonical: 'https://www.calidigi.com/',
     languages: { 'en-US': 'https://www.calidigi.com/', 'x-default': 'https://www.calidigi.com/' },
   },
   openGraph: {
     url: 'https://www.calidigi.com/',
-    title: 'Calidigi — Digital Marketing, Web Design & AI Solutions | California',
-    description: 'Calidigi is a California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding to help businesses attract customers and grow.',
+    title: 'Web Development, SEO & AI Solutions California | Calidigi',
+    description: 'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
   },
   twitter: {
-    title: 'Calidigi — Digital Marketing, Web Design & AI Solutions | California',
-    description: 'Calidigi is a California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding to help businesses attract customers and grow.',
+    title: 'Web Development, SEO & AI Solutions California | Calidigi',
+    description: 'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
   },
 }
 
@@ -67,10 +67,10 @@ export default function HomePage() {
         '@type': 'WebPage',
         '@id': 'https://www.calidigi.com/#webpage',
         url: 'https://www.calidigi.com/',
-        name: 'Calidigi — Digital Marketing, Web Design & AI Solutions | California',
+        name: 'Web Development, SEO & AI Solutions California | Calidigi',
         isPartOf: { '@id': 'https://www.calidigi.com/#website' },
         about: { '@id': 'https://www.calidigi.com/#organization' },
-        description: 'Calidigi is a California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding to help businesses attract customers and grow.',
+        description: 'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
         breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.calidigi.com/' }] },
       },
     ],
@@ -85,11 +85,12 @@ export default function HomePage() {
         <div className="hero-dots"></div>
         <div className="container hero-inner">
           <div className="hero-content">
+            <h1 className="sr-only">Web Development, Digital Marketing &amp; AI Solutions California | Calidigi</h1>
             <div className="hero-eyebrow">
               <div className="hero-eyebrow-dot"></div>
               <span>California&apos;s Digital Growth Company</span>
             </div>
-            <h1>Grow Your Business With<br /><em>Digital, Design &amp; AI</em></h1>
+            <h2>Grow Your Business With<br /><em>Digital, Design &amp; AI</em></h2>
             <p className="hero-desc">
               We build high-performing websites, powerful brands, local SEO strategies and AI-powered solutions that help businesses attract customers, generate leads and grow.
             </p>

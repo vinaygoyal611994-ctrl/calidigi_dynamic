@@ -3,9 +3,9 @@ import Link from 'next/link'
 import PortfolioFilter from '@/components/PortfolioFilter'
 
 export const metadata: Metadata = {
-  title: 'Portfolio — 30+ Industry Digital Transformations | Calidigi',
+  title: 'Portfolio — 30+ Industry Digital Transformations',
   description:
-    "Explore Calidigi's portfolio of 500+ successful digital transformation projects across 30+ industries — healthcare, real estate, e-commerce, SaaS, solar, manufacturing and more. California's technology company.",
+    "Browse Calidigi's portfolio of 500+ digital projects across 30+ industries including healthcare, real estate, e-commerce, SaaS and manufacturing businesses.",
   alternates: {
     canonical: 'https://www.calidigi.com/portfolio',
     languages: { 'en-US': 'https://www.calidigi.com/portfolio', 'x-default': 'https://www.calidigi.com/portfolio' },
@@ -54,8 +54,9 @@ export default function PortfolioPage() {
         <div className="pf-hero-glow-2"></div>
         <div className="container pf-hero-inner">
           <div className="pf-hero-content">
+            <h1 className="sr-only">Digital Transformation Portfolio — 500+ Projects Across 30+ Industries | Calidigi California</h1>
             <div className="badge badge-white"><i className="fas fa-briefcase"></i> Our Work</div>
-            <h1 className="pf-hero-h1">Digital Transformation<br /><em>Across Every Industry</em></h1>
+            <h2 className="pf-hero-h1">Digital Transformation<br /><em>Across Every Industry</em></h2>
             <p className="pf-hero-lead">500+ successful projects. 30+ industries. Zero compromise on results. Every engagement starts with deep industry understanding and ends with measurable business growth.</p>
             <div className="pf-hero-stats">
               <div className="pf-hero-stat">

@@ -3,6 +3,9 @@
    California Digital Growth & AI Agency
 ═══════════════════════════════════════ */
 
+/* ── Accessibility / SEO ── */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -350,7 +353,7 @@ ul  { list-style: none; }
   color: var(--orange);
 }
 
-.hero h1 {
+.hero h1, .hero h2 {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 3.6vw, 3.2rem);
   font-weight: 900;
@@ -359,7 +362,7 @@ ul  { list-style: none; }
   margin-bottom: 24px;
   letter-spacing: -0.02em;
 }
-.hero h1 em {
+.hero h1 em, .hero h2 em {
   font-style: normal;
   color: var(--orange);
 }
@@ -1967,7 +1970,7 @@ ul  { list-style: none; }
   align-items: center;
 }
 .about-hero-content {}
-.about-hero-content h1 {
+.about-hero-content h1, .about-hero-content h2 {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   font-weight: 900;
@@ -1976,7 +1979,7 @@ ul  { list-style: none; }
   margin-bottom: 22px;
   letter-spacing: -0.02em;
 }
-.about-hero-content h1 em {
+.about-hero-content h1 em, .about-hero-content h2 em {
   font-style: normal;
   color: var(--orange);
 }
@@ -2740,7 +2743,7 @@ ul  { list-style: none; }
   .case-grid         { grid-template-columns: repeat(2, 1fr); }
   .tech-inner        { grid-template-columns: 1fr; gap: 48px; }
   .collab-inner      { grid-template-columns: 1fr; gap: 48px; }
-  .about-hero-content h1 { font-size: 2.6rem; }
+  .about-hero-content h1, .about-hero-content h2 { font-size: 2.6rem; }
   .about-hero-content p  { max-width: 100%; }
 }
 @media (max-width: 768px) {
@@ -2788,14 +2791,14 @@ ul  { list-style: none; }
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 72px; align-items: center;
 }
-.svc-hero-content h1 {
+.svc-hero-content h1, .svc-hero-content h2 {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 3.8vw, 3.5rem);
   font-weight: 900; color: var(--white);
   line-height: 1.14; margin-bottom: 22px;
   letter-spacing: -0.025em;
 }
-.svc-hero-content h1 em { font-style: normal; color: var(--orange); }
+.svc-hero-content h1 em, .svc-hero-content h2 em { font-style: normal; color: var(--orange); }
 .svc-hero-content > p {
   font-size: 1.04rem; color: rgba(255,255,255,0.60);
   line-height: 1.82; margin-bottom: 40px; max-width: 500px;
@@ -3274,14 +3277,14 @@ ul  { list-style: none; }
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 72px; align-items: center;
 }
-.blg-hero-content h1 {
+.blg-hero-content h1, .blg-hero-content h2 {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
   font-weight: 900; color: var(--white);
   line-height: 1.14; margin-bottom: 20px;
   letter-spacing: -0.025em;
 }
-.blg-hero-content h1 em { font-style: normal; color: var(--orange); }
+.blg-hero-content h1 em, .blg-hero-content h2 em { font-style: normal; color: var(--orange); }
 .blg-hero-content > p {
   font-size: 1.02rem; color: rgba(255,255,255,0.60);
   line-height: 1.82; margin-bottom: 36px; max-width: 500px;
@@ -3843,7 +3846,7 @@ ul  { list-style: none; }
   gap: 72px;
   align-items: center;
 }
-.sol-hero-content h1 {
+.sol-hero-content h1, .sol-hero-content h2 {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 3.8vw, 3.5rem);
   font-weight: 900;
@@ -3852,7 +3855,7 @@ ul  { list-style: none; }
   margin-bottom: 22px;
   letter-spacing: -0.025em;
 }
-.sol-hero-content h1 em { font-style: normal; color: var(--orange); }
+.sol-hero-content h1 em, .sol-hero-content h2 em { font-style: normal; color: var(--orange); }
 .sol-hero-content > p {
   font-size: 1.04rem;
   color: rgba(255,255,255,0.58);
@@ -4857,7 +4860,7 @@ ul  { list-style: none; }
 }
 @media (max-width: 1024px) {
   .sol-hero-inner     { grid-template-columns: 1fr; gap: 48px; }
-  .sol-hero-content h1 { font-size: 2.8rem; }
+  .sol-hero-content h1, .sol-hero-content h2 { font-size: 2.8rem; }
   .sol-ai-inner       { grid-template-columns: 1fr; gap: 48px; }
   .sol-consult-inner  { grid-template-columns: 1fr; gap: 48px; }
   .sol-results-grid   { grid-template-columns: repeat(2, 1fr); }
@@ -4885,7 +4888,7 @@ ul  { list-style: none; }
 @media (max-width: 480px) {
   .sol-ti-metrics { grid-template-columns: 1fr 1fr; }
   .sol-ti-metrics .sol-ti-metric:last-child { display: none; }
-  .sol-hero-content h1 { font-size: 2.1rem; }
+  .sol-hero-content h1, .sol-hero-content h2 { font-size: 2.1rem; }
   .sol-case-metrics { flex-direction: column; gap: 12px; }
   .sol-case-metric  { border-right: none; border-bottom: 1px solid var(--gray-200); padding-bottom: 12px; }
   .sol-case-metric:last-child { border-bottom: none; }
@@ -6796,7 +6799,7 @@ ul  { list-style: none; }
 }
 @media (max-width: 480px) {
   .about-hero         { padding: 96px 0 48px; }
-  .about-hero-content h1 { font-size: 2rem; }
+  .about-hero-content h1, .about-hero-content h2 { font-size: 2rem; }
   .why-grid           { gap: 16px; }
   .beliefs-grid       { gap: 16px; }
   .case-grid          { gap: 16px; }
@@ -6823,7 +6826,7 @@ ul  { list-style: none; }
 }
 @media (max-width: 480px) {
   .svc-hero           { padding: 96px 0 48px; }
-  .svc-hero-content h1 { font-size: 2rem; }
+  .svc-hero-content h1, .svc-hero-content h2 { font-size: 2rem; }
   .approach-circle    { width: 48px; height: 48px; font-size: 1rem; }
   .approach-timeline  { gap: 24px; }
   .approach-node      { padding: 20px 12px; }
@@ -6861,7 +6864,7 @@ ul  { list-style: none; }
 }
 @media (max-width: 480px) {
   .blg-hero           { padding: 96px 0 48px; }
-  .blg-hero-content h1 { font-size: 2rem; }
+  .blg-hero-content h1, .blg-hero-content h2 { font-size: 2rem; }
   .blg-search-wrap    { padding: 0 16px; }
   .blg-cats-wrap      { gap: 6px; }
   .blg-cat-pill       { padding: 7px 14px; font-size: 0.78rem; }
@@ -6890,7 +6893,7 @@ ul  { list-style: none; }
 }
 @media (max-width: 480px) {
   .sol-hero           { padding: 96px 0 48px; }
-  .sol-hero-content h1 { font-size: 2rem; }
+  .sol-hero-content h1, .sol-hero-content h2 { font-size: 2rem; }
   .sol-ai-cap-row     { grid-template-columns: 1fr 1fr; gap: 6px; }
   .sol-cap-item       { padding: 12px 10px; font-size: 0.78rem; }
   .sol-pillar-card    { padding: 24px 18px; }

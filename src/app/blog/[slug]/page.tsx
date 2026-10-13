@@ -16,11 +16,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const article = getArticleBySlug(slug)
-  if (!article) return { title: 'Article Not Found | Calidigi' }
+  if (!article) return { title: 'Article Not Found' }
 
   const url = `https://www.calidigi.com/blog/${article.slug}`
   return {
-    title: `${article.title} | Calidigi`,
+    title: article.title,
     description: article.excerpt,
     alternates: {
       canonical: url,

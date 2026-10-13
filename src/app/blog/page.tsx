@@ -4,7 +4,7 @@ import BlogInteractive from '@/components/BlogInteractive'
 import BlogNewsletter from '@/components/BlogNewsletter'
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing, SEO & AI Business Growth Blog | Calidigi',
+  title: 'Digital Marketing, SEO & AI Business Growth Blog',
   description:
     "Explore Calidigi's expert insights on digital marketing, web design, local SEO, branding, AI solutions and business growth strategies for California businesses.",
   alternates: {
@@ -101,8 +101,9 @@ export default function BlogPage() {
         <div className="blg-hero-glow-2"></div>
         <div className="container blg-hero-inner">
           <div className="blg-hero-content">
+            <h1 className="sr-only">Digital Marketing, SEO &amp; AI Business Growth Blog | Calidigi California</h1>
             <div className="badge badge-white"><i className="fas fa-book-open"></i> Calidigi Insights</div>
-            <h1>Insights That Help<br /><em>Businesses Grow</em></h1>
+            <h2>Insights That Help<br /><em>Businesses Grow</em></h2>
             <p>Explore practical insights, strategies, trends, and solutions across digital marketing, web development, SEO, branding, AI, and business growth.</p>
             <div className="blg-hero-actions">
               <a href="#latest" className="btn btn-primary">Explore All Insights <i className="fas fa-arrow-right"></i></a>

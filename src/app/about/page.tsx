@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About Calidigi — California Digital Growth Company',
   description:
-    'Calidigi is a California-based digital solutions company. We work with businesses to identify real challenges, design practical digital solutions and help them improve their online presence and growth.',
+    'Calidigi is a California digital solutions company. We help businesses grow online with web development, SEO, digital marketing, branding and AI solutions.',
   alternates: {
     canonical: 'https://www.calidigi.com/about',
     languages: { 'en-US': 'https://www.calidigi.com/about', 'x-default': 'https://www.calidigi.com/about' },
@@ -59,8 +59,9 @@ export default function AboutPage() {
         <div className="about-hero-glow-2"></div>
         <div className="container about-hero-inner">
           <div className="about-hero-content">
+            <h1 className="sr-only">About Calidigi — California Digital Growth &amp; Web Development Company</h1>
             <div className="badge badge-white"><i className="fas fa-building"></i> About Calidigi</div>
-            <h1>Turning Business Challenges Into<br /><em>Digital Solutions.</em></h1>
+            <h2>Turning Business Challenges Into<br /><em>Digital Solutions.</em></h2>
             <p>We work with businesses to identify real challenges, design practical digital solutions and help them improve their online presence, operations, customer experience and growth — not just build websites.</p>
             <div className="about-hero-actions">
               <Link href="/contact-us" className="btn btn-primary">Let&apos;s Talk About Your Business <i className="fas fa-arrow-right"></i></Link>

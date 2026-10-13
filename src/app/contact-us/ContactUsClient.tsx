@@ -150,8 +150,9 @@ export default function ContactUsClient() {
         <div className="ct-hero-grid"></div>
         <div className="container ct-hero-inner">
           <div className="ct-hero-text">
+            <h1 className="sr-only">Contact Calidigi — California Web Development &amp; Digital Marketing Company</h1>
             <div className="badge badge-white"><i className="fas fa-paper-plane"></i> Get In Touch</div>
-            <h1 className="ct-hero-h1">Let&apos;s Build Something<br /><em>Extraordinary Together</em></h1>
+            <h2 className="ct-hero-h1">Let&apos;s Build Something<br /><em>Extraordinary Together</em></h2>
             <p className="ct-hero-lead">Whether you&apos;re ready to launch, still exploring ideas, or need an expert opinion on your current tech — we&apos;re here. Every great project starts with a single conversation.</p>
           </div>
           <div className="ct-hero-trust">

@@ -2,21 +2,21 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'AI Integration, Custom Software & Technology Solutions | Calidigi',
+  title: 'AI Solutions & Custom Software for Business',
   description:
-    'Calidigi delivers enterprise-grade technology solutions: AI integration, custom software development, web & mobile apps, business automation, data analytics and cloud solutions for California businesses.',
+    'Calidigi delivers AI integration, custom software, business automation and data analytics to help California businesses grow and scale faster.',
   alternates: {
     canonical: 'https://www.calidigi.com/solutions',
     languages: { 'en-US': 'https://www.calidigi.com/solutions', 'x-default': 'https://www.calidigi.com/solutions' },
   },
   openGraph: {
     url: 'https://www.calidigi.com/solutions',
-    title: 'AI Integration, Custom Software & Technology Solutions | Calidigi California',
-    description: 'Calidigi delivers enterprise-grade technology solutions: AI integration, custom software development, web & mobile apps, business automation, data analytics and cloud solutions for California businesses.',
+    title: 'AI Solutions & Custom Software for Business | Calidigi California',
+    description: 'Calidigi delivers AI integration, custom software, business automation and data analytics to help California businesses grow and scale faster.',
   },
   twitter: {
-    title: 'AI Integration, Custom Software & Technology Solutions | Calidigi California',
-    description: 'Calidigi delivers enterprise-grade technology solutions: AI integration, custom software development, web & mobile apps, business automation, data analytics and cloud solutions for California businesses.',
+    title: 'AI Solutions & Custom Software for Business | Calidigi California',
+    description: 'Calidigi delivers AI integration, custom software, business automation and data analytics to help California businesses grow and scale faster.',
   },
 }
 
@@ -28,7 +28,7 @@ export default function SolutionsPage() {
         '@type': 'WebPage',
         '@id': 'https://www.calidigi.com/solutions#webpage',
         url: 'https://www.calidigi.com/solutions',
-        name: 'AI Integration, Custom Software & Technology Solutions | Calidigi California',
+        name: 'AI Solutions & Custom Software for Business | Calidigi California',
         description: 'Enterprise-grade technology solutions: AI integration, custom software, web & mobile apps, automation and cloud.',
         isPartOf: { '@id': 'https://www.calidigi.com/#website' },
         breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.calidigi.com/' }, { '@type': 'ListItem', position: 2, name: 'Solutions', item: 'https://www.calidigi.com/solutions' }] },
@@ -76,8 +76,9 @@ export default function SolutionsPage() {
         <div className="sol-hero-grid-bg"></div>
         <div className="container sol-hero-inner">
           <div className="sol-hero-content">
+            <h1 className="sr-only">AI Solutions &amp; Custom Software Development California | Calidigi</h1>
             <div className="badge badge-white"><i className="fas fa-microchip"></i> Technology Solutions</div>
-            <h1>Enterprise Technology<br /><em>Built for the Future</em></h1>
+            <h2>Enterprise Technology<br /><em>Built for the Future</em></h2>
             <p>From AI integration and custom software to cloud architecture and digital transformation — Calidigi engineers intelligent solutions that drive measurable business outcomes for ambitious California companies.</p>
             <div className="sol-hero-actions">
               <Link href="/contact-us" className="btn btn-primary">Start Your Project <i className="fas fa-arrow-right"></i></Link>

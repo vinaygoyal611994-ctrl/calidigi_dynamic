@@ -2,9 +2,9 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Calidigi — California Digital Technology Company',
+  title: 'Privacy Policy — California',
   description:
-    "Read Calidigi's Privacy Policy to understand how we collect, use, and protect your personal information in compliance with California privacy laws (CCPA) and GDPR.",
+    "Read Calidigi's Privacy Policy to learn how we collect, use and protect your personal information in compliance with California privacy laws (CCPA) and GDPR.",
   alternates: {
     canonical: 'https://www.calidigi.com/privacy-policy',
     languages: { 'en-US': 'https://www.calidigi.com/privacy-policy', 'x-default': 'https://www.calidigi.com/privacy-policy' },
@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     url: 'https://www.calidigi.com/privacy-policy',
-    title: 'Privacy Policy | Calidigi — California Digital Technology Company',
-    description: "Read Calidigi's Privacy Policy to understand how we collect, use, and protect your personal information in compliance with California privacy laws (CCPA) and GDPR.",
+    title: 'Privacy Policy | Calidigi California',
+    description: "Read Calidigi's Privacy Policy to learn how we collect, use and protect your personal information in compliance with California privacy laws (CCPA) and GDPR.",
   },
   twitter: {
-    title: 'Privacy Policy | Calidigi — California Digital Technology Company',
-    description: "Read Calidigi's Privacy Policy to understand how we collect, use, and protect your personal information in compliance with California privacy laws (CCPA) and GDPR.",
+    title: 'Privacy Policy | Calidigi California',
+    description: "Read Calidigi's Privacy Policy to learn how we collect, use and protect your personal information in compliance with California privacy laws (CCPA) and GDPR.",
   },
 }
 

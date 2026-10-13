@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Calidigi — California Digital Technology Company',
+  title: 'Cookie Policy — California',
   description:
     'Learn how Calidigi uses cookies and similar tracking technologies on our website, what data is collected, and how you can manage your cookie preferences.',
   alternates: {
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     url: 'https://www.calidigi.com/cookie-policy',
-    title: 'Cookie Policy | Calidigi — California Digital Technology Company',
+    title: 'Cookie Policy | Calidigi California',
     description: 'Learn how Calidigi uses cookies and similar tracking technologies on our website, and how you can control your cookie preferences.',
   },
   twitter: {
-    title: 'Cookie Policy | Calidigi — California Digital Technology Company',
+    title: 'Cookie Policy | Calidigi California',
     description: 'Learn how Calidigi uses cookies and similar tracking technologies on our website, and how you can control your cookie preferences.',
   },
 }

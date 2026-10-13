@@ -2,9 +2,9 @@
 import ContactUsClient from './ContactUsClient'
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Start Your Project | Calidigi California',
+  title: 'Contact Us — Start Your Project',
   description:
-    "Get in touch with Calidigi — California's premier AI, software, and digital transformation company. Tell us about your project and receive a custom proposal within 48 hours.",
+    "Contact Calidigi — California's digital growth company. Get a free proposal for web development, SEO or AI solutions within 48 hours.",
   alternates: {
     canonical: 'https://www.calidigi.com/contact-us',
     languages: {

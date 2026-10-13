@@ -2,9 +2,9 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Calidigi — California Digital Technology Company',
+  title: 'Terms of Service — California',
   description:
-    "Read Calidigi's Terms of Service governing the use of our website and digital technology services, including AI, software development, and digital transformation solutions.",
+    "Read Calidigi's Terms of Service governing the use of our website and digital services including web development, AI solutions, software and digital marketing.",
   alternates: {
     canonical: 'https://www.calidigi.com/terms-of-service',
     languages: { 'en-US': 'https://www.calidigi.com/terms-of-service', 'x-default': 'https://www.calidigi.com/terms-of-service' },
@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     url: 'https://www.calidigi.com/terms-of-service',
-    title: 'Terms of Service | Calidigi — California Digital Technology Company',
+    title: 'Terms of Service | Calidigi California',
     description: "Review Calidigi's Terms of Service covering service agreements, intellectual property rights, payment terms, confidentiality, and California governing law.",
   },
   twitter: {
-    title: 'Terms of Service | Calidigi — California Digital Technology Company',
+    title: 'Terms of Service | Calidigi California',
     description: "Review Calidigi's Terms of Service covering service agreements, intellectual property rights, payment terms, confidentiality, and California governing law.",
   },
 }
