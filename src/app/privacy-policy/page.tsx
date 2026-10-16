@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
           <div className="lg-hero-inner">
             <div className="badge badge-white"><i className="fas fa-shield-halved"></i> Legal</div>
             <h1>Privacy Policy</h1>
-            <p className="lg-hero-updated"><i className="fas fa-calendar-check"></i> Last updated: September 29, 2025</p>
+            <p className="lg-hero-updated"><i className="fas fa-calendar-check"></i> Last updated: October 16, 2026</p>
           </div>
         </div>
       </section>
