@@ -49,10 +49,67 @@ export default function HomePage() {
         email: 'sales@calidigi.com',
         priceRange: '$$',
         openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '09:00', closes: '18:00' },
-        areaServed: { '@type': 'State', name: 'California' },
+        areaServed: [
+          { '@type': 'State', name: 'California' },
+          { '@type': 'City', name: 'San Francisco' },
+          { '@type': 'City', name: 'Los Angeles' },
+          { '@type': 'City', name: 'San Diego' },
+          { '@type': 'City', name: 'Sacramento' },
+          { '@type': 'City', name: 'San Jose' },
+          { '@type': 'City', name: 'Oakland' },
+          { '@type': 'City', name: 'Fresno' },
+        ],
         hasMap: 'https://maps.google.com/?q=San+Francisco,CA',
         currenciesAccepted: 'USD',
         paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'Digital Services for California Businesses',
+          itemListElement: [
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Development', description: 'Custom website design and development for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Marketing', description: 'SEO, content marketing, social media and paid advertising for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Local SEO', description: 'Local search optimization to help California businesses rank on Google Maps' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Solutions', description: 'AI integration and business automation for California companies' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Branding', description: 'Brand identity design and creative services for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Software Development', description: 'Custom software and SaaS development for California businesses' } },
+          ],
+        },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://www.calidigi.com/#faq',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'What digital services does Calidigi offer?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Calidigi offers web development, digital marketing, local SEO, AI solutions, branding, and custom software development for California businesses. We serve 30+ industries with a full-service digital growth approach.' },
+          },
+          {
+            '@type': 'Question',
+            name: 'Where is Calidigi located?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Calidigi is based in San Francisco, California. We serve businesses across the entire state of California including Los Angeles, San Diego, Sacramento, San Jose, Oakland, and the Bay Area.' },
+          },
+          {
+            '@type': 'Question',
+            name: 'Does Calidigi work with small businesses?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Yes, Calidigi works with businesses of all sizes — from startups and small businesses to enterprise companies — across 30+ industries in California.' },
+          },
+          {
+            '@type': 'Question',
+            name: 'How long does it take to build a website with Calidigi?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Most websites are completed within 4–8 weeks depending on complexity and scope. We provide a detailed project timeline during your free strategy session.' },
+          },
+          {
+            '@type': 'Question',
+            name: 'How much does web development cost in California?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Calidigi offers transparent, flexible pricing based on your project scope and goals. We provide custom quotes after understanding your business needs. Contact us for a free proposal within 48 hours.' },
+          },
+          {
+            '@type': 'Question',
+            name: 'What industries does Calidigi serve?',
+            acceptedAnswer: { '@type': 'Answer', text: 'Calidigi serves 30+ industries including healthcare, real estate, e-commerce, SaaS, legal, restaurants, solar energy, education, home services, logistics, and manufacturing across California.' },
+          },
+        ],
       },
       {
         '@type': 'WebSite',

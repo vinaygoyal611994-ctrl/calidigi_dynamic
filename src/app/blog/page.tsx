@@ -173,7 +173,7 @@ export default function BlogPage() {
               <p className="blg-feat-desc">Discover how businesses can use AI, automation, and digital strategy to improve productivity, create better customer experiences, and make smarter data-driven decisions — without needing a team of engineers.</p>
               <div className="blg-feat-meta">
                 <div className="blg-feat-meta-item"><i className="fas fa-user"></i><span>Calidigi Team</span></div>
-                <div className="blg-feat-meta-item"><i className="fas fa-calendar"></i><span>Dec 15, 2026</span></div>
+                <div className="blg-feat-meta-item"><i className="fas fa-calendar"></i><span>Oct 9, 2026</span></div>
                 <div className="blg-feat-meta-item"><i className="fas fa-clock"></i><span>8 min read</span></div>
               </div>
               <Link href="/blog/how-ai-is-changing-the-way-businesses-approach-digital-growth" className="blg-feat-link">Read Article <i className="fas fa-arrow-right"></i></Link>

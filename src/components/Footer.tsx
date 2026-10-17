@@ -29,7 +29,7 @@ export default function Footer() {
           <div className="footer-brand">
             <Image
               src="/images/logo.png"
-              alt="Calidigi"
+              alt="Calidigi — California Digital Marketing & Web Development Company"
               width={160}
               height={60}
               loading="lazy"

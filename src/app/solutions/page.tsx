@@ -63,6 +63,16 @@ export default function SolutionsPage() {
         areaServed: { '@type': 'State', name: 'California' },
         url: 'https://www.calidigi.com/solutions',
       },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://www.calidigi.com/solutions#faq',
+        mainEntity: [
+          { '@type': 'Question', name: 'What AI solutions does Calidigi offer for businesses?', acceptedAnswer: { '@type': 'Answer', text: 'Calidigi offers AI integration, custom AI model development, LLM fine-tuning, business process automation, predictive analytics, chatbots, and computer vision solutions for California businesses.' } },
+          { '@type': 'Question', name: 'Can Calidigi build custom software for my business?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Calidigi builds custom software including SaaS platforms, enterprise web applications, API integrations, and mobile apps — tailored to your specific business workflow and scalability needs.' } },
+          { '@type': 'Question', name: 'How long does custom software development take?', acceptedAnswer: { '@type': 'Answer', text: 'Timeline depends on complexity. An MVP typically takes 6–10 weeks. A full enterprise platform can take 3–6 months. We provide a detailed roadmap after your free consultation.' } },
+          { '@type': 'Question', name: 'Does Calidigi work with startups for AI and software development?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Calidigi works with startups, scale-ups, and enterprise companies across California. We have helped Series-A startups go from MVP to $2M ARR with AI-driven platforms.' } },
+        ],
+      },
     ],
   }
 

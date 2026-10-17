@@ -47,6 +47,16 @@ export default function AboutPage() {
         telephone: '+15550001234',
         email: 'sales@calidigi.com',
       },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://www.calidigi.com/about#faq',
+        mainEntity: [
+          { '@type': 'Question', name: 'What is Calidigi?', acceptedAnswer: { '@type': 'Answer', text: 'Calidigi is a California-based digital growth company offering web development, digital marketing, local SEO, AI solutions, and branding to help businesses attract more customers and grow online.' } },
+          { '@type': 'Question', name: 'Where is Calidigi based?', acceptedAnswer: { '@type': 'Answer', text: 'Calidigi is headquartered in San Francisco, California, and serves businesses across the entire state including Los Angeles, San Diego, Sacramento, San Jose, and the Bay Area.' } },
+          { '@type': 'Question', name: 'How many projects has Calidigi delivered?', acceptedAnswer: { '@type': 'Answer', text: 'Calidigi has delivered 500+ digital projects across 30+ industries with a 98% client retention rate and $50M+ in client revenue generated.' } },
+          { '@type': 'Question', name: 'What industries does Calidigi specialize in?', acceptedAnswer: { '@type': 'Answer', text: 'Calidigi serves 30+ industries including healthcare, real estate, e-commerce, SaaS, legal, restaurants, solar energy, education, home services, and manufacturing across California.' } },
+        ],
+      },
     ],
   }
 
