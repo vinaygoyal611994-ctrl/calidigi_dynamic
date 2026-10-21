@@ -360,11 +360,11 @@ export default function ContactUsClient() {
                 </div>
                 <i className="fas fa-arrow-right ct-info-arr"></i>
               </a>
-              <a href="tel:+15550001234" className="ct-info-row">
+              <a href="tel:+13233876255" className="ct-info-row">
                 <div className="ct-info-icon ct-icon-phone"><i className="fas fa-phone"></i></div>
                 <div className="ct-info-detail">
                   <span className="ct-info-label">Call Us</span>
-                  <span className="ct-info-val">+1 (555) 000-1234</span>
+                  <span className="ct-info-val">+1 (323) 387-6255</span>
                 </div>
                 <i className="fas fa-arrow-right ct-info-arr"></i>
               </a>
@@ -543,7 +543,7 @@ export default function ContactUsClient() {
                 <p>1234 Digital Ave, Suite 500<br />San Francisco, CA 94103</p>
                 <div className="ct-office-links">
                   <a href="mailto:sales@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
-                  <a href="tel:+15550001234" className="ct-ol"><i className="fas fa-phone"></i> +1 (555) 000-1234</a>
+                  <a href="tel:+13233876255" className="ct-ol"><i className="fas fa-phone"></i> +1 (323) 387-6255</a>
                 </div>
                 <a href="https://maps.google.com/?q=San+Francisco+CA" target="_blank" rel="noopener noreferrer" className="btn btn-primary ct-office-btn">
                   Get Directions <i className="fas fa-arrow-right"></i>

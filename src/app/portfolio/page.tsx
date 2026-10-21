@@ -243,7 +243,7 @@ export default function PortfolioPage() {
             </div>
             <div className="pf-cc-body">
               <div className="pf-cc-item"><i className="fas fa-envelope"></i> sales@calidigi.com</div>
-              <div className="pf-cc-item"><i className="fas fa-phone"></i> +1 (555) 000-1234</div>
+              <div className="pf-cc-item"><i className="fas fa-phone"></i> +1 (323) 387-6255</div>
               <div className="pf-cc-item"><i className="fas fa-location-dot"></i> San Francisco, CA</div>
               <div className="pf-cc-item"><i className="fas fa-clock"></i> Response within 8 hours</div>
             </div>

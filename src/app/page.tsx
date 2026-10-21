@@ -32,7 +32,7 @@ export default function HomePage() {
         logo: { '@type': 'ImageObject', url: 'https://www.calidigi.com/Cali%20Digi%20Logo%201.png', width: 500, height: 200 },
         description: 'California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding.',
         address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
-        telephone: '+15550001234',
+        telephone: '+13233876255',
         email: 'sales@calidigi.com',
         sameAs: ['https://www.facebook.com/calidigi', 'https://www.instagram.com/calidigi', 'https://www.linkedin.com/company/calidigi', 'https://twitter.com/calidigi'],
       },
@@ -45,7 +45,7 @@ export default function HomePage() {
         description: 'California digital growth company helping businesses build a stronger online presence, attract more customers and grow with the right digital strategy and AI solutions.',
         address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
         geo: { '@type': 'GeoCoordinates', latitude: 37.7749, longitude: -122.4194 },
-        telephone: '+15550001234',
+        telephone: '+13233876255',
         email: 'sales@calidigi.com',
         priceRange: '$$',
         openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '09:00', closes: '18:00' },
@@ -580,7 +580,7 @@ export default function HomePage() {
           <p>Let&apos;s build a website, marketing strategy and digital system that works for your business — and brings you real, measurable results.</p>
           <div className="final-cta-actions">
             <a href="mailto:sales@calidigi.com" className="btn btn-primary">Let&apos;s Grow Your Business <i className="fas fa-arrow-right"></i></a>
-            <a href="tel:+15550001234" className="btn btn-outline-white"><i className="fas fa-phone"></i> Talk To Our Team</a>
+            <a href="tel:+13233876255" className="btn btn-outline-white"><i className="fas fa-phone"></i> Talk To Our Team</a>
           </div>
         </div>
       </section>

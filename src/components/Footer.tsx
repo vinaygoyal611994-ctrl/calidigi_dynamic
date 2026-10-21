@@ -101,7 +101,7 @@ export default function Footer() {
             <div className="footer-contact-row">
               <div className="fci"><i className="fas fa-phone"></i></div>
               <span className="fci-text">
-                <a href="tel:+15550001234">+1 (555) 000-1234</a>
+                <a href="tel:+13233876255">+1 (323) 387-6255</a>
               </span>
             </div>
           </div>

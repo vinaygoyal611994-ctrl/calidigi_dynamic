@@ -44,7 +44,7 @@ export default function AboutPage() {
         numberOfEmployees: { '@type': 'QuantitativeValue', value: 25 },
         description: 'California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding.',
         address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
-        telephone: '+15550001234',
+        telephone: '+13233876255',
         email: 'sales@calidigi.com',
       },
       {
@@ -283,7 +283,7 @@ export default function AboutPage() {
           <p>Let&apos;s have a conversation about your business goals, challenges and what digital solutions could help you grow.</p>
           <div className="final-cta-actions">
             <Link href="/contact-us" className="btn btn-primary">Let&apos;s Talk About Your Business <i className="fas fa-arrow-right"></i></Link>
-            <a href="tel:+15550001234" className="btn btn-outline-white"><i className="fas fa-phone"></i> Call Our Team</a>
+            <a href="tel:+13233876255" className="btn btn-outline-white"><i className="fas fa-phone"></i> Call Our Team</a>
           </div>
         </div>
       </section>

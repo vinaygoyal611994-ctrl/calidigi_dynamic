@@ -46,6 +46,7 @@ export const adminApi = {
   updateBlog: (id: number, data: object) =>
     request(`/api/admin/blogs/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteBlog: (id: number) => request(`/api/admin/blogs/${id}`, { method: 'DELETE' }),
+  seedBlogs: () => request('/api/admin/blogs/seed', { method: 'POST' }),
 
   changePassword: (data: { currentPassword: string; newPassword: string }) =>
     request('/api/admin/change-password', { method: 'POST', body: JSON.stringify(data) }),
@@ -54,6 +55,25 @@ export const adminApi = {
 
   getNewsletters: (params = '') => request(`/api/admin/newsletters${params}`),
   deleteNewsletter: (id: number) => request(`/api/admin/newsletters/${id}`, { method: 'DELETE' }),
+
+  getBusinesses: (params = '') => request(`/api/admin/businesses${params}`),
+  getBusiness: (id: number) => request(`/api/admin/businesses/${id}`),
+  createBusiness: (data: object) => request('/api/admin/businesses', { method: 'POST', body: JSON.stringify(data) }),
+  updateBusiness: (id: number, data: object) => request(`/api/admin/businesses/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  deleteBusiness: (id: number) => request(`/api/admin/businesses/${id}`, { method: 'DELETE' }),
+  sendBusinessEmail: (id: number, data: { subject: string; message: string }) =>
+    request(`/api/admin/businesses/${id}/email`, { method: 'POST', body: JSON.stringify(data) }),
+  getBusinessImports: () => request('/api/admin/businesses/imports'),
+  downloadBusinessImport: (id: number) => request(`/api/admin/businesses/imports/${id}`),
+  deleteBusinessImport: (id: number) => request(`/api/admin/businesses/imports/${id}`, { method: 'DELETE' }),
+  importBusinessesCSV: (formData: FormData) => {
+    const token = getToken()
+    return fetch('/api/admin/businesses/import', {
+      method: 'POST',
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      body: formData,
+    })
+  },
 
   getPages: () => request('/api/admin/pages'),
   getPage: (id: number) => request(`/api/admin/pages/${id}`),

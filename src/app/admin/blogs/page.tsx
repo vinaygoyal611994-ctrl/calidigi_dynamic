@@ -23,6 +23,10 @@ export default function BlogsPage() {
   const [statusFilter, setStatusFilter] = useState('all')
   const [confirmDelete, setConfirmDelete] = useState<Blog | null>(null)
   const [deleting, setDeleting] = useState<number | null>(null)
+  const [seeding, setSeeding] = useState(false)
+  const [seedResult, setSeedResult] = useState<{ inserted: number; skipped: number } | null>(null)
+  const [page, setPage] = useState(1)
+  const PAGE_SIZE = 10
 
   const load = useCallback(() => {
     setLoading(true)
@@ -47,7 +51,9 @@ export default function BlogsPage() {
       const q = search.toLowerCase()
       list = list.filter(b => b.title.toLowerCase().includes(q) || b.category.toLowerCase().includes(q))
     }
+    list = [...list].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     setFiltered(list)
+    setPage(1)
   }, [search, catFilter, statusFilter, blogs])
 
   async function handleDelete(blog: Blog) {
@@ -60,21 +66,45 @@ export default function BlogsPage() {
     finally { setDeleting(null) }
   }
 
-  const categories = Array.from(new Set(blogs.map(b => b.category))).sort()
+  async function handleSeed() {
+    if (!window.confirm('Import all 20 blog articles from the code into the database? Already-existing slugs will be skipped.')) return
+    setSeeding(true); setSeedResult(null)
+    try {
+      const res  = await adminApi.seedBlogs()
+      const data = await res.json()
+      setSeedResult(data)
+      load()
+    } finally { setSeeding(false) }
+  }
+
+  const categories  = Array.from(new Set(blogs.map(b => b.category))).sort()
+  const totalPages  = Math.ceil(filtered.length / PAGE_SIZE)
+  const paginated   = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
   return (
     <>
       <div className="adm-page-head">
         <div className="adm-head-left">
           <h1>Blog Posts</h1>
-          <p>{blogs.length} total post{blogs.length !== 1 ? 's' : ''}</p>
+          <p>{filtered.length} post{filtered.length !== 1 ? 's' : ''}{filtered.length !== blogs.length ? ` (${blogs.length} total)` : ''}</p>
         </div>
         <div className="adm-head-right">
+          <button className="adm-btn adm-btn-secondary" onClick={handleSeed} disabled={seeding}>
+            {seeding ? <><i className="fas fa-spinner fa-spin"></i> Importing...</> : <><i className="fas fa-database"></i> Seed from Code</>}
+          </button>
           <Link href="/admin/blogs/new" className="adm-btn adm-btn-primary">
             <i className="fas fa-plus"></i> New Post
           </Link>
         </div>
       </div>
+
+      {seedResult && (
+        <div className="adm-alert adm-alert-success" style={{ marginBottom: 0 }}>
+          <i className="fas fa-circle-check"></i>
+          <span><strong>{seedResult.inserted}</strong> articles imported from code &nbsp;·&nbsp; <strong>{seedResult.skipped}</strong> already existed (skipped)</span>
+          <button style={{ marginLeft: 'auto', background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', fontSize: '1rem' }} onClick={() => setSeedResult(null)}>×</button>
+        </div>
+      )}
 
       <div className="adm-filter-bar">
         <div className="adm-search-wrap">
@@ -131,9 +161,9 @@ export default function BlogsPage() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map(b => (
+              {paginated.map((b, idx) => (
                 <tr key={b.id}>
-                  <td style={{ color: 'var(--gray-400)', fontSize: '0.78rem' }}>{b.id}</td>
+                  <td style={{ color: 'var(--gray-400)', fontSize: '0.78rem' }}>{(page - 1) * PAGE_SIZE + idx + 1}</td>
                   <td>
                     <div style={{ fontWeight: 600, maxWidth: 280 }}>{b.title}</div>
                     <div style={{ fontSize: '0.72rem', color: 'var(--gray-400)', marginTop: 2 }}>/{b.slug}</div>
@@ -166,6 +196,25 @@ export default function BlogsPage() {
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {totalPages > 1 && (
+        <div className="adm-pagination">
+          <button className="adm-btn adm-btn-outline adm-btn-sm" onClick={() => setPage(1)} disabled={page === 1}>«</button>
+          <button className="adm-btn adm-btn-outline adm-btn-sm" onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1}>‹</button>
+          {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+            const start = Math.max(1, Math.min(page - 2, totalPages - 4))
+            const p = start + i
+            return (
+              <button key={p} className={`adm-btn adm-btn-sm ${p === page ? 'adm-btn-primary' : 'adm-btn-outline'}`} onClick={() => setPage(p)}>{p}</button>
+            )
+          })}
+          <button className="adm-btn adm-btn-outline adm-btn-sm" onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages}>›</button>
+          <button className="adm-btn adm-btn-outline adm-btn-sm" onClick={() => setPage(totalPages)} disabled={page === totalPages}>»</button>
+          <span className="adm-td-muted" style={{ marginLeft: 8 }}>
+            Page {page} of {totalPages} &nbsp;·&nbsp; {filtered.length} posts
+          </span>
         </div>
       )}
 

@@ -233,7 +233,7 @@ export default function CookiePolicyPage() {
               <ul>
                 <li><strong>Email:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>General:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
-                <li><strong>Phone:</strong> <a href="tel:+15550001234">+1 (555) 000-1234</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+13233876255">+1 (323) 387-6255</a></li>
                 <li><strong>Address:</strong> 1234 Digital Ave, Suite 500, San Francisco, CA 94103</li>
               </ul>
             </div>

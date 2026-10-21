@@ -279,6 +279,31 @@ export function baseNewsletterReplyEmail(name: string, message: string) {
   return baseTemplate(content)
 }
 
+export function marketingEmail(businessName: string, subject: string, message: string) {
+  const bodyHtml = message
+    .split(/\n\n+/)
+    .map(p => `<p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.8;">${p.replace(/\n/g, '<br>')}</p>`)
+    .join('')
+
+  const content = `
+    <div style="margin-bottom:24px;">
+      <div style="display:inline-block;background:#FFF3E0;border:1px solid #F5821F;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#F5821F;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;">Calidigi</div>
+      <h1 style="margin:0 0 6px;font-size:22px;font-weight:800;color:#0A0F1E;">${subject}</h1>
+      <p style="margin:0;font-size:14px;color:#9ca3af;">For: ${businessName}</p>
+    </div>
+
+    <div style="margin-bottom:28px;">
+      ${bodyHtml}
+    </div>
+
+    <div style="background:#0A0F1E;border-radius:12px;padding:24px;text-align:center;">
+      <p style="margin:0 0 6px;font-size:14px;color:rgba(255,255,255,0.6);">Ready to grow your business?</p>
+      <a href="${siteUrl}" style="font-size:16px;font-weight:700;color:#F5821F;text-decoration:none;">Visit Calidigi.com</a>
+    </div>
+  `
+  return baseTemplate(content)
+}
+
 export function replyEmail(fname: string, replyMessage: string) {
   const content = `
     <div style="margin-bottom:24px;">

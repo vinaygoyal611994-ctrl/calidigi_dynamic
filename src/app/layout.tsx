@@ -101,7 +101,7 @@ const jsonLd = {
         postalCode: '94103',
         addressCountry: 'US',
       },
-      telephone: '+15550001234',
+      telephone: '+13233876255',
       email: 'sales@calidigi.com',
       sameAs: [
         'https://www.facebook.com/calidigi',

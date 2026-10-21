@@ -12,6 +12,7 @@ const navItems = [
   { href: '/admin/blogs',    icon: 'fa-newspaper',  label: 'Blog Management' },
   { href: '/admin/pages',       icon: 'fa-file-lines', label: 'CMS Management' },
   { href: '/admin/newsletters', icon: 'fa-envelope',   label: 'Newsletter Subscribers' },
+  { href: '/admin/businesses', icon: 'fa-building',   label: 'Business Management' },
   { section: 'System' },
   { href: '/admin/email-logs', icon: 'fa-envelope-open-text', label: 'Email Logs' },
   { href: '/admin/settings',   icon: 'fa-gear',               label: 'Settings' },

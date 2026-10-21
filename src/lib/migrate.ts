@@ -114,6 +114,56 @@ export async function runMigrations() {
       )
     `)
 
+    await connection.execute(`
+      CREATE TABLE IF NOT EXISTS businesses (
+        id            BIGINT AUTO_INCREMENT PRIMARY KEY,
+        title         VARCHAR(255) NOT NULL,
+        link          VARCHAR(500) DEFAULT NULL,
+        logo          VARCHAR(255) DEFAULT NULL,
+        email         VARCHAR(255) DEFAULT NULL,
+        web           VARCHAR(255) DEFAULT NULL,
+        phone         VARCHAR(30)  DEFAULT NULL,
+        address       VARCHAR(255) DEFAULT NULL,
+        lat           DECIMAL(10,7) DEFAULT NULL,
+        lon           DECIMAL(10,7) DEFAULT NULL,
+        about         TEXT DEFAULT NULL,
+        zip_code      VARCHAR(10)  DEFAULT NULL,
+        state         VARCHAR(3)   DEFAULT NULL,
+        rating        DECIMAL(2,1) NOT NULL DEFAULT 0.0,
+        yelp_url      VARCHAR(255) DEFAULT NULL,
+        review        BIGINT       DEFAULT 0,
+        claimed       INT          DEFAULT NULL,
+        hours_of_operation VARCHAR(255) DEFAULT NULL,
+        hours_of_ops       VARCHAR(255) DEFAULT NULL,
+        founding_date INT          DEFAULT NULL,
+        noe           INT          NOT NULL DEFAULT 0,
+        company_name  TEXT         DEFAULT NULL,
+        skor          INT          DEFAULT 0,
+        sent          INT          DEFAULT 0,
+        filename      VARCHAR(255) DEFAULT NULL,
+        city          VARCHAR(50)  DEFAULT NULL,
+        country       VARCHAR(50)  DEFAULT NULL,
+        county        VARCHAR(50)  DEFAULT NULL,
+        address_new   VARCHAR(255) DEFAULT NULL,
+        zips_id       INT          DEFAULT NULL,
+        updates       TINYINT      NOT NULL DEFAULT 0,
+        web_scan      TINYINT      NOT NULL DEFAULT 0,
+        created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
+    await connection.execute(`
+      CREATE TABLE IF NOT EXISTS business_imports (
+        id            INT AUTO_INCREMENT PRIMARY KEY,
+        original_name VARCHAR(255) NOT NULL,
+        inserted      INT DEFAULT 0,
+        skipped       INT DEFAULT 0,
+        total         INT DEFAULT 0,
+        file_data     LONGTEXT,
+        created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `)
+
     const [rows] = await connection.execute(
       'SELECT id FROM admin_users WHERE username = ?',
       ['admin']

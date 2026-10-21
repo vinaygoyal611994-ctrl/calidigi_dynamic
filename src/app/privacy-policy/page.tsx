@@ -181,7 +181,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Right to Opt-Out:</strong> Opt out of the sale of your personal information (note: we do not sell personal information)</li>
                 <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your CCPA rights</li>
               </ul>
-              <p>To submit a CCPA request, contact us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a> or call <a href="tel:+15550001234">+1 (555) 000-1234</a>. We will verify your identity before processing requests.</p>
+              <p>To submit a CCPA request, contact us at <a href="mailto:sales@calidigi.com">sales@calidigi.com</a> or call <a href="tel:+13233876255">+1 (323) 387-6255</a>. We will verify your identity before processing requests.</p>
             </div>
 
             <div className="lg-section" id="children">
@@ -215,7 +215,7 @@ export default function PrivacyPolicyPage() {
               <ul>
                 <li><strong>Email:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>General:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
-                <li><strong>Phone:</strong> <a href="tel:+15550001234">+1 (555) 000-1234</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+13233876255">+1 (323) 387-6255</a></li>
                 <li><strong>Address:</strong> 1234 Digital Ave, Suite 500, San Francisco, CA 94103</li>
               </ul>
             </div>
