@@ -54,7 +54,7 @@ export default function BlogInteractive() {
       const q = search.toLowerCase().trim()
       const matchQ = !q || [a.title, a.excerpt, a.category, ...a.tags].some(s => s.toLowerCase().includes(q))
       return matchCat && matchQ
-    })
+    }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   }, [category, search])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE))
