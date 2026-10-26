@@ -2,21 +2,21 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Web Development, SEO & AI Solutions California',
+  title: 'California Digital Marketing Solutions | Calidigi',
   description:
-    'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
+    'Calidigi delivers web development, SEO, local SEO and AI automation to help California businesses attract more customers and grow online.',
   alternates: {
     canonical: 'https://www.calidigi.com/',
     languages: { 'en-US': 'https://www.calidigi.com/', 'x-default': 'https://www.calidigi.com/' },
   },
   openGraph: {
     url: 'https://www.calidigi.com/',
-    title: 'Web Development, SEO & AI Solutions California | Calidigi',
-    description: 'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
+    title: 'California Digital Marketing Solutions | Calidigi',
+    description: 'Calidigi delivers web development, SEO, local SEO and AI automation to help California businesses attract more customers and grow online.',
   },
   twitter: {
-    title: 'Web Development, SEO & AI Solutions California | Calidigi',
-    description: 'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
+    title: 'California Digital Marketing Solutions | Calidigi',
+    description: 'Calidigi delivers web development, SEO, local SEO and AI automation to help California businesses attract more customers and grow online.',
   },
 }
 

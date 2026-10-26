@@ -4,21 +4,21 @@ import Link from 'next/link'
 import ServicesFaq from '@/components/ServicesFaq'
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing, Web Design, SEO & AI Services',
+  title: 'SEO Services California | Web Development & Local SEO',
   description:
-    "Explore Calidigi's digital services: web development, digital marketing, local SEO, branding and AI solutions for California businesses ready to grow online.",
+    'Expert SEO services, local SEO and web development in California. Calidigi helps small businesses grow and get found online with proven digital strategies.',
   alternates: {
     canonical: 'https://www.calidigi.com/services',
     languages: { 'en-US': 'https://www.calidigi.com/services', 'x-default': 'https://www.calidigi.com/services' },
   },
   openGraph: {
     url: 'https://www.calidigi.com/services',
-    title: 'Digital Marketing, Web Design & SEO Services | Calidigi California',
-    description: "Explore Calidigi's digital services: web development, digital marketing, local SEO, branding and AI solutions for California businesses ready to grow online.",
+    title: 'SEO Services California | Web Development & Local SEO',
+    description: 'Expert SEO services, local SEO and web development in California. Calidigi helps small businesses grow and get found online with proven digital strategies.',
   },
   twitter: {
-    title: 'Digital Marketing, Web Design & SEO Services | Calidigi California',
-    description: "Explore Calidigi's digital services: web development, digital marketing, local SEO, branding and AI solutions for California businesses ready to grow online.",
+    title: 'SEO Services California | Web Development & Local SEO',
+    description: 'Expert SEO services, local SEO and web development in California. Calidigi helps small businesses grow and get found online with proven digital strategies.',
   },
 }
 
@@ -88,7 +88,7 @@ export default function ServicesPage() {
         <div className="svc-hero-glow-2"></div>
         <div className="container svc-hero-inner">
           <div className="svc-hero-content">
-            <h1 className="sr-only">Digital Marketing, Web Design, SEO &amp; AI Services California | Calidigi</h1>
+            <h1 className="sr-only">SEO Services in California | Web Development Company | Local SEO & AI Solutions | Calidigi</h1>
             <div className="badge badge-white"><i className="fas fa-bolt"></i> Calidigi Services</div>
             <h2>Digital Solutions Built to<br /><em>Move Your Business Forward</em></h2>
             <p>From digital marketing and web design to local SEO, branding, and AI-powered solutions, Calidigi helps businesses build a stronger digital presence and create measurable opportunities for growth.</p>

@@ -6,18 +6,22 @@ import PublicShell from '@/components/PublicShell'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.calidigi.com'),
   title: {
-    default: 'Calidigi — Digital Marketing, Web Design & AI Solutions | California',
+    default: 'California Digital Marketing Solutions | Calidigi',
     template: '%s | Calidigi',
   },
   description:
-    'Calidigi is a California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding to help businesses attract customers and grow.',
+    'Calidigi delivers web development, SEO, local SEO and AI automation to help California businesses attract more customers and grow online.',
   keywords: [
+    'California digital marketing agency',
+    'web development company in California',
+    'SEO services in California',
+    'local SEO services California',
+    'AI automation services for businesses',
+    'small business digital marketing California',
+    'content marketing services California',
+    'website SEO audit for small businesses',
     'digital marketing California',
-    'web design San Francisco',
     'local SEO California',
-    'AI solutions',
-    'branding',
-    'lead generation',
     'Calidigi',
   ],
   authors: [{ name: 'Calidigi' }],
@@ -81,7 +85,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Organization',
+      '@type': ['LocalBusiness', 'ProfessionalService'],
       '@id': 'https://www.calidigi.com/#organization',
       name: 'Calidigi',
       url: 'https://www.calidigi.com',
@@ -91,8 +95,8 @@ const jsonLd = {
         width: 500,
         height: 200,
       },
-      description:
-        'California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding.',
+      image: 'https://www.calidigi.com/images/logo.png',
+      description: 'Calidigi is a California digital marketing company offering web development, SEO services, local SEO, AI automation and branding to help businesses grow online.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '1234 Digital Ave, Suite 500',
@@ -101,8 +105,35 @@ const jsonLd = {
         postalCode: '94103',
         addressCountry: 'US',
       },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 37.7749,
+        longitude: -122.4194,
+      },
       telephone: '+13233876255',
       email: 'sales@calidigi.com',
+      priceRange: '$$',
+      areaServed: [
+        { '@type': 'State', name: 'California' },
+        { '@type': 'City', name: 'San Francisco' },
+        { '@type': 'City', name: 'Los Angeles' },
+        { '@type': 'City', name: 'San Diego' },
+      ],
+      openingHoursSpecification: [
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '09:00', closes: '18:00' },
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Digital Marketing Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Services in California' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Local SEO Services California' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Development California' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Automation Services for Businesses' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Content Marketing Services California' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Marketing Solutions California' } },
+        ],
+      },
       sameAs: [
         'https://www.facebook.com/calidigi',
         'https://www.instagram.com/calidigi',
@@ -116,6 +147,11 @@ const jsonLd = {
       url: 'https://www.calidigi.com',
       name: 'Calidigi',
       publisher: { '@id': 'https://www.calidigi.com/#organization' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: { '@type': 'EntryPoint', urlTemplate: 'https://www.calidigi.com/blog?q={search_term_string}' },
+        'query-input': 'required name=search_term_string',
+      },
     },
   ],
 }

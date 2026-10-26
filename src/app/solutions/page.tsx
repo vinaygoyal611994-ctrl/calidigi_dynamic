@@ -2,21 +2,21 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'AI Solutions & Custom Software for Business',
+  title: 'AI Automation Services for Businesses | Calidigi',
   description:
-    'Calidigi delivers AI integration, custom software, business automation and data analytics to help California businesses grow and scale faster.',
+    'Calidigi delivers AI automation services, custom software and marketing automation to help California businesses scale faster with smart digital solutions.',
   alternates: {
     canonical: 'https://www.calidigi.com/solutions',
     languages: { 'en-US': 'https://www.calidigi.com/solutions', 'x-default': 'https://www.calidigi.com/solutions' },
   },
   openGraph: {
     url: 'https://www.calidigi.com/solutions',
-    title: 'AI Solutions & Custom Software for Business | Calidigi California',
-    description: 'Calidigi delivers AI integration, custom software, business automation and data analytics to help California businesses grow and scale faster.',
+    title: 'AI Automation Services for Businesses | Calidigi',
+    description: 'Calidigi delivers AI automation services, custom software and marketing automation to help California businesses scale faster with intelligent digital solutions.',
   },
   twitter: {
-    title: 'AI Solutions & Custom Software for Business | Calidigi California',
-    description: 'Calidigi delivers AI integration, custom software, business automation and data analytics to help California businesses grow and scale faster.',
+    title: 'AI Automation Services for Businesses | Calidigi',
+    description: 'Calidigi delivers AI automation services, custom software and marketing automation to help California businesses scale faster with intelligent digital solutions.',
   },
 }
 

@@ -110,7 +110,7 @@ export default function BlogPage() {
               <a href="#newsletter" className="btn btn-outline-white">Get Insights in Your Inbox</a>
             </div>
             <div className="blg-hero-stats">
-              <div className="blg-hero-stat"><strong>22+</strong><span>Articles</span></div>
+              <div className="blg-hero-stat"><strong>24+</strong><span>Articles</span></div>
               <div className="blg-hero-stat"><strong>11</strong><span>Categories</span></div>
               <div className="blg-hero-stat"><strong>Weekly</strong><span>New Content</span></div>
             </div>

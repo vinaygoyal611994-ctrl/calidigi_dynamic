@@ -3,21 +3,21 @@ import Link from 'next/link'
 import PortfolioFilter from '@/components/PortfolioFilter'
 
 export const metadata: Metadata = {
-  title: 'Portfolio — 30+ Industry Digital Transformations',
+  title: 'Digital Marketing Portfolio | California Projects | Calidigi',
   description:
-    "Browse Calidigi's portfolio of 500+ digital projects across 30+ industries including healthcare, real estate, e-commerce, SaaS and manufacturing businesses.",
+    'Explore Calidigi\'s portfolio of 500+ digital projects across 30+ industries in California — web development, SEO, branding and AI solutions.',
   alternates: {
     canonical: 'https://www.calidigi.com/portfolio',
     languages: { 'en-US': 'https://www.calidigi.com/portfolio', 'x-default': 'https://www.calidigi.com/portfolio' },
   },
   openGraph: {
     url: 'https://www.calidigi.com/portfolio',
-    title: 'Portfolio — 30+ Industry Digital Transformations | Calidigi California',
-    description: "Explore Calidigi's portfolio of 500+ successful projects across 30+ industries — healthcare, e-commerce, SaaS, real estate, solar and more across California.",
+    title: 'Digital Marketing Portfolio | California Projects | Calidigi',
+    description: 'Explore Calidigi\'s portfolio of 500+ digital projects across 30+ California industries — web development, SEO, branding and AI solutions.',
   },
   twitter: {
-    title: 'Portfolio — 30+ Industry Digital Transformations | Calidigi California',
-    description: "Explore Calidigi's portfolio of 500+ digital transformation projects across 30+ industries across California.",
+    title: 'Digital Marketing Portfolio | California Projects | Calidigi',
+    description: 'Explore Calidigi\'s portfolio of 500+ digital projects across 30+ California industries — web development, SEO, branding and AI solutions.',
   },
 }
 
