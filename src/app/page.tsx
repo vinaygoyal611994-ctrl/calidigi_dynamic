@@ -149,7 +149,7 @@ export default function HomePage() {
             </div>
             <h2>Grow Your Business With<br /><em>Digital, Design &amp; AI</em></h2>
             <p className="hero-desc">
-              We build high-performing websites, powerful brands, local SEO strategies and AI-powered solutions that help businesses attract customers, generate leads and grow.
+              We build high-performing websites, powerful brands, local SEO strategies and AI-powered solutions that help California businesses — in San Francisco, Los Angeles and San Diego — attract more customers, generate leads and grow.
             </p>
             <div className="hero-actions">
               <Link href="/contact-us" className="btn btn-primary">

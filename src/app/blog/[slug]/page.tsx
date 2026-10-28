@@ -43,6 +43,22 @@ export async function generateMetadata({
   }
 }
 
+/* ── Inline link parser: [text](/path) → <Link> ── */
+function RichParagraph({ text }: { text: string }) {
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g
+  const nodes: React.ReactNode[] = []
+  let last = 0
+  let match: RegExpExecArray | null
+  let key = 0
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > last) nodes.push(text.slice(last, match.index))
+    nodes.push(<Link key={key++} href={match[2]} className="bd-inline-link">{match[1]}</Link>)
+    last = regex.lastIndex
+  }
+  if (last < text.length) nodes.push(text.slice(last))
+  return <p>{nodes}</p>
+}
+
 /* ── Page ── */
 export default async function BlogDetailPage({
   params,
@@ -168,7 +184,7 @@ export default async function BlogDetailPage({
               >
                 <h2 className="bd-section-h2">{section.heading}</h2>
                 {section.body.split('\n\n').map((para, j) => (
-                  <p key={j}>{para}</p>
+                  <RichParagraph key={j} text={para} />
                 ))}
               </div>
             ))}

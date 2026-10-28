@@ -91,7 +91,7 @@ export default function ServicesPage() {
             <h1 className="sr-only">SEO Services in California | Web Development Company | Local SEO & AI Solutions | Calidigi</h1>
             <div className="badge badge-white"><i className="fas fa-bolt"></i> Calidigi Services</div>
             <h2>Digital Solutions Built to<br /><em>Move Your Business Forward</em></h2>
-            <p>From digital marketing and web design to local SEO, branding, and AI-powered solutions, Calidigi helps businesses build a stronger digital presence and create measurable opportunities for growth.</p>
+            <p>From digital marketing and web design to local SEO, branding, and AI-powered solutions, Calidigi helps businesses across California — San Francisco, Los Angeles and San Diego — build a stronger digital presence and create measurable opportunities for growth.</p>
             <div className="svc-hero-actions">
               <Link href="/contact-us" className="btn btn-primary">Let&apos;s Grow Your Business <i className="fas fa-arrow-right"></i></Link>
               <Link href="/services" className="btn btn-outline-white">Explore Our Services</Link>

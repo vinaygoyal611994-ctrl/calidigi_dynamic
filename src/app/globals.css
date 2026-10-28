@@ -7225,6 +7225,12 @@ table { width: 100%; }
   margin-bottom: 18px;
 }
 .bd-section p:last-child { margin-bottom: 0; }
+.bd-inline-link {
+  color: var(--orange);
+  text-decoration: underline;
+  font-weight: 500;
+}
+.bd-inline-link:hover { opacity: 0.8; }
 
 /* Conclusion */
 .bd-conclusion {
