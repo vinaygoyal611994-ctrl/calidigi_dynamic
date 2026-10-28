@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'California Digital Marketing Solutions | Calidigi',
+  title: { absolute: 'California Digital Marketing Solutions | Calidigi' },
   description:
     'Calidigi delivers web development, SEO, local SEO and AI automation to help California businesses attract more customers and grow online.',
   alternates: {
@@ -278,18 +278,18 @@ export default function HomePage() {
           </div>
           <div className="services-grid">
             {[
-              { icon: 'fa-laptop-code', title: 'Web Design & Development', desc: 'High-converting, fast, responsive websites built around your business goals — not just beautiful design, but sites that turn visitors into customers.' },
-              { icon: 'fa-bullhorn', title: 'Digital Marketing', desc: 'Data-driven strategies that increase your visibility, drive targeted traffic and generate qualified leads — across search, social and paid channels.' },
-              { icon: 'fa-map-marker-alt', title: 'Local SEO', desc: 'Improve your local search visibility so nearby customers can find and choose your business — on Google Maps, local search and beyond.' },
-              { icon: 'fa-robot', title: 'AI Solutions', desc: 'Practical AI automation and intelligent workflows that reduce repetitive work, improve customer experience and solve real business problems.' },
-              { icon: 'fa-paint-brush', title: 'Branding', desc: 'Create a consistent, memorable brand identity — logo, visual system, voice and messaging — that builds recognition and trust across every channel.' },
-              { icon: 'fa-funnel-dollar', title: 'Lead Generation', desc: 'Turn website visitors and search traffic into qualified business opportunities using conversion-focused landing pages, forms and follow-up systems.' },
-            ].map(({ icon, title, desc }) => (
+              { icon: 'fa-laptop-code', title: 'Web Design & Development', desc: 'High-converting, fast, responsive websites built around your business goals — not just beautiful design, but sites that turn visitors into customers.', href: '/services/web-development' },
+              { icon: 'fa-bullhorn', title: 'Digital Marketing', desc: 'Data-driven strategies that increase your visibility, drive targeted traffic and generate qualified leads — across search, social and paid channels.', href: '/services/digital-marketing' },
+              { icon: 'fa-map-marker-alt', title: 'Local SEO', desc: 'Improve your local search visibility so nearby customers can find and choose your business — on Google Maps, local search and beyond.', href: '/services/local-seo' },
+              { icon: 'fa-robot', title: 'AI Solutions', desc: 'Practical AI automation and intelligent workflows that reduce repetitive work, improve customer experience and solve real business problems.', href: '/services/ai-automation' },
+              { icon: 'fa-paint-brush', title: 'Branding', desc: 'Create a consistent, memorable brand identity — logo, visual system, voice and messaging — that builds recognition and trust across every channel.', href: '/services/branding' },
+              { icon: 'fa-funnel-dollar', title: 'Lead Generation', desc: 'Turn website visitors and search traffic into qualified business opportunities using conversion-focused landing pages, forms and follow-up systems.', href: '/services/business-growth' },
+            ].map(({ icon, title, desc, href }) => (
               <div key={title} className="service-card">
                 <div className="service-icon"><i className={`fas ${icon}`}></i></div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
-                <Link href="/contact-us" className="service-link">Learn More <i className="fas fa-arrow-right"></i></Link>
+                <Link href={href} className="service-link">Learn More <i className="fas fa-arrow-right"></i></Link>
               </div>
             ))}
           </div>
@@ -519,10 +519,10 @@ export default function HomePage() {
           </div>
           <div className="blog-grid">
             {[
-              { cls: 'bb-1', icon: 'fa-robot', cat: 'AI For Business', title: 'How AI Can Help Small Businesses Save Time and Grow Faster', desc: 'Practical examples of AI tools and workflows that small businesses can implement today to automate tasks and improve customer experience.', time: '6 min read' },
-              { cls: 'bb-2', icon: 'fa-map-marker-alt', cat: 'Local SEO', title: 'Why Local SEO Matters More Than Ever For Small Businesses', desc: 'How local search has changed, why Google Maps ranking is critical for local businesses and what steps to take to improve your local visibility.', time: '7 min read' },
-              { cls: 'bb-3', icon: 'fa-laptop-code', cat: 'Web Design', title: 'How To Build a Business Website That Actually Generates Leads', desc: 'The key elements of a high-converting business website — from clear messaging and trust signals to strategic calls-to-action and fast performance.', time: '8 min read' },
-            ].map(({ cls, icon, cat, title, desc, time }) => (
+              { cls: 'bb-1', icon: 'fa-robot', cat: 'AI For Business', title: 'How AI Can Help Small Businesses Save Time and Grow Faster', desc: 'Practical examples of AI tools and workflows that small businesses can implement today to automate tasks and improve customer experience.', time: '6 min read', slug: 'ai-chatbots-how-businesses-are-using-them-to-improve-customer-service' },
+              { cls: 'bb-2', icon: 'fa-map-marker-alt', cat: 'Local SEO', title: 'Why Local SEO Matters More Than Ever For Small Businesses', desc: 'How local search has changed, why Google Maps ranking is critical for local businesses and what steps to take to improve your local visibility.', time: '7 min read', slug: 'how-local-seo-helps-businesses-get-found-by-nearby-customers' },
+              { cls: 'bb-3', icon: 'fa-laptop-code', cat: 'Web Design', title: 'How To Build a Business Website That Actually Generates Leads', desc: 'The key elements of a high-converting business website — from clear messaging and trust signals to strategic calls-to-action and fast performance.', time: '8 min read', slug: 'what-makes-a-business-website-convert-visitors-into-customers' },
+            ].map(({ cls, icon, cat, title, desc, time, slug }) => (
               <div key={title} className="blog-card">
                 <div className={`blog-thumb ${cls}`}><i className={`fas ${icon}`}></i></div>
                 <div className="blog-body">
@@ -531,7 +531,7 @@ export default function HomePage() {
                   <p>{desc}</p>
                   <div className="blog-meta">
                     <span><i className="fas fa-clock"></i> {time}</span>
-                    <Link href="/blog" className="blog-read">Read Article <i className="fas fa-arrow-right"></i></Link>
+                    <Link href={`/blog/${slug}`} className="blog-read">Read Article <i className="fas fa-arrow-right"></i></Link>
                   </div>
                 </div>
               </div>

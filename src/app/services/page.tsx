@@ -145,7 +145,7 @@ export default function ServicesPage() {
                 <span className="svc-tag">Social Media Marketing</span><span className="svc-tag">Paid Campaign Strategy</span>
                 <span className="svc-tag">Lead Generation</span><span className="svc-tag">Analytics &amp; Reporting</span>
               </div>
-              <Link href="/contact-us" className="svc-explore-link">Explore Digital Marketing <i className="fas fa-arrow-right"></i></Link>
+              <Link href="/services/digital-marketing" className="svc-explore-link">Explore Digital Marketing <i className="fas fa-arrow-right"></i></Link>
             </div>
 
             <div className="svc-main-card">
@@ -159,7 +159,7 @@ export default function ServicesPage() {
                 <span className="svc-tag">CMS Development</span><span className="svc-tag">Conversion Optimization</span>
                 <span className="svc-tag">Website Performance</span>
               </div>
-              <Link href="/contact-us" className="svc-explore-link">Explore Web Design <i className="fas fa-arrow-right"></i></Link>
+              <Link href="/services/web-development" className="svc-explore-link">Explore Web Design <i className="fas fa-arrow-right"></i></Link>
             </div>
 
             <div className="svc-main-card">
@@ -173,7 +173,7 @@ export default function ServicesPage() {
                 <span className="svc-tag">Local Content</span><span className="svc-tag">Location-Based SEO</span>
                 <span className="svc-tag">Local Analytics</span>
               </div>
-              <Link href="/contact-us" className="svc-explore-link">Explore Local SEO <i className="fas fa-arrow-right"></i></Link>
+              <Link href="/services/local-seo" className="svc-explore-link">Explore Local SEO <i className="fas fa-arrow-right"></i></Link>
             </div>
 
             <div className="svc-main-card">
@@ -187,7 +187,7 @@ export default function ServicesPage() {
                 <span className="svc-tag">Marketing Materials</span><span className="svc-tag">Creative Design</span>
                 <span className="svc-tag">Digital Brand Assets</span>
               </div>
-              <Link href="/contact-us" className="svc-explore-link">Explore Branding <i className="fas fa-arrow-right"></i></Link>
+              <Link href="/services/branding" className="svc-explore-link">Explore Branding <i className="fas fa-arrow-right"></i></Link>
             </div>
 
             <div className="svc-main-card">
@@ -201,7 +201,7 @@ export default function ServicesPage() {
                 <span className="svc-tag">AI Content Solutions</span><span className="svc-tag">AI Data Analysis</span>
                 <span className="svc-tag">Custom AI Integrations</span>
               </div>
-              <Link href="/contact-us" className="svc-explore-link">Explore AI Solutions <i className="fas fa-arrow-right"></i></Link>
+              <Link href="/services/ai-automation" className="svc-explore-link">Explore AI Solutions <i className="fas fa-arrow-right"></i></Link>
             </div>
 
             <div className="svc-main-card">
@@ -214,7 +214,7 @@ export default function ServicesPage() {
                 <span className="svc-tag">Marketing Automation</span><span className="svc-tag">Customer Journey Optimization</span>
                 <span className="svc-tag">Business Process Automation</span><span className="svc-tag">Digital Transformation</span>
               </div>
-              <Link href="/contact-us" className="svc-explore-link">Explore Growth Solutions <i className="fas fa-arrow-right"></i></Link>
+              <Link href="/services/business-growth" className="svc-explore-link">Explore Growth Solutions <i className="fas fa-arrow-right"></i></Link>
             </div>
           </div>
         </div>

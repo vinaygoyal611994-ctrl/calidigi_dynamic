@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About Calidigi | California Digital Marketing Company',
+  title: { absolute: 'About Calidigi | California Digital Marketing Company' },
   description:
     'Calidigi is a California digital marketing company helping businesses grow online with web development, SEO, local SEO, AI automation and branding solutions.',
   alternates: {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import PortfolioFilter from '@/components/PortfolioFilter'
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing Portfolio | California Projects | Calidigi',
+  title: { absolute: 'Digital Marketing Portfolio | California Projects | Calidigi' },
   description:
     'Explore Calidigi\'s portfolio of 500+ digital projects across 30+ industries in California — web development, SEO, branding and AI solutions.',
   alternates: {

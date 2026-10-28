@@ -12,12 +12,12 @@ const companyLinks = [
 ]
 
 const serviceLinks = [
-  'Web Design',
-  'Digital Marketing',
-  'Local SEO',
-  'AI Solutions',
-  'Branding',
-  'Lead Generation',
+  { href: '/services/web-development', label: 'Web Design' },
+  { href: '/services/digital-marketing', label: 'Digital Marketing' },
+  { href: '/services/local-seo', label: 'Local SEO' },
+  { href: '/services/ai-automation', label: 'AI Solutions' },
+  { href: '/services/branding', label: 'Branding' },
+  { href: '/services/business-growth', label: 'Lead Generation' },
 ]
 
 export default function Footer() {
@@ -74,10 +74,10 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Services</h4>
             <ul>
-              {serviceLinks.map((service) => (
-                <li key={service}>
-                  <Link href="/services">
-                    <i className="fas fa-chevron-right"></i>{service}
+              {serviceLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href}>
+                    <i className="fas fa-chevron-right"></i>{label}
                   </Link>
                 </li>
               ))}
