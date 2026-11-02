@@ -55,6 +55,9 @@ export default function Footer() {
               <a href="#" className="f-soc" aria-label="X/Twitter" rel="noopener noreferrer">
                 <i className="fab fa-x-twitter"></i>
               </a>
+              <a href="https://www.youtube.com/@calidigi_official" className="f-soc" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-youtube"></i>
+              </a>
             </div>
           </div>
 
