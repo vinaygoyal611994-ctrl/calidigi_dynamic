@@ -3248,6 +3248,7 @@ ul  { list-style: none; }
 .bb-case   { background: linear-gradient(135deg, #0A0F1E, #d97706); color: rgba(255,255,255,0.9); }
 .bb-insight{ background: linear-gradient(135deg, #2563EB, #7c3aed); color: rgba(255,255,255,0.9); }
 .bb-dev    { background: linear-gradient(135deg, #0f172a, #1d4ed8); color: rgba(255,255,255,0.9); }
+.bb-astro  { background: linear-gradient(135deg, #0d0221, #3b0764, #7c3aed); color: rgba(255,255,255,0.9); }
 
 /* ── Blog Hero ── */
 .blg-hero {
