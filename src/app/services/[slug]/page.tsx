@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SERVICES, getServiceBySlug } from '@/lib/serviceData'
+import { BLOG_ARTICLES } from '@/lib/blogData'
 
 export function generateStaticParams() {
   return SERVICES.map(s => ({ slug: s.slug }))
@@ -87,6 +88,19 @@ export default async function ServiceDetailPage({
   }
 
   const relatedServices = SERVICES.filter(s => svc.relatedSlugs.includes(s.slug))
+
+  const catSlugMap: Record<string, string> = {
+    'local-seo': 'local-seo',
+    'web-development': 'web-design',
+    'digital-marketing': 'digital-marketing',
+    'ai-automation': 'ai-automation',
+    'branding': 'branding',
+    'business-growth': 'business-growth',
+  }
+  const blogCatSlug = catSlugMap[svc.slug] ?? ''
+  const relatedBlogs = BLOG_ARTICLES
+    .filter(a => a.catSlug === blogCatSlug)
+    .slice(0, 3)
 
   return (
     <>
@@ -229,6 +243,29 @@ export default async function ServiceDetailPage({
                   <h3>{r.name}</h3>
                   <p>{r.metaDescription.slice(0, 100)}…</p>
                   <span className="sd-related-link">Learn More <i className="fas fa-arrow-right"></i></span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── RELATED BLOG RESOURCES ── */}
+      {relatedBlogs.length > 0 && (
+        <section className="sd-related" style={{ background: 'var(--bg-soft, #f8fafc)' }}>
+          <div className="container">
+            <div className="section-head">
+              <div className="badge badge-orange"><i className="fas fa-book-open"></i> Expert Insights</div>
+              <h2>Learn More About <em className="text-orange">{svc.name}</em></h2>
+              <p>Free guides and strategies to help your California business grow.</p>
+            </div>
+            <div className="sd-related-grid">
+              {relatedBlogs.map(b => (
+                <Link key={b.slug} href={`/blog/${b.slug}`} className="sd-related-card">
+                  <div className="sd-related-icon"><i className={`fas ${b.icon}`}></i></div>
+                  <h3>{b.title}</h3>
+                  <p>{b.excerpt.slice(0, 110)}…</p>
+                  <span className="sd-related-link">Read Article <i className="fas fa-arrow-right"></i></span>
                 </Link>
               ))}
             </div>
