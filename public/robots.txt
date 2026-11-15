@@ -5,7 +5,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-# Block internal Next.js paths
-Disallow: /_next/
-
 Sitemap: https://www.calidigi.com/sitemap.xml
