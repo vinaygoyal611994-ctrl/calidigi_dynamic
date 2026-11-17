@@ -289,7 +289,7 @@ export default function HomePage() {
                 <div className="service-icon"><i className={`fas ${icon}`}></i></div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
-                <Link href={href} className="service-link">Learn More <i className="fas fa-arrow-right"></i></Link>
+                <Link href={href} className="service-link" aria-label={`${title} — View service details`}>{title} <i className="fas fa-arrow-right"></i></Link>
               </div>
             ))}
           </div>
