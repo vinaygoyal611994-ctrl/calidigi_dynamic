@@ -10,6 +10,8 @@ export interface CityPage {
   heroSub: string
   heroDesc: string
   heroStats: { num: string; label: string }[]
+  timeline: string
+  competitionLabel: string
   about: string
   topIndustries: string[]
   services: { icon: string; title: string; slug: string; desc: string }[]
@@ -38,6 +40,8 @@ export const CITIES: CityPage[] = [
       { num: '150+', label: 'LA Businesses Helped' },
       { num: 'Free', label: 'LA Audit Available' },
     ],
+    timeline: '90–120 Days',
+    competitionLabel: 'Very High',
     about: 'Los Angeles is California\'s largest city and one of the most dynamic business markets in the United States — home to over 240,000 businesses across entertainment, technology, healthcare, real estate, food, fashion, and beyond. LA\'s size creates enormous local search opportunity: millions of customers search Google daily for local services across every neighborhood from Downtown LA and Hollywood to Beverly Hills, Santa Monica, Pasadena, Culver City, and Burbank. Businesses that invest in local search visibility and digital marketing here don\'t just grow — they build compounding advantages that become harder for competitors to close over time.',
     topIndustries: ['Entertainment & Media', 'Technology & Startups', 'Healthcare & Medical', 'Real Estate', 'Food & Restaurant', 'Fashion & Retail', 'Legal Services', 'Home Services'],
     services: [
@@ -81,6 +85,8 @@ export const CITIES: CityPage[] = [
       { num: '#1', label: 'Tech-Savvy Consumers' },
       { num: 'Free', label: 'SF Audit Available' },
     ],
+    timeline: '60–90 Days',
+    competitionLabel: 'High',
     about: 'San Francisco is the financial and technology capital of Northern California — home to major tech companies, world-class restaurants, boutique retail, and a consumer base that is among the most digitally sophisticated in the United States. SF consumers research businesses extensively before contacting them, weight online reviews heavily, and discover local services primarily through Google. For SF businesses, digital presence quality is not a differentiator — it is a baseline expectation. Businesses that meet that expectation capture disproportionate local market share.',
     topIndustries: ['Technology & SaaS', 'Finance & Banking', 'Food & Restaurant', 'Healthcare & Wellness', 'Retail & Boutique', 'Real Estate', 'Professional Services', 'Tourism & Hospitality'],
     services: [
@@ -124,6 +130,8 @@ export const CITIES: CityPage[] = [
       { num: 'Fast', label: 'Growth Market' },
       { num: 'Free', label: 'SD Audit Available' },
     ],
+    timeline: '60–90 Days',
+    competitionLabel: 'Medium',
     about: "San Diego is California's second-largest city — and one of its most dynamic business markets. The city's economy spans military and defense, biotech and life sciences, tourism and hospitality, real estate, healthcare, food service, and a rapidly growing tech sector. San Diego's distinct neighborhoods — North Park, La Jolla, Hillcrest, Mission Valley, Chula Vista, Oceanside, and Gaslamp Quarter — each have strong local identities that create powerful neighborhood-level local search opportunities. Businesses that invest in hyperlocal SEO and digital marketing in San Diego today are building compounding advantages in a market that continues to grow year over year.",
     topIndustries: ['Biotech & Life Sciences', 'Tourism & Hospitality', 'Military & Defense', 'Healthcare & Medical', 'Food & Restaurant', 'Real Estate', 'Technology', 'Retail & Lifestyle'],
     services: [
@@ -167,6 +175,8 @@ export const CITIES: CityPage[] = [
       { num: 'Lower', label: 'Competition vs LA/SF' },
       { num: 'Free', label: 'Sac Audit Available' },
     ],
+    timeline: '30–60 Days',
+    competitionLabel: 'Low–Medium',
     about: "Sacramento is California's state capital and one of its fastest-growing business markets. The city's economy is anchored by state government and public sector employment, healthcare (UC Davis Medical Center and Sutter Health are major employers), agriculture and food processing, technology, construction, and a rapidly developing startup scene. Sacramento's population growth — driven by Bay Area and LA transplants seeking more affordable living — is creating expanding demand for local services across every category. For Sacramento businesses, this represents a window of opportunity: the market is growing but local search competition is significantly lower than coastal California cities, meaning excellent ROI is available to businesses that invest in digital marketing now.",
     topIndustries: ['Government & Public Sector', 'Healthcare & Medical', 'Agriculture & Food', 'Real Estate & Construction', 'Technology', 'Education', 'Retail & Restaurant', 'Professional Services'],
     services: [
@@ -210,6 +220,8 @@ export const CITIES: CityPage[] = [
       { num: 'Most', label: 'Tech-Savvy Consumers' },
       { num: 'Free', label: 'SJ Audit Available' },
     ],
+    timeline: '60–90 Days',
+    competitionLabel: 'High',
     about: "San Jose is the heart of Silicon Valley — home to Apple, Cisco, eBay, Adobe, and hundreds of other technology companies that have shaped the global economy. As the largest city in Northern California, San Jose brings together a uniquely sophisticated consumer base: highly educated, tech-native, research-driven, and accustomed to premium quality. The city's economic diversity — from established tech campuses to immigrant-owned small businesses to Willow Glen boutiques — creates a wide range of digital marketing needs. Businesses that invest in professional digital marketing here compete for one of the highest-purchasing-power local consumer bases in the United States.",
     topIndustries: ['Technology & Semiconductors', 'Professional Services', 'Healthcare & Biotech', 'Food & Restaurant', 'Real Estate', 'Education', 'Retail & Lifestyle', 'Manufacturing'],
     services: [
@@ -253,6 +265,8 @@ export const CITIES: CityPage[] = [
       { num: 'Best', label: 'CA ROI Opportunity' },
       { num: 'Free', label: 'Fresno Audit Available' },
     ],
+    timeline: '30–60 Days',
+    competitionLabel: 'Low',
     about: "Fresno is California's fifth-largest city and the economic center of the Central Valley — one of the most productive agricultural regions in the world. Beyond agriculture, Fresno's economy includes healthcare (Community Medical Centers is a major employer), higher education (Fresno State), logistics and distribution, government, and a growing service sector. Fresno's population is diverse, economically active, and increasingly connected to digital channels for local business discovery. For digital marketing, Fresno represents the best ROI opportunity in California: strong and growing local search demand combined with competitive landscape that is significantly less intense than coastal cities — meaning Map Pack positions are more achievable, faster.",
     topIndustries: ['Agriculture & Food Processing', 'Healthcare & Medical', 'Education', 'Logistics & Distribution', 'Government', 'Construction & Home Services', 'Retail & Restaurant', 'Professional Services'],
     services: [
