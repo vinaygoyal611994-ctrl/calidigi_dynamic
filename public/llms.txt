@@ -6,14 +6,33 @@
 
 Calidigi is a full-service digital agency headquartered in San Francisco, California. We work with businesses across 30+ industries to build stronger digital presences, automate operations with AI, and create measurable growth opportunities. We have delivered 500+ projects with a 98% client retention rate and generated $50M+ in client revenue.
 
+## Core Pages
+
+- [Homepage](https://www.calidigi.com/)
+- [About Calidigi](https://www.calidigi.com/about)
+- [All Services](https://www.calidigi.com/services)
+- [Solutions](https://www.calidigi.com/solutions)
+- [Portfolio](https://www.calidigi.com/portfolio)
+- [Blog](https://www.calidigi.com/blog)
+- [Contact Us](https://www.calidigi.com/contact-us)
+
 ## Services
 
-- **Web Design & Development** — High-converting websites, landing pages, e-commerce, CMS development, and performance optimization
-- **Digital Marketing** — SEO, content marketing, social media marketing, paid campaigns, lead generation, and analytics
-- **Local SEO** — Google Business Profile optimization, local keyword strategy, citation building, and reputation management
-- **Branding & Creative** — Brand strategy, logo design, visual identity systems, and marketing materials
-- **AI Solutions** — AI integration, custom AI model development, LLM fine-tuning, business automation, and predictive analytics
-- **Custom Software** — SaaS development, API design, enterprise web applications, cloud-native architecture
+- [Web Design & Development](https://www.calidigi.com/services/web-development) — High-converting websites, landing pages, e-commerce, CMS development, and performance optimization
+- [Digital Marketing](https://www.calidigi.com/services/digital-marketing) — SEO, content marketing, social media marketing, paid campaigns, lead generation, and analytics
+- [Local SEO](https://www.calidigi.com/services/local-seo) — Google Business Profile optimization, local keyword strategy, citation building, and reputation management
+- [Branding & Creative](https://www.calidigi.com/services/branding) — Brand strategy, logo design, visual identity systems, and marketing materials
+- [AI Solutions](https://www.calidigi.com/services/ai-automation) — AI integration, business automation, intelligent workflows, and predictive analytics
+- [Business Growth](https://www.calidigi.com/services/business-growth) — Lead generation, conversion optimization, and growth strategy
+
+## California Locations
+
+- [Digital Marketing Agency Los Angeles](https://www.calidigi.com/locations/los-angeles)
+- [Digital Marketing Agency San Francisco](https://www.calidigi.com/locations/san-francisco)
+- [Digital Marketing Agency San Diego](https://www.calidigi.com/locations/san-diego)
+- [Digital Marketing Agency Sacramento](https://www.calidigi.com/locations/sacramento)
+- [Digital Marketing Agency San Jose](https://www.calidigi.com/locations/san-jose)
+- [Digital Marketing Agency Fresno](https://www.calidigi.com/locations/fresno)
 
 ## Industries Served
 
@@ -31,25 +50,10 @@ Healthcare, Real Estate, E-Commerce, SaaS & Tech, Legal, Restaurant & Hospitalit
 
 ## Contact
 
-- Website: https://www.calidigi.com
 - Email: sales@calidigi.com
 - Phone: +1 (555) 000-1234
 - Location: San Francisco, California, USA
 
-## Pages
-
-- Homepage: https://www.calidigi.com/
-- Services: https://www.calidigi.com/services
-- Solutions: https://www.calidigi.com/solutions
-- Portfolio: https://www.calidigi.com/portfolio
-- About: https://www.calidigi.com/about
-- Blog: https://www.calidigi.com/blog
-- Contact: https://www.calidigi.com/contact-us
-
-## Blog Topics
-
-Calidigi publishes expert insights on digital marketing, web design, local SEO, AI for business, branding, lead generation, e-commerce, and business growth strategies for California businesses.
-
 ## Sitemap
 
-https://www.calidigi.com/sitemap.xml
+- [XML Sitemap](https://www.calidigi.com/sitemap.xml)
