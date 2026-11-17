@@ -20,6 +20,15 @@ const serviceLinks = [
   { href: '/services/business-growth', label: 'Lead Generation' },
 ]
 
+const locationLinks = [
+  { href: '/locations/los-angeles', label: 'Los Angeles' },
+  { href: '/locations/san-francisco', label: 'San Francisco' },
+  { href: '/locations/san-diego', label: 'San Diego' },
+  { href: '/locations/sacramento', label: 'Sacramento' },
+  { href: '/locations/san-jose', label: 'San Jose' },
+  { href: '/locations/fresno', label: 'Fresno' },
+]
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -78,6 +87,19 @@ export default function Footer() {
             <h4>Services</h4>
             <ul>
               {serviceLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <Link href={href}>
+                    <i className="fas fa-chevron-right"></i>{label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="footer-col">
+            <h4>Locations</h4>
+            <ul>
+              {locationLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link href={href}>
                     <i className="fas fa-chevron-right"></i>{label}
