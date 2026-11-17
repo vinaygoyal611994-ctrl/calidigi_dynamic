@@ -675,7 +675,7 @@ ul  { list-style: none; }
   transform: scale(1.08);
   box-shadow: 0 10px 24px -6px rgba(245,130,31,0.60);
 }
-.problem-card h4 {
+.problem-card h3 {
   font-family: var(--font-head);
   font-size: 0.9rem;
   font-weight: 800;
@@ -1788,7 +1788,7 @@ ul  { list-style: none; }
   transform: translateY(-2px);
 }
 
-.footer-col h4 {
+.footer-col h3 {
   font-family: var(--font-head);
   font-size: 0.8rem;
   font-weight: 800;
@@ -6782,7 +6782,7 @@ ul  { list-style: none; }
 @media (max-width: 480px) {
   .footer-brand img   { height: 48px; }
   .footer             { padding: 44px 0 0; }
-  .footer-col h4      { font-size: 0.85rem; margin-bottom: 14px; }
+  .footer-col h3      { font-size: 0.85rem; margin-bottom: 14px; }
   .footer-col ul li a { font-size: 0.82rem; padding: 4px 0; }
   .footer-bottom      { padding: 18px 0; }
   .footer-bottom-inner { gap: 10px; }
@@ -7784,7 +7784,7 @@ table { width: 100%; }
   font-size: 1rem; font-weight: 800;
   margin: 0 auto 16px;
 }
-.sd-process-step h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.sd-process-step h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
 .sd-process-step p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; }
 .sd-process-arrow {
   position: absolute;
@@ -7803,12 +7803,12 @@ table { width: 100%; }
   border-radius: var(--radius-lg);
   padding: 24px 28px;
 }
-.sd-faq-item h4 {
+.sd-faq-item h3 {
   font-size: 1rem; font-weight: 700; color: var(--navy);
   margin-bottom: 10px;
   display: flex; align-items: flex-start; gap: 10px;
 }
-.sd-faq-item h4 i { color: var(--orange); margin-top: 2px; flex-shrink: 0; }
+.sd-faq-item h3 i { color: var(--orange); margin-top: 2px; flex-shrink: 0; }
 .sd-faq-item p { font-size: 0.9rem; line-height: 1.75; color: var(--gray-600); padding-left: 26px; }
 
 /* Related services */

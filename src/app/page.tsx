@@ -245,7 +245,7 @@ export default function HomePage() {
             ].map(({ num, icon, title, desc }) => (
               <div key={num} className="problem-card" data-num={num}>
                 <div className="problem-icon"><i className={`fas ${icon}`}></i></div>
-                <h4>{title}</h4>
+                <h3>{title}</h3>
                 <p>{desc}</p>
               </div>
             ))}

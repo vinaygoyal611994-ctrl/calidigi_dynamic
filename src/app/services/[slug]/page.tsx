@@ -201,7 +201,7 @@ export default async function ServiceDetailPage({
             {svc.process.map((p, i) => (
               <div key={p.n} className="sd-process-step">
                 <div className="sd-process-num">{p.n}</div>
-                <h4>{p.title}</h4>
+                <h3>{p.title}</h3>
                 <p>{p.desc}</p>
                 {i < svc.process.length - 1 && <div className="sd-process-arrow"><i className="fas fa-arrow-right"></i></div>}
               </div>
@@ -220,7 +220,7 @@ export default async function ServiceDetailPage({
           <div className="sd-faq-list">
             {svc.faqs.map(f => (
               <div key={f.q} className="sd-faq-item">
-                <h4><i className="fas fa-circle-question"></i> {f.q}</h4>
+                <h3><i className="fas fa-circle-question"></i> {f.q}</h3>
                 <p>{f.a}</p>
               </div>
             ))}

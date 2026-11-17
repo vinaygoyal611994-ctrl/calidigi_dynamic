@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Company</h4>
+            <h3>Company</h3>
             <ul>
               {companyLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -84,7 +84,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Services</h4>
+            <h3>Services</h3>
             <ul>
               {serviceLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -97,7 +97,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Locations</h4>
+            <h3>Locations</h3>
             <ul>
               {locationLinks.map(({ href, label }) => (
                 <li key={href}>
@@ -110,7 +110,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Get In Touch</h4>
+            <h3>Get In Touch</h3>
             <div className="footer-contact-row">
               <div className="fci"><i className="fas fa-location-dot"></i></div>
               <span className="fci-text">
