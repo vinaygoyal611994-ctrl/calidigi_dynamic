@@ -12,6 +12,11 @@ export interface CityPage {
   heroStats: { num: string; label: string }[]
   timeline: string
   competitionLabel: string
+  marketHeading: string
+  servicesHeading: string
+  servicesSub: string
+  whyHeading: string
+  whySub: string
   about: string
   topIndustries: string[]
   services: { icon: string; title: string; slug: string; desc: string }[]
@@ -42,6 +47,11 @@ export const CITIES: CityPage[] = [
     ],
     timeline: '90–120 Days',
     competitionLabel: 'Very High',
+    marketHeading: 'The LA Market Has 240,000 Businesses. Here\'s Why Most Don\'t Show Up on Google.',
+    servicesHeading: 'What We Execute for Los Angeles Businesses',
+    servicesSub: 'Every service is built around your specific LA neighborhood, competition level, and customer — not a city-wide template.',
+    whyHeading: 'Why LA Business Owners Work With Calidigi',
+    whySub: 'We don\'t apply the same strategy to Koreatown that we apply to Pasadena. LA is 88 cities — we treat it that way.',
     about: 'Los Angeles is 88 cities pretending to be one. A plumber in Reseda is not competing against a plumber in Long Beach — they are competing against the five other plumbers who figured out how to show up when someone in Van Nuys searches from their car at 7pm. That is the actual reality of local search in LA.\n\nThe 405 is relevant here. LA people spend hours in traffic, searching on their phones, clicking on the first thing that looks trustworthy. The business with 200 Google reviews and a website that loads in two seconds wins that moment. The one with 14 reviews and a Flash-era site does not.\n\nLA\'s real industries are entertainment, healthcare, real estate, food, fashion, and an increasingly large tech scene. Each neighborhood runs on different money — the Koreatown business owner needs Korean-language search strategy, the Silver Lake studio needs Instagram-integrated booking, the Pasadena dental practice needs to show up for searches made by families who just moved from the Westside. One size does not fit any of them.',
     topIndustries: ['Entertainment & Film Production', 'Fashion & Apparel', 'Technology & E-Commerce', 'Healthcare & Wellness', 'Food & Restaurant', 'Real Estate & Mortgage', 'Immigration & Legal Services', 'Home Services & Construction'],
     services: [
@@ -88,6 +98,11 @@ export const CITIES: CityPage[] = [
     ],
     timeline: '60–90 Days',
     competitionLabel: 'High',
+    marketHeading: 'SF Customers Research More Than Any Other City in America',
+    servicesHeading: 'What We Build for San Francisco Businesses',
+    servicesSub: 'SF\'s review culture and high consumer standards require a different approach — we build it from the ground up for this market.',
+    whyHeading: 'Why SF Business Owners Work With Calidigi',
+    whySub: 'In a city where Yelp was founded, reputation and research are everything. We build the full trust picture that SF consumers check before spending.',
     about: 'San Francisco costs more per square foot than almost anywhere on earth. That overhead pressure means every SF business owner knows exactly what a customer is worth — and losing a customer to a competitor because of a bad review or a slow website is not an abstraction, it is rent money.\n\nThe city\'s neighborhoods each run on different customer logic. The Mission has a fiercely local, community-loyalty customer base. SoMa attracts tech workers who will pay premium prices for businesses that look premium. The Castro has an intensely engaged, referral-driven community. Noe Valley and Cole Valley are family-oriented, repeat-customer neighborhoods. Chinatown and the Richmond have communities that search and decide in Cantonese and Mandarin first.\n\nThen there are the tourists. 15 million people visited San Francisco last year, most of them searching on their phone for where to eat, where to get a massage, what to do. For the right SF business, tourist traffic is not a bonus — it is a primary revenue stream that most businesses are not set up to capture.',
     topIndustries: ['Technology & SaaS', 'Finance & Fintech', 'Food & Restaurants', 'Healthcare & Wellness', 'Tourism & Entertainment', 'Boutique Retail', 'Professional Services', 'Real Estate'],
     services: [
@@ -134,6 +149,11 @@ export const CITIES: CityPage[] = [
     ],
     timeline: '60–90 Days',
     competitionLabel: 'Medium',
+    marketHeading: 'San Diego Has Three Distinct Customer Segments — Each Needs a Different Strategy',
+    servicesHeading: 'What We Execute for San Diego Businesses',
+    servicesSub: 'Military families, biotech professionals, and 35 million annual tourists don\'t search the same way. We build campaigns that reach all three.',
+    whyHeading: 'Why SD Business Owners Work With Calidigi',
+    whySub: 'Most SD agencies treat La Jolla and Chula Vista the same. We don\'t — because the customers, competition, and strategy are completely different.',
     about: 'San Diego stretches from the Mexican border up through 70 miles of Pacific coastline, and no two parts of it market the same way. La Jolla is one of the wealthiest zip codes in California — biotech executives, venture capitalists, and medical researchers who expect premium quality and will pay for it without much resistance. Pacific Beach and Ocean Beach run on tourists, college students, and the surf economy. Chula Vista and National City have large working-class and immigrant communities where Spanish-language search is not optional — it is the majority of local search volume in many service categories. Inland SD — El Cajon, Santee, Lakeside — is contractor and trade business country, where Google Maps rankings for home services convert at some of the highest rates in the county.\n\nThe military angle is real and largely ignored by SD businesses. Camp Pendleton alone houses 40,000+ military personnel and their families. Naval Station San Diego, Miramar, and Coronado add tens of thousands more. These families move every 2-3 years, which means they are constantly searching Google for new dentists, new HVAC companies, new gyms, new restaurants. They make decisions fast, they spend consistently, and when they find a business they trust, they refer it aggressively within the military community network.',
     topIndustries: ['Biotech & Life Sciences', 'Military & Defense', 'Tourism & Hospitality', 'Healthcare & Medical Devices', 'Craft Beverage & Food', 'Real Estate', 'Surf & Outdoor Lifestyle', 'Border Economy & Logistics'],
     services: [
@@ -180,6 +200,11 @@ export const CITIES: CityPage[] = [
     ],
     timeline: '30–60 Days',
     competitionLabel: 'Low–Medium',
+    marketHeading: 'Sacramento Is Growing Fast. The Digital Competition Hasn\'t Caught Up Yet.',
+    servicesHeading: 'What We Build for Sacramento Businesses',
+    servicesSub: 'Sacramento\'s low-competition window is real — we help you claim Google Maps positions before the market catches up.',
+    whyHeading: 'Why Sacramento Business Owners Work With Calidigi',
+    whySub: 'Bay Area transplants arriving in Sacramento every month are searching Google for new services. We make sure they find you first.',
     about: 'Sacramento wears an identity that most California cities cannot claim: it is genuinely the Farm-to-Fork Capital of America. That is not a tourism slogan — it is a real consumer culture. Sacramento has more farm-to-table restaurants per capita than San Francisco, runs an annual Farm-to-Fork Festival that draws national media, and has built a food identity around produce from the Sacramento Valley that shapes consumer expectations across every category, not just restaurants.\n\nBut Sacramento is also the state capital, which means it runs on something the rest of California\'s cities do not have — government payroll. 170,000+ state government employees work in Sacramento, most of them with stable incomes, predictable spending patterns, and long-term residency. They are not gig economy workers or seasonal employees. They buy houses in Land Park and East Sacramento, they patronize Midtown restaurants, they hire contractors for homes they plan to stay in for 20 years.\n\nThe opportunity window in Sacramento is specific and time-limited. The local search competitive landscape has not caught up with the city\'s growth. When we audit Sacramento businesses right now, the average Google profile has fewer than 50 reviews, the average website was last updated in 2021, and most categories have no business that has invested seriously in local SEO. That window exists today. It will not exist in three years.',
     topIndustries: ['State Government & Public Sector', 'Healthcare & UC Davis Medical', 'Agriculture & Farm-to-Fork', 'Real Estate & Construction', 'Technology & Startups', 'Education & Universities', 'Craft Beverage & Restaurant', 'Professional Services'],
     services: [
@@ -226,6 +251,11 @@ export const CITIES: CityPage[] = [
     ],
     timeline: '60–90 Days',
     competitionLabel: 'High',
+    marketHeading: 'San Jose Is Bigger Than San Francisco — and Most Agencies Have Never Noticed',
+    servicesHeading: 'What We Build for San Jose and Silicon Valley Businesses',
+    servicesSub: 'A million residents, $130K+ median income, and the largest Vietnamese community outside Vietnam — we market to the real San Jose.',
+    whyHeading: 'Why San Jose Business Owners Work With Calidigi',
+    whySub: 'Silicon Valley\'s most underestimated city has purchasing power that rivals any market in California. We help you reach those customers.',
     about: 'San Jose\'s Story Road corridor is not a footnote in California\'s Vietnamese American story — it is the main chapter. The Vietnamese American community in East San Jose is one of the most economically active, locally loyal consumer communities in the state. They search in Vietnamese, they prefer businesses with Vietnamese-language Google profiles, and they refer within their community with the kind of intensity that makes word-of-mouth genuinely powerful. Most San Jose competitors have never spent a dollar to reach this market. That is a gap.\n\nAcross town, Willow Glen is a walkable, village-like neighborhood of well-maintained bungalows and genuinely affluent homeowners who want premium local services and are willing to pay for them. The same week a business in Willow Glen gets its first proper Google Maps ranking, it typically sees an immediate jump in call volume from customers who were searching every week but never finding it.\n\nAnd then there is the broader tech-worker demographic — 200,000+ software engineers, product managers, and tech executives who buy local services the same way they evaluate software products: they research, they compare, they read reviews, and they will not give their business to a company whose website looks like a 2015 WordPress template.',
     topIndustries: ['Technology & Semiconductors', 'Healthcare & Biotech', 'Vietnamese-American Businesses', 'Indian-American Professional Services', 'Luxury Retail & Hospitality', 'Real Estate', 'Education & Research', 'B2B Professional Services'],
     services: [
@@ -272,6 +302,11 @@ export const CITIES: CityPage[] = [
     ],
     timeline: '30–60 Days',
     competitionLabel: 'Low',
+    marketHeading: 'Fresno\'s Competitors Are Weak. The Market Is Real. The Timing Is Now.',
+    servicesHeading: 'What We Execute for Fresno Businesses',
+    servicesSub: 'Most Fresno competitors have 30 reviews and a 2018 website. Here\'s how we help you pull so far ahead they can\'t catch up.',
+    whyHeading: 'Why Fresno Business Owners Work With Calidigi',
+    whySub: 'Fresno is majority Hispanic with almost no Spanish-language digital marketing from local businesses. That gap is your opportunity.',
     about: 'Fresno is the fifth-largest city in California. Most people outside the Central Valley do not fully register that fact. It sits in the geographic center of the state, surrounded by some of the most productive farmland on earth — Blue Diamond almonds, Sun-Maid raisins, and a significant share of the entire US fruit and vegetable supply all pass through or originate in the Fresno area. The agricultural economy is the backbone, but it is not the whole story.\n\nFresno has a real arts and culture scene centered on the Tower District — one of the most underrated neighborhood commercial strips in California, with independent restaurants, music venues, galleries, and locally-owned businesses that have built strong community loyalty over decades. Fresno State brings 25,000 students and the economic activity that comes with a large university. The city\'s healthcare sector is massive — Community Medical Centers is one of the largest employers in the Central Valley, and the region\'s healthcare infrastructure serves a multi-county area.\n\nFresno is majority Hispanic — primarily Mexican-American families with multi-generational roots in the Central Valley. This demographic reality shapes the entire local consumer market. Spanish is widely spoken as a first language across large segments of the population. The businesses that have built Spanish-language Google profiles, Spanish-language websites, and Spanish-language review profiles in Fresno are reaching the majority of the city\'s population. Most businesses in Fresno have never done this. That is a competitive gap that is both significant and largely ignored.',
     topIndustries: ['Agriculture & Food Processing', 'Healthcare & Community Medical', 'Education & Fresno State', 'Logistics & Distribution', 'Construction & Home Services', 'Restaurant & Food Service', 'Automotive Services', 'Government & Public Sector'],
     services: [

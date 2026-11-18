@@ -243,7 +243,7 @@ export default async function CityPage({
             <div className="badge badge-orange">
               <i className="fas fa-map-location-dot"></i> {data.name} Market
             </div>
-            <h2>Why <em className="text-orange">{data.name}</em> Businesses Need Strong Digital Marketing</h2>
+            <h2>{data.marketHeading}</h2>
             <p>{data.about}</p>
             <Link href="/contact-us" className="btn btn-primary" style={{ marginTop: '24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
               Start Growing in {data.name} <i className="fas fa-arrow-right"></i>
@@ -274,8 +274,8 @@ export default async function CityPage({
         <div className="container">
           <div className="section-head">
             <div className="badge badge-orange"><i className="fas fa-list-check"></i> Our Services in {data.name}</div>
-            <h2>Everything We Do for <em className="text-orange">{data.name}</em> Businesses</h2>
-            <p>Hands-on execution — not just advice — that produces measurable results for businesses across {data.name}.</p>
+            <h2>{data.servicesHeading}</h2>
+            <p>{data.servicesSub}</p>
           </div>
           <div className="loc-services-grid">
             {data.services.map(svc => (
@@ -312,7 +312,7 @@ export default async function CityPage({
         <div className="container">
           <div className="loc-results-head">
             <div className="badge badge-white"><i className="fas fa-chart-line"></i> Real Results</div>
-            <h2>What {data.name} Businesses Achieve With Calidigi</h2>
+            <h2>Real Results for {data.name} Businesses</h2>
           </div>
           <div className="loc-results-grid">
             <div className="loc-result-card">
@@ -351,8 +351,8 @@ export default async function CityPage({
           <div className="loc-why-inner">
             <div className="loc-why-left">
               <div className="badge badge-orange"><i className="fas fa-trophy"></i> Why Calidigi</div>
-              <h2>Why <em className="text-orange">{data.name}</em> Businesses Choose Us</h2>
-              <p>We are not a national agency applying generic templates to California markets. Every {data.name} strategy is built around your specific city, neighborhood, competitors, and business goals.</p>
+              <h2>{data.whyHeading}</h2>
+              <p>{data.whySub}</p>
               <div className="loc-why-checklist">
                 <div className="loc-wc-item"><i className="fas fa-check-circle"></i> Free local SEO audit — no obligation</div>
                 <div className="loc-wc-item"><i className="fas fa-check-circle"></i> {data.name}-specific keyword & competitor research</div>
