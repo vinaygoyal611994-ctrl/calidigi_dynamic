@@ -327,7 +327,7 @@ export default function HomePage() {
             ].map(({ icon, title, desc }) => (
               <div key={title} className="ai-card">
                 <div className="ai-card-icon"><i className={`fas ${icon}`}></i></div>
-                <h4>{title}</h4>
+                <h3>{title}</h3>
                 <p>{desc}</p>
               </div>
             ))}
@@ -432,7 +432,7 @@ export default function HomePage() {
               <div key={title} className="process-step">
                 <div className="ps-num"><i className={`fas ${icon} ps-icon`}></i></div>
                 <div className="ps-label">{label}</div>
-                <h4>{title}</h4>
+                <h3>{title}</h3>
                 <p>{desc}</p>
               </div>
             ))}

@@ -958,7 +958,7 @@ ul  { list-style: none; }
   color: var(--orange);
   margin-bottom: 10px;
 }
-.ai-card h4 {
+.ai-card h3 {
   font-family: var(--font-head);
   font-size: 0.88rem;
   font-weight: 700;
@@ -1292,7 +1292,7 @@ ul  { list-style: none; }
   color: var(--orange);
   margin-bottom: 8px;
 }
-.process-step h4 {
+.process-step h3 {
   font-family: var(--font-head);
   font-size: 0.95rem;
   font-weight: 800;
