@@ -1159,6 +1159,44 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
     relatedSlugs: ['education-coaching', 'business-consulting', 'senior-care'],
   },
+  {
+    slug: 'gmail-n8n-automation-platform',
+    title: 'Digital Agency — Automated Case Study Extraction via Gmail & n8n',
+    catLabel: 'B2B & Tech',
+    category: 'b2b',
+    icon: 'fa-rotate',
+    bg: 'pf-bg-saas',
+    location: 'San Francisco, CA',
+    metaTitle: 'Gmail & n8n Automation Case Study | Calidigi',
+    metaDescription: 'How Calidigi built a fully automated n8n + Gmail workflow that extracts project emails, generates case studies with AI, and publishes them to the portfolio — saving 4 hours daily.',
+    heroStats: [
+      { n: '95%', l: 'Time Saved' },
+      { n: '12+', l: 'Monthly Case Studies' },
+      { n: '4 hrs', l: 'Saved Daily' },
+      { n: '100%', l: 'Auto-Processed' },
+    ],
+    challenge: 'A fast-growing California digital agency was manually extracting project details from Gmail — spending 3–4 hours daily reading through email threads, writing case studies by hand, and updating their portfolio one entry at a time. Critical project insights were buried in email conversations and either lost or captured weeks after project completion. Their portfolio was perpetually 6 months out of date, and the manual documentation overhead was pulling senior team members away from billable client work.',
+    solution: 'We built a fully automated n8n workflow that connects Gmail to a custom portfolio CMS. When a project-related email arrives, the workflow automatically extracts the content and metadata, routes it through an AI model for structured case study generation, saves the result to a MySQL database with draft status, and notifies the admin team for one-click review and publishing — turning a 4-hour daily manual process into a zero-touch automation that keeps the portfolio current without lifting a finger.',
+    services: ['AI & Automation', 'n8n Workflow Development', 'Web Development', 'Custom CMS Build'],
+    process: [
+      { n: 1, title: 'Gmail Integration & Smart Filtering', desc: 'Set up Gmail OAuth2 in n8n and configured intelligent search filters using project keywords, sender patterns, and Gmail labels to capture only relevant emails. Built duplicate detection using Gmail message IDs to ensure nothing gets processed twice.' },
+      { n: 2, title: 'AI-Powered Case Study Generation', desc: 'Integrated Claude AI via n8n HTTP Request nodes to analyze raw email content and produce structured case study drafts — including project title, client challenge, proposed solution, services rendered, technologies used, and suggested result metrics.' },
+      { n: 3, title: 'Database & Webhook Integration', desc: 'Built a MySQL-backed case study management system with a full status workflow: draft → pending review → approved → published. A secure webhook endpoint allows n8n to save AI-generated case studies in real time, with full Gmail source tracking and error logging.' },
+      { n: 4, title: 'Admin Review Panel & Portfolio Publishing', desc: 'Developed a custom admin interface where the team reviews AI-generated drafts, makes edits, approves content, and publishes directly to the live portfolio — adding a fully polished case study in under 2 minutes instead of 4 hours of manual work.' },
+    ],
+    results: [
+      { n: '95%', l: 'Time Saved', desc: 'Manual case study creation time dropped from 4 hours per entry to under 10 minutes of review — a 95% reduction in documentation overhead.' },
+      { n: '12+', l: 'Monthly Case Studies', desc: 'The automated workflow consistently generates 12+ structured case study drafts per month directly from project email data, with zero manual initiation.' },
+      { n: '4 hrs', l: 'Saved Daily', desc: 'Four hours of daily administrative work redirected to client-facing projects — representing over 80 hours of reclaimed team capacity every month.' },
+      { n: '100%', l: 'Auto-Processed', desc: 'Every qualifying project email is now captured, deduplicated, and queued for review automatically, ensuring no completed project goes undocumented.' },
+    ],
+    testimonial: {
+      quote: 'Our portfolio used to be six months behind on new case studies. Now every project gets documented automatically while we focus on client work. Calidigi built something that genuinely changed how our agency operates day to day.',
+      name: 'Alex T.',
+      role: 'Operations Director, California Digital Agency',
+    },
+    relatedSlugs: ['saas-startup', 'business-consulting', 'law-firm'],
+  },
 ]
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
