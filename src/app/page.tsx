@@ -257,7 +257,7 @@ export default function HomePage() {
           </div>
           <div className="problems-bridge">
             <div className="problems-bridge-text">
-              <p>The Calidigi Difference</p>
+              <p>THE CALI DIGI DIFFERENCE</p>
               <h3>We turn these problems into <em>growth opportunities</em> — with the right strategy, design and technology.</h3>
             </div>
             <div className="problems-bridge-cta">
@@ -265,8 +265,8 @@ export default function HomePage() {
                 <div className="bridge-stat-dot"></div>
                 <span>150+ businesses helped</span>
               </div>
-              <Link href="/services" className="btn btn-primary">
-                See How We Help <i className="fas fa-arrow-right"></i>
+              <Link href="/contact-us" className="btn btn-primary">
+                Book A Free Strategy Call <i className="fas fa-arrow-right"></i>
               </Link>
             </div>
           </div>
