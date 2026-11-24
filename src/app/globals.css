@@ -423,7 +423,7 @@ ul  { list-style: none; }
   padding: 28px;
   box-shadow: var(--shadow-xl);
   position: relative;
-  z-index: 10;
+  z-index: 2;
 }
 
 .hv-browser-bar {
@@ -560,7 +560,7 @@ ul  { list-style: none; }
 }
 
 .hv-float-1 { top: -28px; right: -24px; }
-.hv-float-2 { top: 50%; right: -36px; transform: translateY(-50%); }
+.hv-float-2 { bottom: 60px; right: -36px; }
 .hv-float-3 { bottom: -20px; left: -28px; }
 
 .hv-float-icon {
