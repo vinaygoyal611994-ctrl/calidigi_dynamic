@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -66,12 +66,12 @@ export default function HomePage() {
           '@type': 'OfferCatalog',
           name: 'Digital Services for California Businesses',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Web Development', description: 'Custom website design and development for California businesses' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Digital Marketing', description: 'SEO, content marketing, social media and paid advertising for California businesses' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Local SEO', description: 'Local search optimization to help California businesses rank on Google Maps' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Solutions', description: 'AI integration and business automation for California companies' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Branding', description: 'Brand identity design and creative services for California businesses' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Software Development', description: 'Custom software and SaaS development for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Meta & Google Ads', description: 'Paid advertising on Meta and Google to drive qualified inquiries for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '24/7 AI Lead Follow-Up', description: 'AI-powered lead follow-up and qualification in your brand\'s voice, around the clock' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Email & SMS Marketing', description: 'Email and SMS campaigns that convert prospects and retain customers for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO & AI Search Visibility', description: 'Local SEO and AI search optimization to help California businesses get found online' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Design', description: 'High-converting website design for California businesses' } },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Branding & Logo Design', description: 'Brand identity design for California businesses' } },
           ],
         },
       },
@@ -82,7 +82,7 @@ export default function HomePage() {
           {
             '@type': 'Question',
             name: 'What digital services does Calidigi offer?',
-            acceptedAnswer: { '@type': 'Answer', text: 'Calidigi offers web development, digital marketing, local SEO, AI solutions, branding, and custom software development for California businesses. We serve 30+ industries with a full-service digital growth approach.' },
+            acceptedAnswer: { '@type': 'Answer', text: 'Calidigi offers Meta & Google Ads, 24/7 AI lead follow-up, email & SMS marketing, SEO & AI search visibility, website design, and branding & logo design for California businesses.' },
           },
           {
             '@type': 'Question',
@@ -124,10 +124,10 @@ export default function HomePage() {
         '@type': 'WebPage',
         '@id': 'https://www.calidigi.com/#webpage',
         url: 'https://www.calidigi.com/',
-        name: 'Web Development, SEO & AI Solutions California | Calidigi',
+        name: 'Digital Marketing for California Businesses | Calidigi',
         isPartOf: { '@id': 'https://www.calidigi.com/#website' },
         about: { '@id': 'https://www.calidigi.com/#organization' },
-        description: 'Calidigi is a California digital growth company offering web development, digital marketing, local SEO and AI solutions to help businesses grow.',
+        description: 'Calidigi is a California digital marketing agency combining paid advertising with AI-powered lead follow-up to turn prospects into qualified appointments.',
         breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.calidigi.com/' }] },
       },
     ],
@@ -136,41 +136,42 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      {/* HERO */}
+
+      {/* ── HERO ── */}
       <section className="hero" id="home">
         <div className="hero-bg"></div>
         <div className="hero-dots"></div>
         <div className="container hero-inner">
           <div className="hero-content">
-            <h1 className="sr-only">Web Development, Digital Marketing &amp; AI Solutions California | Calidigi</h1>
+            <h1 className="sr-only">Digital Marketing for California Businesses | Calidigi</h1>
             <div className="hero-eyebrow">
               <div className="hero-eyebrow-dot"></div>
-              <span>California&apos;s Digital Growth Company</span>
+              <span>DIGITAL MARKETING FOR CALIFORNIA BUSINESSES</span>
             </div>
-            <h2>Grow Your Business With<br /><em>Digital, Design &amp; AI</em></h2>
+            <h2>Not Just Leads.<br /><em>Qualified Appointments.</em></h2>
             <p className="hero-desc">
-              We build high-performing websites, powerful brands, local SEO strategies and AI-powered solutions that help California businesses — in San Francisco, Los Angeles and San Diego — attract more customers, generate leads and grow.
+              We&apos;re a digital marketing agency that combines paid advertising with AI-powered lead follow-up to turn more prospects into qualified appointments. We generate the leads, respond 24/7 in your brand&apos;s voice, answer questions using your business information, and qualify prospects based on your criteria&mdash;guiding the right people toward booking with you.
             </p>
             <div className="hero-actions">
               <Link href="/contact-us" className="btn btn-primary">
-                Let&apos;s Grow Your Business <i className="fas fa-arrow-right"></i>
+                Book A Free Strategy Call <i className="fas fa-arrow-right"></i>
               </Link>
               <Link href="/services" className="btn btn-outline">
                 Explore Our Services
               </Link>
             </div>
             <div className="hero-proof">
-              <div className="proof-item"><i className="fas fa-check-circle"></i><span>High-Converting Websites</span></div>
-              <div className="proof-item"><i className="fas fa-check-circle"></i><span>Local SEO Specialists</span></div>
-              <div className="proof-item"><i className="fas fa-check-circle"></i><span>AI-Powered Solutions</span></div>
+              <div className="proof-item"><i className="fas fa-check-circle"></i><span>More Qualified Inquiries</span></div>
+              <div className="proof-item"><i className="fas fa-check-circle"></i><span>No More Chasing Leads</span></div>
+              <div className="proof-item"><i className="fas fa-check-circle"></i><span>Know What Your Marketing Delivers</span></div>
             </div>
           </div>
 
           <div className="hero-visual">
             <div className="hero-visual-wrap">
               <div className="hv-float hv-float-1">
-                <div className="hv-float-icon orange"><i className="fas fa-chart-line"></i></div>
-                <div className="hv-float-text"><p>Organic Traffic</p><span>+247% this month</span></div>
+                <div className="hv-float-icon orange"><i className="fas fa-user-check"></i></div>
+                <div className="hv-float-text"><p>Qualified Leads</p><span>Screened against your criteria</span></div>
               </div>
               <div className="hv-main">
                 <div className="hv-browser-bar">
@@ -191,57 +192,61 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="hv-metrics">
-                  <div className="hv-metric"><span className="hv-metric-val orange">342</span><span className="hv-metric-lbl">Leads / mo</span></div>
-                  <div className="hv-metric"><span className="hv-metric-val blue">#1</span><span className="hv-metric-lbl">Local Rank</span></div>
-                  <div className="hv-metric"><span className="hv-metric-val" style={{ color: '#10B981' }}>4.9★</span><span className="hv-metric-lbl">Reviews</span></div>
-                  <div className="hv-metric"><span className="hv-metric-val">+68%</span><span className="hv-metric-lbl">Conversions</span></div>
+                  <div className="hv-metric"><span className="hv-metric-val orange">$1,840</span><span className="hv-metric-lbl">Ad Spend</span></div>
+                  <div className="hv-metric"><span className="hv-metric-val blue">94</span><span className="hv-metric-lbl">New Leads</span></div>
+                  <div className="hv-metric"><span className="hv-metric-val" style={{ color: '#10B981' }}>38</span><span className="hv-metric-lbl">Qualified Leads</span></div>
+                  <div className="hv-metric"><span className="hv-metric-val">14</span><span className="hv-metric-lbl">Appointments Booked</span></div>
+                </div>
+                <div className="hv-dash-actions">
+                  <span className="hv-dash-btn hv-dash-btn--orange">View Results</span>
+                  <span className="hv-dash-btn hv-dash-btn--gray">View Leads</span>
                 </div>
               </div>
               <div className="hv-float hv-float-2">
                 <div className="hv-float-icon green"><i className="fas fa-robot"></i></div>
-                <div className="hv-float-text"><p>AI Automation</p><span>Saving 18 hrs/week</span></div>
+                <div className="hv-float-text"><p>24/7 AI Follow-Up</p><span>Your brand&apos;s voice. Every conversation.</span></div>
               </div>
               <div className="hv-float hv-float-3">
-                <div className="hv-float-icon blue"><i className="fas fa-map-marker-alt"></i></div>
-                <div className="hv-float-text"><p>Local SEO</p><span>Top 3 Google Maps</span></div>
+                <div className="hv-float-icon blue"><i className="fas fa-calendar-check"></i></div>
+                <div className="hv-float-text"><p>Appointment Booking</p><span>From inquiry to your calendar</span></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TRUST STRIP */}
+      {/* ── HOW WE HELP STRIP ── */}
       <div className="trust-strip">
         <div className="container trust-strip-inner">
-          <span className="trust-strip-label">We help with</span>
-          <span className="trust-pill"><i className="fas fa-laptop-code"></i> Web Design</span>
-          <span className="trust-pill"><i className="fas fa-bullhorn"></i> Digital Marketing</span>
-          <span className="trust-pill"><i className="fas fa-map-marker-alt"></i> Local SEO</span>
-          <span className="trust-pill"><i className="fas fa-robot"></i> AI Solutions</span>
-          <span className="trust-pill"><i className="fas fa-paint-brush"></i> Branding</span>
-          <span className="trust-pill"><i className="fas fa-funnel-dollar"></i> Lead Generation</span>
-          <span className="trust-pill"><i className="fas fa-chart-line"></i> Business Growth</span>
+          <span className="trust-strip-label">HOW WE HELP</span>
+          <span className="trust-pill"><i className="fas fa-bullseye"></i> Meta &amp; Google Ads</span>
+          <span className="trust-pill"><i className="fas fa-robot"></i> 24/7 AI Lead Follow-Up</span>
+          <span className="trust-pill"><i className="fas fa-envelope"></i> Email &amp; SMS Marketing</span>
+          <span className="trust-pill"><i className="fas fa-laptop-code"></i> Website Design</span>
+          <span className="trust-pill"><i className="fas fa-file-lines"></i> Landing Page Design</span>
+          <span className="trust-pill"><i className="fas fa-paint-brush"></i> Branding &amp; Logo Design</span>
+          <span className="trust-pill"><i className="fas fa-magnifying-glass"></i> SEO &amp; AI Search Visibility</span>
         </div>
       </div>
 
-      {/* PROBLEMS */}
+      {/* ── SOUND FAMILIAR? (PROBLEMS) ── */}
       <section className="problems" id="problems">
         <div className="container">
           <div className="section-head">
             <div className="badge badge-orange"><i className="fas fa-circle-exclamation"></i> Sound Familiar?</div>
-            <h2>Your Business Has Potential.<br />Your Digital Presence Should Show It.</h2>
-            <p>Many businesses struggle with the same digital challenges. We understand them — and we know how to solve them.</p>
+            <h2>You Wanted More Customers.<br />You Got More Leads to Chase.</h2>
+            <p>You&apos;re running a business. But now you&apos;re answering the same questions, sorting serious buyers from people just browsing, and following up with prospects who stop replying. Getting an inquiry shouldn&apos;t mean the hardest part of your marketing is handed back to you.</p>
           </div>
           <div className="problems-grid">
             {[
-              { num: '01', icon: 'fa-magnifying-glass', title: "Hard to Find on Google", desc: "Customers search for your services but find your competitors instead." },
-              { num: '02', icon: 'fa-arrow-pointer', title: "Website Doesn't Convert", desc: "You have traffic but visitors leave without becoming leads or customers." },
-              { num: '03', icon: 'fa-map-location-dot', title: "Local Customers Can't Find You", desc: "Nearby customers don't discover your business in local searches." },
-              { num: '04', icon: 'fa-swatchbook', title: "Inconsistent Branding", desc: "Your brand looks different across your website, social and materials." },
-              { num: '05', icon: 'fa-chart-pie', title: "Marketing Hard to Measure", desc: "Marketing feels expensive without visibility into what's actually working." },
-              { num: '06', icon: 'fa-arrows-rotate', title: "Too Many Repetitive Tasks", desc: "Your team spends hours on manual work that AI could handle automatically." },
-              { num: '07', icon: 'fa-robot', title: "Don't Know How to Use AI", desc: "Everyone talks about AI but it's unclear how it actually applies to you." },
-              { num: '08', icon: 'fa-bullhorn', title: "Website Doesn't Communicate Value", desc: "Visitors don't understand what you do or why they should choose you." },
+              { num: '01', icon: 'fa-inbox',           title: 'Plenty of Leads. Too Few Buyers.',       desc: "Your inbox fills up, but too many inquiries go nowhere. You spend hours finding out who's actually ready—and a good fit." },
+              { num: '02', icon: 'fa-clock',            title: 'Follow-Up Falls on You.',                 desc: "You're serving customers, managing staff, and running the business. Chasing yesterday's inquiries keeps falling to the bottom of the list." },
+              { num: '03', icon: 'fa-robot',            title: 'AI Sounds Useful. Where Do You Start?',  desc: "You hear AI can save you hours. But choosing the tools, setting them up, and making them work becomes another job on your list." },
+              { num: '04', icon: 'fa-arrow-pointer',    title: "Clicks Come In. Inquiries Don't.",        desc: "People visit your website but leave without reaching out. You paid to get their attention, but never got the chance to earn their business." },
+              { num: '05', icon: 'fa-map-location-dot', title: "Local Customers Can't Find You.",         desc: "People nearby are searching Google for exactly what you offer. But your competitors are the ones showing up—and getting the calls." },
+              { num: '06', icon: 'fa-swatchbook',       title: 'Your Website Undersells You.',            desc: "You know why customers choose you. Your website and branding don't make that difference clear to someone discovering you for the first time." },
+              { num: '07', icon: 'fa-microchip',        title: 'Does AI Mention Your Business?',          desc: "Someone asks an AI assistant for a business like yours. Will they discover what you offer—or get a shortlist that leaves you out?" },
+              { num: '08', icon: 'fa-chart-pie',        title: "You're Spending. But What's Working?",    desc: "Your reports show clicks and impressions. What you want to know is which marketing brings inquiries, appointments, and paying customers." },
             ].map(({ num, icon, title, desc }) => (
               <div key={num} className="problem-card" data-num={num}>
                 <div className="problem-icon"><i className={`fas ${icon}`}></i></div>
@@ -268,7 +273,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* ── SERVICES (THE CALI DIGI DIFFERENCE) ── */}
       <section className="services" id="services">
         <div className="container">
           <div className="section-head">
@@ -278,12 +283,42 @@ export default function HomePage() {
           </div>
           <div className="services-grid">
             {[
-              { icon: 'fa-laptop-code', title: 'Web Design & Development', desc: 'High-converting, fast, responsive websites built around your business goals — not just beautiful design, but sites that turn visitors into customers.', href: '/services/web-development' },
-              { icon: 'fa-bullhorn', title: 'Digital Marketing', desc: 'Data-driven strategies that increase your visibility, drive targeted traffic and generate qualified leads — across search, social and paid channels.', href: '/services/digital-marketing' },
-              { icon: 'fa-map-marker-alt', title: 'Local SEO', desc: 'Improve your local search visibility so nearby customers can find and choose your business — on Google Maps, local search and beyond.', href: '/services/local-seo' },
-              { icon: 'fa-robot', title: 'AI Solutions', desc: 'Practical AI automation and intelligent workflows that reduce repetitive work, improve customer experience and solve real business problems.', href: '/services/ai-automation' },
-              { icon: 'fa-paint-brush', title: 'Branding', desc: 'Create a consistent, memorable brand identity — logo, visual system, voice and messaging — that builds recognition and trust across every channel.', href: '/services/branding' },
-              { icon: 'fa-funnel-dollar', title: 'Lead Generation', desc: 'Turn website visitors and search traffic into qualified business opportunities using conversion-focused landing pages, forms and follow-up systems.', href: '/services/business-growth' },
+              {
+                icon: 'fa-bullseye',
+                title: 'Meta & Google Ads',
+                desc: 'Put your business in front of potential customers with ads built to drive inquiries. We manage the targeting, creative, and ongoing testing to make your budget work harder.',
+                href: '/services/digital-marketing',
+              },
+              {
+                icon: 'fa-robot',
+                title: '24/7 AI Lead Follow-Up',
+                desc: 'Keep inquiries moving while you run your business. AI responds in your brand\'s voice, answers questions, checks fit, and guides qualified prospects toward booking—even after hours.',
+                href: '/services/ai-automation',
+              },
+              {
+                icon: 'fa-envelope',
+                title: 'Email & SMS Marketing',
+                desc: 'Give interested prospects a reason to act and past customers a reason to return. Stay in touch with timely offers, helpful reminders, and messages that keep your business top of mind.',
+                href: '/services/digital-marketing',
+              },
+              {
+                icon: 'fa-magnifying-glass',
+                title: 'SEO & AI Search Visibility',
+                desc: 'Help customers discover your business when they search Google or ask AI for recommendations. We improve your website\'s content and structure so what you offer is easier to find and understand.',
+                href: '/services/local-seo',
+              },
+              {
+                icon: 'fa-laptop-code',
+                title: 'Website Design',
+                desc: 'Make your first impression count. Get a website that clearly explains your value, builds trust, and makes it easy for visitors to contact you—from their phone or computer.',
+                href: '/services/web-development',
+              },
+              {
+                icon: 'fa-paint-brush',
+                title: 'Branding & Logo Design',
+                desc: 'Give customers a brand they recognize and remember. Build a consistent look across your logo, website, and marketing that reflects your business and makes a professional first impression.',
+                href: '/services/branding',
+              },
             ].map(({ icon, title, desc, href }) => (
               <div key={title} className="service-card">
                 <div className="service-icon"><i className={`fas ${icon}`}></i></div>
@@ -293,10 +328,24 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          {/* AI Lead Nurturing Highlight Card */}
+          <div className="service-highlight">
+            <div className="service-highlight-icon">
+              <i className="fas fa-robot"></i>
+            </div>
+            <div className="service-highlight-body">
+              <h3>24/7 AI Lead Nurturing</h3>
+              <p>Make more of the leads you paid for. AI answers questions, qualifies prospects, and follows up to guide them toward booking.</p>
+            </div>
+            <Link href="/contact-us" className="btn btn-primary">
+              Book A Free Strategy Call <i className="fas fa-arrow-right"></i>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* AI SOLUTIONS */}
+      {/* ── AI SOLUTIONS ── */}
       <section className="ai-section" id="ai">
         <div className="ai-bg-glow"></div>
         <div className="ai-bg-glow-2"></div>
@@ -316,14 +365,14 @@ export default function HomePage() {
           </div>
           <div className="ai-grid">
             {[
-              { icon: 'fa-headset', title: 'AI Customer Support', desc: '24/7 intelligent support that handles common customer questions automatically.' },
-              { icon: 'fa-user-check', title: 'AI Lead Qualification', desc: 'Automatically qualify and route leads so your team focuses on the best opportunities.' },
-              { icon: 'fa-pen-nib', title: 'AI Content & Marketing', desc: 'AI-assisted content creation, SEO writing and campaign optimization at scale.' },
-              { icon: 'fa-cogs', title: 'AI Workflow Automation', desc: 'Automate repetitive business processes to save time and reduce errors.' },
-              { icon: 'fa-chart-bar', title: 'AI Data Analysis', desc: 'Turn your business data into clear insights and actionable decisions.' },
-              { icon: 'fa-microphone', title: 'AI Voice Agents', desc: 'Intelligent voice assistants that handle calls, bookings and customer interactions.' },
-              { icon: 'fa-brain', title: 'AI Knowledge Assistants', desc: 'Smart assistants trained on your business knowledge to answer customer queries.' },
-              { icon: 'fa-puzzle-piece', title: 'Custom AI Solutions', desc: 'Bespoke AI tools designed around your specific business challenges and goals.' },
+              { icon: 'fa-headset',      title: 'AI Customer Support',      desc: '24/7 intelligent support that handles common customer questions automatically.' },
+              { icon: 'fa-user-check',   title: 'AI Lead Qualification',    desc: 'Automatically qualify and route leads so your team focuses on the best opportunities.' },
+              { icon: 'fa-pen-nib',      title: 'AI Content & Marketing',   desc: 'AI-assisted content creation, SEO writing and campaign optimization at scale.' },
+              { icon: 'fa-cogs',         title: 'AI Workflow Automation',   desc: 'Automate repetitive business processes to save time and reduce errors.' },
+              { icon: 'fa-chart-bar',    title: 'AI Data Analysis',         desc: 'Turn your business data into clear insights and actionable decisions.' },
+              { icon: 'fa-microphone',   title: 'AI Voice Agents',          desc: 'Intelligent voice assistants that handle calls, bookings and customer interactions.' },
+              { icon: 'fa-brain',        title: 'AI Knowledge Assistants',  desc: 'Smart assistants trained on your business knowledge to answer customer queries.' },
+              { icon: 'fa-puzzle-piece', title: 'Custom AI Solutions',      desc: 'Bespoke AI tools designed around your specific business challenges and goals.' },
             ].map(({ icon, title, desc }) => (
               <div key={title} className="ai-card">
                 <div className="ai-card-icon"><i className={`fas ${icon}`}></i></div>
@@ -335,7 +384,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LOCAL SEO */}
+      {/* ── LOCAL SEO | AI SEARCH VISIBILITY ── */}
       <section className="local-seo" id="seo">
         <div className="container local-seo-inner">
           <div className="local-seo-visual">
@@ -358,11 +407,20 @@ export default function HomePage() {
             </div>
           </div>
           <div className="local-seo-content">
-            <div className="badge badge-orange"><i className="fas fa-map-marker-alt"></i> Local SEO</div>
+            <div className="badge badge-orange"><i className="fas fa-map-marker-alt"></i> LOCAL SEO | AI SEARCH VISIBILITY</div>
             <h2>Get Found By Customers<br /><em>Near You</em></h2>
-            <p>When local customers search for your services, they should find you — not your competitors. We build local search strategies that put your business at the top of Google Maps, local packs and nearby searches.</p>
+            <p>When local customers search for your services or ask AI for recommendations, your business should be part of the conversation. We help improve your visibility across Google Maps, local search, and AI-generated answers.</p>
             <div className="seo-features">
-              {['Google Business Profile Optimization', 'Local Keyword Strategy', 'Local Landing Pages', 'Citation Optimization', 'Review Strategy & Management', 'Location-Based Content', 'Local Search Visibility', 'Conversion-Focused Local Pages'].map((f) => (
+              {[
+                'Google Business Profile Optimization',
+                'Local Keyword Strategy',
+                'Local Landing Pages',
+                'Citation Optimization',
+                'Review Strategy & Management',
+                'Location-Based Content',
+                'AI Search Content Optimization',
+                'Clear Answers to Customer Questions',
+              ].map((f) => (
                 <div key={f} className="seo-feat"><i className="fas fa-check"></i><span>{f}</span></div>
               ))}
             </div>
@@ -371,7 +429,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WEB DESIGN & BRANDING */}
+      {/* ── WEB DESIGN & BRANDING ── */}
       <section className="web-branding" id="design">
         <div className="container">
           <div className="web-branding-top">
@@ -399,9 +457,9 @@ export default function HomePage() {
           </div>
           <div className="branding-pillars">
             {[
-              { icon: 'fa-star', title: 'Look Professional', desc: 'Strong visual identity and modern UI design that reflects your brand quality and builds instant trust with visitors.' },
-              { icon: 'fa-shield-halved', title: 'Build Trust', desc: 'Clear messaging, social proof, consistent branding and credibility signals that make customers confident in choosing you.' },
-              { icon: 'fa-funnel-dollar', title: 'Generate Leads', desc: 'Strategic CTAs, conversion-focused layouts and guided user journeys that turn website visitors into genuine business leads.' },
+              { icon: 'fa-star',          title: 'Look Professional', desc: 'Strong visual identity and modern UI design that reflects your brand quality and builds instant trust with visitors.' },
+              { icon: 'fa-shield-halved', title: 'Build Trust',       desc: 'Clear messaging, social proof, consistent branding and credibility signals that make customers confident in choosing you.' },
+              { icon: 'fa-funnel-dollar', title: 'Generate Leads',    desc: 'Strategic CTAs, conversion-focused layouts and guided user journeys that turn website visitors into genuine business leads.' },
             ].map(({ icon, title, desc }) => (
               <div key={title} className="branding-pillar">
                 <div className="bp-icon"><i className={`fas ${icon}`}></i></div>
@@ -413,7 +471,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* ── PROCESS ── */}
       <section className="process" id="process">
         <div className="container">
           <div className="section-head">
@@ -423,11 +481,11 @@ export default function HomePage() {
           </div>
           <div className="process-steps">
             {[
-              { icon: 'fa-magnifying-glass', label: 'Step 01', title: 'Understand', desc: 'Understand your business, target audience, goals and current digital position.' },
-              { icon: 'fa-hammer', label: 'Step 02', title: 'Build', desc: 'Create your website, branding and digital foundation built to convert.' },
-              { icon: 'fa-chart-line', label: 'Step 03', title: 'Optimize', desc: 'Improve SEO, local visibility, speed and conversion rates.' },
-              { icon: 'fa-robot', label: 'Step 04', title: 'Automate', desc: 'Introduce AI and automation where it creates the most business value.' },
-              { icon: 'fa-rocket', label: 'Step 05', title: 'Grow', desc: 'Use data, marketing and continuous optimization to generate sustainable growth.' },
+              { icon: 'fa-bullseye',        label: 'STEP 01', title: 'Define Your Goals',          desc: 'Understand where you are, where you want to go, and what strategy would bring in more customers and revenue for your business.' },
+              { icon: 'fa-magnifying-glass', label: 'STEP 02', title: 'Find the Gaps',              desc: 'Review your marketing, website, and sales follow-up to find where potential customers lose interest—and opportunities slip away.' },
+              { icon: 'fa-diagram-project', label: 'STEP 03', title: 'Make the Right Moves',       desc: 'Create and launch a plan around your biggest opportunities, improving what you have and adding what\'s missing.' },
+              { icon: 'fa-handshake',       label: 'STEP 04', title: 'Turn Interest Into Business', desc: 'Use targeted marketing and AI follow-up to attract prospects, answer questions, and help move the right people toward buying.' },
+              { icon: 'fa-chart-line',      label: 'STEP 05', title: 'Grow What Works',            desc: 'Track inquiries, bookings, and sales to see what pays off. Refine the approach and focus your budget where it delivers.' },
             ].map(({ icon, label, title, desc }) => (
               <div key={title} className="process-step">
                 <div className="ps-num"><i className={`fas ${icon} ps-icon`}></i></div>
@@ -440,7 +498,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SOLUTIONS */}
+      {/* ── SOLUTIONS ── */}
       <section className="solutions" id="solutions">
         <div className="container">
           <div className="section-head">
@@ -450,12 +508,12 @@ export default function HomePage() {
           </div>
           <div className="solutions-grid">
             {[
-              { num: '01 / Marketing', title: 'Marketing Solutions', desc: 'Drive visibility, traffic and qualified leads through integrated SEO, content, social media and paid campaigns designed around your growth goals.', tags: ['SEO', 'Content', 'Paid Ads', 'Lead Gen'] },
-              { num: '02 / AI', title: 'AI Automation', desc: 'Automate repetitive business processes, qualify leads automatically and let AI handle routine tasks so your team can focus on what matters most.', tags: ['Workflow AI', 'Chatbots', 'Voice Agents'] },
-              { num: '03 / Experience', title: 'Customer Experience', desc: 'Build superior customer journeys through conversion-focused websites, intelligent chatbots, voice agents and AI-powered support systems.', tags: ['Web Design', 'AI Support', 'UX'] },
-              { num: '04 / Intelligence', title: 'Business Intelligence', desc: 'Use AI and data analysis to understand your business performance, customer behaviour and market opportunities — and make smarter decisions.', tags: ['Analytics', 'Reporting', 'AI Insights'] },
-              { num: '05 / Local', title: 'Local Growth', desc: 'Help local businesses attract customers in their service area through Google Maps optimization, local SEO, review management and location content.', tags: ['Local SEO', 'GMB', 'Citations'] },
-              { num: '06 / Brand', title: 'Brand Building', desc: 'Create a consistent, professional and memorable brand presence that builds recognition, establishes credibility and differentiates your business.', tags: ['Logo', 'Visual Identity', 'Messaging'] },
+              { num: '01 / Marketing',     title: 'Marketing Solutions',   desc: 'Drive visibility, traffic and qualified leads through integrated SEO, content, social media and paid campaigns designed around your growth goals.',          tags: ['SEO', 'Content', 'Paid Ads', 'Lead Gen'] },
+              { num: '02 / AI',            title: 'AI Automation',         desc: 'Automate repetitive business processes, qualify leads automatically and let AI handle routine tasks so your team can focus on what matters most.',            tags: ['Workflow AI', 'Chatbots', 'Voice Agents'] },
+              { num: '03 / Experience',    title: 'Customer Experience',   desc: 'Build superior customer journeys through conversion-focused websites, intelligent chatbots, voice agents and AI-powered support systems.',                   tags: ['Web Design', 'AI Support', 'UX'] },
+              { num: '04 / Intelligence',  title: 'Business Intelligence', desc: 'Use AI and data analysis to understand your business performance, customer behaviour and market opportunities — and make smarter decisions.',                 tags: ['Analytics', 'Reporting', 'AI Insights'] },
+              { num: '05 / Local',         title: 'Local Growth',          desc: 'Help local businesses attract customers in their service area through Google Maps optimization, local SEO, review management and location content.',           tags: ['Local SEO', 'GMB', 'Citations'] },
+              { num: '06 / Brand',         title: 'Brand Building',        desc: 'Create a consistent, professional and memorable brand presence that builds recognition, establishes credibility and differentiates your business.',              tags: ['Logo', 'Visual Identity', 'Messaging'] },
             ].map(({ num, title, desc, tags }) => (
               <div key={title} className="solution-card">
                 <div className="solution-num">{num}</div>
@@ -468,7 +526,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PORTFOLIO */}
+      {/* ── PORTFOLIO ── */}
       <section className="portfolio" id="portfolio">
         <div className="container">
           <div className="section-head">
@@ -478,12 +536,12 @@ export default function HomePage() {
           </div>
           <div className="portfolio-grid">
             {[
-              { cls: 'pt-1', cat: 'Web Design', title: 'Healthcare Clinic Website', desc: 'Modern, patient-focused website with online booking, local SEO and conversion-optimized landing pages.', tags: ['Web Design', 'Local SEO', 'UX'] },
-              { cls: 'pt-2', cat: 'AI Solutions', title: 'AI Customer Support System', desc: 'Intelligent chatbot and lead qualification system that automated customer conversations for a local service business.', tags: ['AI Chatbot', 'Lead Gen', 'Automation'] },
-              { cls: 'pt-3', cat: 'Local SEO', title: 'Local Restaurant Chain SEO', desc: 'Multi-location local SEO strategy, Google Business Profile optimization and review management for a California restaurant group.', tags: ['Local SEO', 'GMB', 'Content'] },
-              { cls: 'pt-4', cat: 'Branding', title: 'Tech Startup Brand Identity', desc: 'Complete brand identity including logo, color system, typography and brand guidelines for a Bay Area technology startup.', tags: ['Branding', 'Logo', 'Visual Identity'] },
-              { cls: 'pt-5', cat: 'Digital Marketing', title: 'E-Commerce Growth Campaign', desc: 'Integrated digital marketing strategy combining SEO, Google Ads and social campaigns for a California retail business.', tags: ['SEO', 'Paid Ads', 'Social'] },
-              { cls: 'pt-6', cat: 'Lead Generation', title: 'Real Estate Lead System', desc: 'Conversion-focused landing pages and automated lead nurturing system for a California real estate company.', tags: ['Landing Pages', 'CRO', 'Automation'] },
+              { cls: 'pt-1', cat: 'Web Design',        title: 'Healthcare Clinic Website',     desc: 'Modern, patient-focused website with online booking, local SEO and conversion-optimized landing pages.',                                                         tags: ['Web Design', 'Local SEO', 'UX'] },
+              { cls: 'pt-2', cat: 'AI Solutions',       title: 'AI Customer Support System',   desc: 'Intelligent chatbot and lead qualification system that automated customer conversations for a local service business.',                                          tags: ['AI Chatbot', 'Lead Gen', 'Automation'] },
+              { cls: 'pt-3', cat: 'Local SEO',          title: 'Local Restaurant Chain SEO',   desc: 'Multi-location local SEO strategy, Google Business Profile optimization and review management for a California restaurant group.',                               tags: ['Local SEO', 'GMB', 'Content'] },
+              { cls: 'pt-4', cat: 'Branding',           title: 'Tech Startup Brand Identity',  desc: 'Complete brand identity including logo, color system, typography and brand guidelines for a Bay Area technology startup.',                                        tags: ['Branding', 'Logo', 'Visual Identity'] },
+              { cls: 'pt-5', cat: 'Digital Marketing',  title: 'E-Commerce Growth Campaign',   desc: 'Integrated digital marketing strategy combining SEO, Google Ads and social campaigns for a California retail business.',                                         tags: ['SEO', 'Paid Ads', 'Social'] },
+              { cls: 'pt-6', cat: 'Lead Generation',    title: 'Real Estate Lead System',      desc: 'Conversion-focused landing pages and automated lead nurturing system for a California real estate company.',                                                    tags: ['Landing Pages', 'CRO', 'Automation'] },
             ].map(({ cls, cat, title, desc, tags }) => (
               <div key={title} className="portfolio-card">
                 <div className={`portfolio-thumb ${cls}`}>
@@ -509,7 +567,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BLOG */}
+      {/* ── BLOG ── */}
       <section className="blog" id="blog">
         <div className="container">
           <div className="section-head">
@@ -519,9 +577,9 @@ export default function HomePage() {
           </div>
           <div className="blog-grid">
             {[
-              { cls: 'bb-1', icon: 'fa-robot', cat: 'AI For Business', title: 'How AI Can Help Small Businesses Save Time and Grow Faster', desc: 'Practical examples of AI tools and workflows that small businesses can implement today to automate tasks and improve customer experience.', time: '6 min read', slug: 'ai-chatbots-how-businesses-are-using-them-to-improve-customer-service' },
-              { cls: 'bb-2', icon: 'fa-map-marker-alt', cat: 'Local SEO', title: 'Why Local SEO Matters More Than Ever For Small Businesses', desc: 'How local search has changed, why Google Maps ranking is critical for local businesses and what steps to take to improve your local visibility.', time: '7 min read', slug: 'how-local-seo-helps-businesses-get-found-by-nearby-customers' },
-              { cls: 'bb-3', icon: 'fa-laptop-code', cat: 'Web Design', title: 'How To Build a Business Website That Actually Generates Leads', desc: 'The key elements of a high-converting business website — from clear messaging and trust signals to strategic calls-to-action and fast performance.', time: '8 min read', slug: 'what-makes-a-business-website-convert-visitors-into-customers' },
+              { cls: 'bb-1', icon: 'fa-robot',         cat: 'AI For Business', title: 'How AI Can Help Small Businesses Save Time and Grow Faster',      desc: 'Practical examples of AI tools and workflows that small businesses can implement today to automate tasks and improve customer experience.',              time: '6 min read', slug: 'ai-chatbots-how-businesses-are-using-them-to-improve-customer-service' },
+              { cls: 'bb-2', icon: 'fa-map-marker-alt', cat: 'Local SEO',       title: 'Why Local SEO Matters More Than Ever For Small Businesses',        desc: 'How local search has changed, why Google Maps ranking is critical for local businesses and what steps to take to improve your local visibility.',         time: '7 min read', slug: 'how-local-seo-helps-businesses-get-found-by-nearby-customers' },
+              { cls: 'bb-3', icon: 'fa-laptop-code',    cat: 'Web Design',      title: 'How To Build a Business Website That Actually Generates Leads',    desc: 'The key elements of a high-converting business website — from clear messaging and trust signals to strategic calls-to-action and fast performance.',    time: '8 min read', slug: 'what-makes-a-business-website-convert-visitors-into-customers' },
             ].map(({ cls, icon, cat, title, desc, time, slug }) => (
               <div key={title} className="blog-card">
                 <div className={`blog-thumb ${cls}`}><i className={`fas ${icon}`}></i></div>
@@ -543,7 +601,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT STRIP */}
+      {/* ── ABOUT STRIP ── */}
       <section className="about-strip">
         <div className="container about-strip-inner">
           <div className="about-content">
@@ -571,7 +629,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* ── FINAL CTA ── */}
       <section className="final-cta" id="contact">
         <div className="final-cta-glow"></div>
         <div className="container final-cta-inner">
