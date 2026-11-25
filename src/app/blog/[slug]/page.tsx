@@ -74,36 +74,47 @@ export default async function BlogDetailPage({
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    '@id': `${articleUrl}#blogposting`,
-    headline: article.title,
-    description: article.excerpt,
-    url: articleUrl,
-    datePublished: article.date,
-    dateModified: article.date,
-    author: {
-      '@type': 'Organization',
-      name: 'Calidigi',
-      '@id': 'https://www.calidigi.com/#organization',
-    },
-    publisher: {
-      '@id': 'https://www.calidigi.com/#organization',
-    },
-    keywords: article.tags,
-    articleSection: article.category,
-    inLanguage: 'en-US',
-    isPartOf: {
-      '@type': 'Blog',
-      '@id': 'https://www.calidigi.com/blog#blog',
-    },
-    breadcrumb: {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.calidigi.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.calidigi.com/blog' },
-        { '@type': 'ListItem', position: 3, name: article.title, item: articleUrl },
-      ],
-    },
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${articleUrl}#blogposting`,
+        headline: article.title,
+        description: article.excerpt,
+        url: articleUrl,
+        datePublished: article.date,
+        dateModified: article.date,
+        author: {
+          '@type': 'Organization',
+          name: 'Calidigi',
+          '@id': 'https://www.calidigi.com/#organization',
+        },
+        publisher: {
+          '@id': 'https://www.calidigi.com/#organization',
+        },
+        keywords: article.tags,
+        articleSection: article.category,
+        inLanguage: 'en-US',
+        isPartOf: {
+          '@type': 'Blog',
+          '@id': 'https://www.calidigi.com/blog#blog',
+        },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${articleUrl}#webpage`,
+        url: articleUrl,
+        name: `${article.title} | Calidigi`,
+        isPartOf: { '@id': 'https://www.calidigi.com/#website' },
+        breadcrumb: {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.calidigi.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.calidigi.com/blog' },
+            { '@type': 'ListItem', position: 3, name: article.title, item: articleUrl },
+          ],
+        },
+      },
+    ],
   }
 
   const shareSubject = encodeURIComponent(article.title)

@@ -55,6 +55,7 @@ export default async function CityPage({
         name: `Calidigi — Digital Marketing Agency ${data.name}`,
         description: data.metaDescription,
         url,
+        address: { '@type': 'PostalAddress', addressLocality: data.name, addressRegion: 'CA', addressCountry: 'US' },
         areaServed: { '@type': 'City', name: data.name, addressRegion: 'CA', addressCountry: 'US' },
         parentOrganization: { '@id': 'https://www.calidigi.com/#organization' },
       },
