@@ -45,7 +45,7 @@
 
   <url>
     <loc>https://www.calidigi.com/blog</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -434,13 +434,6 @@
   </url>
 
   <url>
-    <loc>https://www.calidigi.com/blog/2026-astrology-forecast-planetary-transits-zodiac-predictions</loc>
-    <lastmod>2026-11-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://www.calidigi.com/blog/how-to-improve-local-seo-rankings-in-california-complete-guide</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
@@ -777,6 +770,13 @@
   <url>
     <loc>https://www.calidigi.com/blog/december-marketing-plan-california-small-businesses-2026</loc>
     <lastmod>2026-11-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.calidigi.com/blog/giving-tuesday-2026-california-small-businesses</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

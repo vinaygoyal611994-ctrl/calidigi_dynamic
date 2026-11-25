@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
       { source: '/privacy_policy.html', destination: '/privacy-policy', permanent: true },
       { source: '/terms_of_service.html', destination: '/terms-of-service', permanent: true },
       { source: '/cookie_policy.html',  destination: '/cookie-policy',  permanent: true },
+      { source: '/services/lead-generation', destination: '/services/business-growth', permanent: true },
     ]
   },
   async headers() {

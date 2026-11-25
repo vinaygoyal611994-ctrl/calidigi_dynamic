@@ -216,7 +216,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Email:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>General:</strong> <a href="mailto:sales@calidigi.com">sales@calidigi.com</a></li>
                 <li><strong>Phone:</strong> <a href="tel:+13233876255">+1 (323) 387-6255</a></li>
-                <li><strong>Address:</strong> 1234 Digital Ave, Suite 500, San Francisco, CA 94103</li>
+                <li><strong>Address:</strong> San Francisco, California</li>
               </ul>
             </div>
 

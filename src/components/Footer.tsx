@@ -114,7 +114,7 @@ export default function Footer() {
             <div className="footer-contact-row">
               <div className="fci"><i className="fas fa-location-dot"></i></div>
               <span className="fci-text">
-                1234 Digital Ave, Suite 500<br />San Francisco, CA 94103
+                San Francisco, California
               </span>
             </div>
             <div className="footer-contact-row">

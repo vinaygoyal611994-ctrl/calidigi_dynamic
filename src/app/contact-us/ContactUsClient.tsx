@@ -344,9 +344,9 @@ export default function ContactUsClient() {
                 </div>
               </div>
               <div className="ct-avail-slots">
-                <div className="ct-slot-label">Q4 2025 Project Slots</div>
+                <div className="ct-slot-label">New Project Availability</div>
                 <div className="ct-slot-bar"><div className="ct-slot-fill"></div></div>
-                <div className="ct-slot-text"><span className="ct-slot-open">3 slots remaining</span> — book early</div>
+                <div className="ct-slot-text"><span className="ct-slot-open">Limited spots available</span> — inquire today</div>
               </div>
             </div>
 
@@ -372,7 +372,7 @@ export default function ContactUsClient() {
                 <div className="ct-info-icon ct-icon-loc"><i className="fas fa-location-dot"></i></div>
                 <div className="ct-info-detail">
                   <span className="ct-info-label">Headquarters</span>
-                  <span className="ct-info-val">1234 Digital Ave, Suite 500<br />San Francisco, CA 94103</span>
+                  <span className="ct-info-val">San Francisco, California</span>
                 </div>
               </div>
               <div className="ct-info-hours">
@@ -540,7 +540,7 @@ export default function ContactUsClient() {
               <div className="ct-office-body">
                 <div className="ct-office-badge">Headquarters</div>
                 <h3>San Francisco</h3>
-                <p>1234 Digital Ave, Suite 500<br />San Francisco, CA 94103</p>
+                <p>San Francisco, California</p>
                 <div className="ct-office-links">
                   <a href="mailto:sales@calidigi.com" className="ct-ol"><i className="fas fa-envelope"></i> sales@calidigi.com</a>
                   <a href="tel:+13233876255" className="ct-ol"><i className="fas fa-phone"></i> +1 (323) 387-6255</a>

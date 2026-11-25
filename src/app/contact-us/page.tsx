@@ -43,7 +43,7 @@ const jsonLd = {
       email: 'sales@calidigi.com',
       telephone: '+13233876255',
       logo: 'https://www.calidigi.com/Cali%20Digi%20Logo%201.png',
-      address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
+      address: { '@type': 'PostalAddress', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
       contactPoint: { '@type': 'ContactPoint', contactType: 'Customer Support', email: 'sales@calidigi.com', telephone: '+13233876255', availableLanguage: 'English', contactOption: 'TollFree' },
     },
   ],

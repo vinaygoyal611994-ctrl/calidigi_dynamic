@@ -99,7 +99,6 @@ const jsonLd = {
       description: 'Calidigi is a California digital marketing company offering web development, SEO services, local SEO, AI automation and branding to help businesses grow online.',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '1234 Digital Ave, Suite 500',
         addressLocality: 'San Francisco',
         addressRegion: 'CA',
         postalCode: '94103',

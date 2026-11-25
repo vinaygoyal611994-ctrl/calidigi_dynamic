@@ -43,7 +43,7 @@ export default function AboutPage() {
         foundingLocation: 'San Francisco, California, USA',
         numberOfEmployees: { '@type': 'QuantitativeValue', value: 25 },
         description: 'California digital growth company offering web design, digital marketing, local SEO, AI solutions and branding.',
-        address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
+        address: { '@type': 'PostalAddress', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
         telephone: '+13233876255',
         email: 'sales@calidigi.com',
       },

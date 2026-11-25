@@ -40,7 +40,7 @@ export default function PortfolioPage() {
         name: 'Calidigi',
         url: 'https://www.calidigi.com',
         logo: 'https://www.calidigi.com/Cali%20Digi%20Logo%201.png',
-        address: { '@type': 'PostalAddress', streetAddress: '1234 Digital Ave, Suite 500', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
+        address: { '@type': 'PostalAddress', addressLocality: 'San Francisco', addressRegion: 'CA', postalCode: '94103', addressCountry: 'US' },
       },
     ],
   }
